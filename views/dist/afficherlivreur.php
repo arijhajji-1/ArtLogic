@@ -157,7 +157,8 @@
     <div class="panel panel-default">
 		 <div class="panel-heading">
        <h2> <center> LES LIVREURS DISPONIBLES </center> </h2>
-              
+       <form action="trielivreur.php" method="POST">
+                        <input type="submit" name="" value="TRIER">
        <br>
     </div>
 <div class="table-responsive">

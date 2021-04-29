@@ -20,7 +20,7 @@
     }
   else if (cin.length != 8 || isNaN(cin))
   {
-    alert("Le CIN du livreur doit contenir 8 chiffres !");
+    alert("Le ID du livreur doit contenir 8 chiffres !");
     return false;
   }
   else if (!(isNaN(nom)) || !isNaN(prenom))
@@ -30,7 +30,7 @@
    }
    else if (mail.length != 8 || isNaN(mail))
    {
-     alert("Le CIN du livreur doit contenir 8 chiffres !");
+     alert("Le NUM du livreur doit contenir 8 chiffres !");
      return false;
    } 
  return true;
