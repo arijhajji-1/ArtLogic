@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5421aafe-7dd5-43c3-9c91-d51373a9322c" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rJpGqbmJSLiceG8bk6v8PTxLAw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Projey web User\Model" />
+      <recent name="C:\xampp\htdocs\Projey web User\Controller" />
+      <recent name="C:\xampp\htdocs\Projey web User\View" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5421aafe-7dd5-43c3-9c91-d51373a9322c" name="Default Changelist" comment="" />
+      <created>1618703953471</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618703953471</updated>
+      <workItem from="1618703954672" duration="8886000" />
+      <workItem from="1618860772689" duration="16335000" />
+      <workItem from="1618940790489" duration="13063000" />
+      <workItem from="1619004069686" duration="2616000" />
+      <workItem from="1619040068389" duration="31494000" />
+      <workItem from="1619089196239" duration="1985000" />
+      <workItem from="1619399212844" duration="1263000" />
+      <workItem from="1619401512334" duration="2735000" />
+      <workItem from="1619435943779" duration="1412000" />
+      <workItem from="1619480198975" duration="135000" />
+      <workItem from="1619480366505" duration="6133000" />
+      <workItem from="1619486766785" duration="3770000" />
+      <workItem from="1619561809857" duration="5262000" />
+      <workItem from="1619568411821" duration="2382000" />
+      <workItem from="1619628378474" duration="997000" />
+      <workItem from="1619629606967" duration="13940000" />
+      <workItem from="1619664256563" duration="600000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
