@@ -5,21 +5,26 @@ if (isset($_POST['email'])){
     $mot_passe=$_POST['password'];
     $sql="SELECT * FROM users WHERE Email_user='" . $email_client . "' && mot_de_passe = '". $mot_passe."'";
     $db = getConnexion();
-    try{
+    try {
 
-        $query=$db->prepare($sql);
+        $query = $db->prepare($sql);
         $query->execute();
-        $count=$query->rowCount();
-        if($count==1){
+        $count = $query->rowCount();
+        if ($count == 1) {
             session_start();
-            $user=$query->fetch();
+            $user = $query->fetch();
             $_SESSION['email'] = $_POST['email'];
-            $_SESSION['mot_de_passe'] =  $_POST['password'];
+            $_SESSION['mot_de_passe'] = $_POST['password'];
             $_SESSION['id_user'] = $user['id_user'];
+            if ($user['Role_user'] == 2) {
+                header('Location:administrateur.php');
+            }
+            else
+            {
+                header('Location:AfficheUser.php');
+            }
 
-            header('Location:AfficheUser.php');
         }
-
     }
     catch (Exception $e){
         die('Erreur: '.$e->getMessage());
@@ -85,10 +90,10 @@ if (isset($_POST['email'])){
 <form action="login.php"  method = "post" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
     <h2 class="mb-40 small text-center" d>Connexion</h2>
 
-    <input type="text" placeholder="Email" name="email"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
+    <input type="email" placeholder="Email" name="email"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
 <br>
 <br>
-    <input type="password" placeholder="Entrer le mot de passe" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
+    <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
 
     <input type="submit" name="submitButton" id="submitButton" value="LOGIN" class="mt-25 btn action-1 w-full"  >
 </form>

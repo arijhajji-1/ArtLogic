@@ -1,7 +1,28 @@
 <?php
+include "../Controller/UserC.php";
+require_once '../Model/User.php';
+session_start();
+$email= $_SESSION['email'];
+$pass= $_SESSION['mot_de_passe'];
 
+$UserC = new UserC();
+$Admin = $UserC->afficherAdmin();
 
-?>*
+if(isset ($_POST['supprimer']))
+{
+    $Admin = $UserC->supprimerUser($_POST['ID']);
+    header('Location:administrateur.php');
+    $Admin = $UserC->afficherAdmin();
+}
+if(isset($_POST['trie1']))
+{
+    $Client=$UserC->trierAdmin();
+}
+elseif(isset($_POST['trie2']))
+{
+    $Client=$UserC->trierAdmindesc();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +38,7 @@
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <img src="..\i\logo.png" alt="" height="150" width="150" href="index.html" >
+    <a href="index.html" class="link color-main mx-15"><img  src="..\i\logo.png" height="150" width="150" class="w-300 h-300 radius_full" alt="" /></a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -36,7 +57,7 @@
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activity Log</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login.html">Logout</a>
+                <a class="dropdown-item" href="index.html">Logout</a>
             </div>
         </li>
     </ul>
@@ -145,17 +166,61 @@
                         <i class="fas fa-table mr-1"></i>
 Administrateur
                     </div>
+                    <p> <form method="POST" action="">
+                        <input type="submit" name="trie1" value="trier" class="btn btn-success" >
+                        <input type="submit" name="trie2" value="trierD" class="btn btn-success">
+                    </form> </p>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Advanced Tables -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Liste des clients
+                                  <h2>Liste des administrateurs</h2>
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <tr>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Email</th>
+                                                <th>Pseudo</th>
+                                                <th>Mot de passe </th>
+                                                <th> Date de naissance </th>
+                                                <th> Adresse </th>
+                                                <th> Date de création </th>
+                                                <th>Numéro de téléphone</th>
+                                            </tr>
 
+
+                                            <?php
+                                            foreach ($Admin as $liste)
+                                            {
+
+                                                ?>
+                                                <tr>
+                                                    <td> <?php echo $liste['nom_user'] ?> </td>
+                                                    <td> <?php echo $liste['prenom_user'] ?> </td>
+                                                    <td> <?php echo $liste['Email_user'] ?> </td>
+                                                    <td> <?php echo $liste['pseudo_user'] ?> </td>
+                                                    <td> <?php echo $liste['mot_de_passe'] ?> </td>
+                                                    <td> <?php echo $liste['date_de_naissance_user'] ?> </td>
+                                                    <td> <?php echo $liste['adresse_user'] ?> </td>
+                                                    <td> <?php echo $liste['cree_a_user'] ?> </td>
+                                                    <td> <?php echo $liste['numero_telephone_user'] ?> </td>
+                                                    <td>
+                                                        <form method="POST" action="">
+                                                            <input type="submit" name="supprimer" value="Bloquer" class="btn btn-success" ">
+                                                            <input type="hidden" value="<?PHP echo $liste['id_user']; ?>" name="ID">
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <form method="POST" action="">
+                                                            <a type="button" class="btn btn-success" href = "ModifierAdmin.php">Modifier Administrateur</a>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                         </table>
                                     </div>
                                 </div>
@@ -164,10 +229,15 @@ Administrateur
                         <div class="card-body">
                             <div class="table-responsive">
                             </div>
+
                         </div>
                     </div>
                 </div>
+
+                <div class="table-responsive">
+                    <a type="button" class="btn btn-success" href = "AjouterAdmin.php">Ajouter Administrateur</a>                </div>
         </main>
+
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">

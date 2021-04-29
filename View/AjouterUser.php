@@ -20,7 +20,19 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
             $user=$query->fetch();
             $UserC->ajouterUser($User);
 
-            header('Location:index.html');
+            $to ='fourathalawa2000@gmail.com';
+            $subject = 'Welcome to ArtLogic  ';
+            $message = 'Hi, Your account is now live, which means you are ready to buy and sell items in our Website!';
+            $from = 'fourat.halaoua@esprit.tn';
+
+// Sending email
+            if (mail($to, $subject, $message)) {
+                echo 'Your mail has been sent successfully.';
+            } else {
+                echo 'Unable to send email. Please try again.';
+            }
+
+            //header('Location:index.html');
         }
 
     }
@@ -85,13 +97,13 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
         <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
             <h2 class="mb-40 small text-center">Sign Up Now</h2>
             <div class="mb-20 input_holder">
-                     <input type="text" name="nom" placeholder="Your Last Name" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+                     <input type="text" name="nom" placeholder="Your Last Name"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
                 </div>
                 <div class="mb-20 input_holder" >
-                    <input type="text" name="prenom" placeholder="Your First Name" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+                    <input type="text" name="prenom" placeholder="Your First Name"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
                 </div>
                 <div class="mb-20 input_holder" >
-                    <input type="email" name="email" placeholder="Your Email" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                    <input type="email" name="email"  id="email" placeholder="Your Email" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                 </div>
                 <div class="mb-20 input_holder">
                     <input type="text" name="pseudo" placeholder="Your Pseudo" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
@@ -105,11 +117,11 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
                 </div>
             <div class="mb-20 input_holder">
                 <input type="date" id="start" name="date_de_naissance"
-                       value="2021-04-15"
-                       min="1950-01-01" max="2003-04-22" class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
+                       value="2021-04-29"
+                       min="1900-01-01" max="2003-04-29" class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
             </div>
             <div class="mb-20 input_holder">
-                <input type="tel" name="numero_telephone" placeholder="+123 45 678 910" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                <input type="tel" name="numero_telephone" id="numero_telephone" placeholder="12 345 678" maxlength="8" size="8" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
             <div class="mb-20 input_holder" >
                 <select name="role" id="role_user" onchange = "ShowHideDiv()" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
@@ -119,7 +131,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
                 </select>
             </div>
             <div id="matricule_fiscale" style="display: none" class="mb-20 input_holder">
-                <input type="text" name="Matricule_fiscale" value="0" placeholder="Registration number" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                <input type="text" name="Matricule_fiscale" value="0" placeholder="Registration number" maxlength="6" size="6"   class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
             <div id="type_produit" style="display: none" class="mb-20 input_holder">
                 <input type="text" name="Type_produit"  value="NULL" placeholder="Product type"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
@@ -128,10 +140,10 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
                     <input type="text" name="adresse" placeholder="Your Address" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                 </div>
                 <div class="mb-20 input_holder">
-                    <input type="password" name="mot_de_passe" placeholder="Your password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                    <input type="password" name="mot_de_passe" minlength="8" placeholder="Your password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                 </div>
                         <div>
-                <input type="submit" value="Create an Account" name = "submit" class="mt-25 btn action-1 w-full"   >
+                <input type="submit" value="Create an Account" name = "submit"  class="mt-25 btn action-1 w-full"   >
             </div>
         </form>
     </div>

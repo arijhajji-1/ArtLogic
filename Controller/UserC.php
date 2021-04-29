@@ -58,6 +58,21 @@ class UserC
             $e->getMessage();
         }
     }
+    public function afficherAdmin()
+    {
+        try {
+            $pdo = getconnexion();
+            $query = $pdo->prepare(
+                'SELECT * FROM users WHERE Role_user ="2" '
+            );
+
+            $query->execute(
+            );
+            return $query->fetchAll();
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
     public function afficherVendeur()
     {
         try {
@@ -124,6 +139,85 @@ class UserC
             echo $query->rowCount() . " records UPDATED successfully";
         } catch (PDOException $e) {
             $e->getMessage();
+        }
+    }
+
+    function trierVendeur(){
+
+        $sql='SELECT * FROM users WHERE Role_user ="1" order by nom_user ';
+        $db =getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+
+    function trierClientdesc(){
+
+        $sql='SELECT * FROM users WHERE Role_user ="0" order by nom_user  ';
+        $db = getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+    function trierClient(){
+
+        $sql='SELECT * FROM users WHERE Role_user = "0"  order by nom_user ';
+        $db =getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+
+    function trierVendeurdesc(){
+
+        $sql='SELECT * FROM users  WHERE Role_user = "1" order by nom_user  ';
+        $db = getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+    function trierAdmin(){
+
+        $sql='SELECT * FROM users WHERE Role_user = "2"  order by nom_user ';
+        $db =getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+
+    function trierAdmindesc(){
+
+        $sql='SELECT * FROM users  WHERE Role_user = "2" order by nom_user  ';
+        $db = getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
         }
     }
 }
