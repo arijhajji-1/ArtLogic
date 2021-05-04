@@ -222,7 +222,11 @@ $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseud
                                         </div>
                                         <br>
                                         <div>
+<<<<<<< HEAD
                                             <input type="submit" value="Modifier Administrateur" name = "submit" class="btn btn-success"   >
+=======
+                                            <input type="submit" value="Ajouter Administrateur" name = "submit" class="btn btn-success"   >
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
                                         </div>
                                     </form>
                                 </div>

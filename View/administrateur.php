@@ -16,11 +16,19 @@ if(isset ($_POST['supprimer']))
 }
 if(isset($_POST['trie1']))
 {
+<<<<<<< HEAD
     $Admin=$UserC->trierAdmin();
 }
 elseif(isset($_POST['trie2']))
 {
     $Admin=$UserC->trierAdmindesc();
+=======
+    $Client=$UserC->trierAdmin();
+}
+elseif(isset($_POST['trie2']))
+{
+    $Client=$UserC->trierAdmindesc();
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
 }
 ?>
 <!DOCTYPE html>
@@ -167,8 +175,13 @@ elseif(isset($_POST['trie2']))
 Administrateur
                     </div>
                     <p> <form method="POST" action="">
+<<<<<<< HEAD
                         <input type="submit" name="trie1" value="trier A-Z" class="btn btn-success" >
                         <input type="submit" name="trie2" value="trier Z-A" class="btn btn-success">
+=======
+                        <input type="submit" name="trie1" value="trier" class="btn btn-success" >
+                        <input type="submit" name="trie2" value="trierD" class="btn btn-success">
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
                     </form> </p>
                     <div class="row">
                         <div class="col-md-12">
@@ -216,7 +229,11 @@ Administrateur
                                                     </td>
                                                     <td>
                                                         <form method="POST" action="">
+<<<<<<< HEAD
                                                             <a type="button" class="btn btn-success" href = "ModifierAdmin.php">Modifier </a>
+=======
+                                                            <a type="button" class="btn btn-success" href = "ModifierAdmin.php">Modifier Administrateur</a>
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
                                                         </form>
                                                     </td>
                                                 </tr>

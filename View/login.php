@@ -15,8 +15,12 @@ if (isset($_POST['email'])){
             $user = $query->fetch();
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['mot_de_passe'] = $_POST['password'];
+<<<<<<< HEAD
             $_SESSION['id_user'] = $user['pseudo_user'];
             $_SESSION['pseudo_user'] = $user['id_user'];
+=======
+            $_SESSION['id_user'] = $user['id_user'];
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
             if ($user['Role_user'] == 2) {
                 header('Location:administrateur.php');
             }

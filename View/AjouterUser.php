@@ -44,7 +44,19 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
                 echo 'Unable to send email. Please try again.';
             }
 
-            header('Location:index.html');
+            $to ='fourathalawa2000@gmail.com';
+            $subject = 'Welcome to ArtLogic  ';
+            $message = 'Hi, Your account is now live, which means you are ready to buy and sell items in our Website!';
+            $from = 'fourat.halaoua@esprit.tn';
+
+// Sending email
+            if (mail($to, $subject, $message)) {
+                echo 'Your mail has been sent successfully.';
+            } else {
+                echo 'Unable to send email. Please try again.';
+            }
+
+            //header('Location:index.html');
         }
 
     }

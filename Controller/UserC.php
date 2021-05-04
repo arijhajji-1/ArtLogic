@@ -159,7 +159,11 @@ class UserC
 
     function trierClientdesc(){
 
+<<<<<<< HEAD
         $sql='SELECT * FROM users WHERE Role_user ="0" order by nom_user desc ';
+=======
+        $sql='SELECT * FROM users WHERE Role_user ="0" order by nom_user  ';
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
         $db = getConnexion();
         try{
             $liste = $db->query($sql);
@@ -185,7 +189,11 @@ class UserC
 
     function trierVendeurdesc(){
 
+<<<<<<< HEAD
         $sql='SELECT * FROM users  WHERE Role_user = "1" order by nom_user desc  ';
+=======
+        $sql='SELECT * FROM users  WHERE Role_user = "1" order by nom_user  ';
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
         $db = getConnexion();
         try{
             $liste = $db->query($sql);
@@ -211,7 +219,11 @@ class UserC
 
     function trierAdmindesc(){
 
+<<<<<<< HEAD
         $sql='SELECT * FROM users  WHERE Role_user = "2" order by nom_user  desc';
+=======
+        $sql='SELECT * FROM users  WHERE Role_user = "2" order by nom_user  ';
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
         $db = getConnexion();
         try{
             $liste = $db->query($sql);
@@ -221,6 +233,7 @@ class UserC
             die('Erreur: '.$e->getMessage());
         }
     }
+<<<<<<< HEAD
     public function verifier($vkey) {
         try {
             $pdo = getConnexion();
@@ -235,5 +248,7 @@ class UserC
             $e->getMessage();
         }
     }
+=======
+>>>>>>> 15b96fc737c821f498763e391013967b544d88f1
 }
 ?>
