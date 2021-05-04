@@ -7,8 +7,16 @@ $Client = $UserC->afficherClient();
 if(isset ($_POST['supprimer']))
 {
     $Client = $UserC->supprimerUser($_POST['ID']);
-    header('Location=clients.php');
+    header('Location:clients.php');
     $Client = $UserC->afficherClient();
+}
+if(isset($_POST['trie1']))
+{
+    $Client=$UserC->trierClient();
+}
+elseif(isset($_POST['trie2']))
+{
+    $Client=$UserC->trierClientdesc();
 }
 ?>
 <!DOCTYPE html>
@@ -19,14 +27,14 @@ if(isset ($_POST['supprimer']))
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>ArtLogic Client</title>
     <link href="../css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <img src="..\i\logo.png" alt="" height="150" width="150" href="index.html" >
+    <a href="index.html" class="link color-main mx-15"><img  src="..\i\logo.png" height="150" width="150" class="w-300 h-300 radius_full" alt="" /></a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -148,12 +156,18 @@ if(isset ($_POST['supprimer']))
     </div>
     <div id="layoutSidenav_content">
         <main>
+
+
             <div class="container-fluid">
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table mr-1"></i>
                           Clients
                     </div>
+                    <p> <form method="POST" action="">
+                        <input type="submit" name="trie1" value="trier A-Z" class="btn btn-success" >
+                        <input type="submit" name="trie2" value="trier Z-A" class="btn btn-success">
+                    </form> </p>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Advanced Tables -->

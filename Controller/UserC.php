@@ -7,8 +7,8 @@ class UserC
     public function ajouterUser($User) {
         try {
             $pdo = getConnexion();
-            $query = $pdo->prepare('INSERT INTO users (nom_user, prenom_user, Email_user, pseudo_user, Role_user, mot_de_passe, sexe_user, date_de_naissance_user,adresse_user,matricule_fiscale_user,numero_telephone_user,type_produit) 
-                VALUES (:Nom, :Prenom, :Email, :Pseudo, :Role, :Mot_de_passe, :Sexe, :Date_de_naissance, :Adresse , :Matricule_fiscale , :Telephone , :Type_produit)'
+            $query = $pdo->prepare('INSERT INTO users (nom_user, prenom_user, Email_user, pseudo_user, Role_user, mot_de_passe, sexe_user, date_de_naissance_user,adresse_user,matricule_fiscale_user,numero_telephone_user,type_produit,	VerifiKey) 
+                VALUES (:Nom, :Prenom, :Email, :Pseudo, :Role, :Mot_de_passe, :Sexe, :Date_de_naissance, :Adresse , :Matricule_fiscale , :Telephone , :Type_produit , :key)'
             );
 
             $query->execute([
@@ -24,6 +24,7 @@ class UserC
                 'Matricule_fiscale' => $User->getMatricule_fiscale(),
                 'Telephone' => $User->getTelephone(),
                 'Type_produit' => $User->getType_produit(),
+                'key' => $User->getkey(),
             ]);
         } catch (PDOException $e) {
             $e->getMessage();
@@ -49,6 +50,21 @@ class UserC
             $pdo = getconnexion();
             $query = $pdo->prepare(
                 'SELECT * FROM users WHERE Role_user ="0" '
+            );
+
+            $query->execute(
+            );
+            return $query->fetchAll();
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
+    public function afficherAdmin()
+    {
+        try {
+            $pdo = getconnexion();
+            $query = $pdo->prepare(
+                'SELECT * FROM users WHERE Role_user ="2" '
             );
 
             $query->execute(
@@ -122,6 +138,99 @@ class UserC
                 'id' => $id
             ]);
             echo $query->rowCount() . " records UPDATED successfully";
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+    function trierVendeur(){
+
+        $sql='SELECT * FROM users WHERE Role_user ="1" order by nom_user ';
+        $db =getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+
+    function trierClientdesc(){
+
+        $sql='SELECT * FROM users WHERE Role_user ="0" order by nom_user desc ';
+        $db = getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+    function trierClient(){
+
+        $sql='SELECT * FROM users WHERE Role_user = "0"  order by nom_user ';
+        $db =getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+
+    function trierVendeurdesc(){
+
+        $sql='SELECT * FROM users  WHERE Role_user = "1" order by nom_user desc  ';
+        $db = getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+    function trierAdmin(){
+
+        $sql='SELECT * FROM users WHERE Role_user = "2"  order by nom_user ';
+        $db =getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+
+
+    function trierAdmindesc(){
+
+        $sql='SELECT * FROM users  WHERE Role_user = "2" order by nom_user  desc';
+        $db = getConnexion();
+        try{
+            $liste = $db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+    public function verifier($vkey) {
+        try {
+            $pdo = getConnexion();
+            $query = $pdo->prepare(
+                'UPDATE users SET verification = 1 WHERE VerifiKey = :key && verification = 0 '
+            );
+            $query->execute([
+                'key' =>$vkey
+            ]);
+
         } catch (PDOException $e) {
             $e->getMessage();
         }

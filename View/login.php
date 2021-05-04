@@ -3,23 +3,28 @@ require_once '../connexion.php';
 if (isset($_POST['email'])){
     $email_client=$_POST['email'];
     $mot_passe=$_POST['password'];
-    $sql="SELECT * FROM users WHERE Email_user='" . $email_client . "' && mot_de_passe = '". $mot_passe."'";
+    $sql="SELECT * FROM users WHERE Email_user='" . $email_client . "' && mot_de_passe = '". $mot_passe."' && verification = 1";
     $db = getConnexion();
-    try{
+    try {
 
-        $query=$db->prepare($sql);
+        $query = $db->prepare($sql);
         $query->execute();
-        $count=$query->rowCount();
-        if($count==1){
+        $count = $query->rowCount();
+        if ($count == 1) {
             session_start();
-            $user=$query->fetch();
+            $user = $query->fetch();
             $_SESSION['email'] = $_POST['email'];
-            $_SESSION['mot_de_passe'] =  $_POST['password'];
+            $_SESSION['mot_de_passe'] = $_POST['password'];
             $_SESSION['id_user'] = $user['id_user'];
+            if ($user['Role_user'] == 2) {
+                header('Location:administrateur.php');
+            }
+            else
+            {
+                header('Location:AfficheUser.php');
+            }
 
-            header('Location:AfficheUser.php');
         }
-
     }
     catch (Exception $e){
         die('Erreur: '.$e->getMessage());
@@ -36,7 +41,7 @@ if (isset($_POST['email'])){
 
 <head>
     <meta charset="utf-8" >
-    <title>ArtLogic Sign up</title>
+    <title>ArtLogic Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../i/favicon.png" type="image/x-icon">
     <!-- Google Fonts -->
@@ -83,12 +88,12 @@ if (isset($_POST['email'])){
 <div id="container" class="form_1 pt-120 pb-120">
 
 <form action="login.php"  method = "post" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
-    <h2 class="mb-40 small text-center" d>Connexion</h2>
+    <h2 class="mb-40 small text-center" d>Sign in</h2>
 
-    <input type="text" placeholder="Email" name="email"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
+    <input type="email" placeholder="Email" name="email"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
 <br>
 <br>
-    <input type="password" placeholder="Entrer le mot de passe" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
+    <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
 
     <input type="submit" name="submitButton" id="submitButton" value="LOGIN" class="mt-25 btn action-1 w-full"  >
 </form>

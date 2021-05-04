@@ -22,6 +22,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -69,6 +70,10 @@
       <workItem from="1619628378474" duration="997000" />
       <workItem from="1619629606967" duration="13940000" />
       <workItem from="1619664256563" duration="600000" />
+      <workItem from="1619685242428" duration="154000" />
+      <workItem from="1619685534078" duration="13789000" />
+      <workItem from="1619992020121" duration="2061000" />
+      <workItem from="1620092752574" duration="3095000" />
     </task>
     <servers />
   </component>

@@ -65,13 +65,14 @@ $wishliste = $wishlisteC->afficherWP($id);
 
 
 <section class="form_1 pt-120 pb-120">
+    <h2 class="mb-40 small text-center">My wish list</h2>
+
     <?php
     foreach ($wishliste as $Wish)
     {
         ?>
         <div class="container px-xl-0">
             <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
-                <h2 class="mb-40 small text-center">Sign Up Now</h2>
                 <div class="mb-20 input_holder">
                     <img src="../i/<?=$Wish['image'] ?>" height="250" width="250">
                 </div>

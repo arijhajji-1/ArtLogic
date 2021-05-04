@@ -1,27 +1,23 @@
 <?php
-include "../Controller/UserC.php";
+require_once "../Controller/UserC.php";
 require_once '../Model/User.php';
 session_start();
 $email= $_SESSION['email'];
 $pass= $_SESSION['mot_de_passe'];
-
 $UserC = new UserC();
-$Admin = $UserC->afficherAdmin();
+$User = $UserC->getUser($email,$pass);
 
-if(isset ($_POST['supprimer']))
-{
-    $Admin = $UserC->supprimerUser($_POST['ID']);
+foreach ($User as $user) {
+    $id = $user['id_user'];
+}
+if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email'])  && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
+
+$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], "2", $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone']);
+    $UserC->modifierUser($User,$id);
+
     header('Location:administrateur.php');
-    $Admin = $UserC->afficherAdmin();
 }
-if(isset($_POST['trie1']))
-{
-    $Admin=$UserC->trierAdmin();
-}
-elseif(isset($_POST['trie2']))
-{
-    $Admin=$UserC->trierAdmindesc();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,14 +27,14 @@ elseif(isset($_POST['trie2']))
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>ArtLogic Admin</title>
+    <title>Dashboard - SB Admin</title>
     <link href="../css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a href="index.html" class="link color-main mx-15"><img  src="..\i\logo.png" height="150" width="150" class="w-300 h-300 radius_full" alt="" /></a>
+    <img src="../i/logo.png" alt="" height="150" width="150" href="index.html" >
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -164,67 +160,76 @@ elseif(isset($_POST['trie2']))
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table mr-1"></i>
-Administrateur
+                        Administrateur
                     </div>
-                    <p> <form method="POST" action="">
-                        <input type="submit" name="trie1" value="trier A-Z" class="btn btn-success" >
-                        <input type="submit" name="trie2" value="trier Z-A" class="btn btn-success">
-                    </form> </p>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Advanced Tables -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                  <h2>Liste des administrateurs</h2>
+                            <section class="form_1 pt-120 pb-120">
+                                <?php
+                                foreach ($User as $user)
+                                {
+                                ?>
+                                <div class="container px-xl-0">
+                                    <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
+                                        <h2>Modify Admin</h2>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <input type="text" name="nom" value="<?= $user['nom_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder" >
+                                            <input type="text" name="prenom" value="<?= $user['prenom_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder" >
+                                            <input type="email" name="email" value="<?= $user['Email_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <input type="text" name="pseudo" value="<?= $user['pseudo_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <select name="sexe" id="sexe_user" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
+                                                <option value="<?= $user['sexe_user']?>"><?php
+                                                    if($user['sexe_user'] == "male")
+                                                        echo "Male";
+                                                    else if(($user['sexe_user'] =="female"))
+                                                        echo "Female";
+                                                    ?></option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <input type="date" id="start" name="date_de_naissance"
+                                                   value="<?= $user['date_de_naissance_user']?>"
+                                                   min="1950-01-01" max="2003-04-22" class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <input type="tel" name="numero_telephone" value="<?= $user['numero_telephone_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <input type="text" name="adresse" value="<?= $user['adresse_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <input type="password" name="mot_de_passe" value="<?= $user['mot_de_passe']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                        </div>
+                                        <br>
+                                        <div>
+                                            <input type="submit" value="Modifier Administrateur" name = "submit" class="btn btn-success"   >
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                            <tr>
-                                                <th>Nom</th>
-                                                <th>Prenom</th>
-                                                <th>Email</th>
-                                                <th>Pseudo</th>
-                                                <th>Mot de passe </th>
-                                                <th> Date de naissance </th>
-                                                <th> Adresse </th>
-                                                <th> Date de création </th>
-                                                <th>Numéro de téléphone</th>
-                                            </tr>
-
-
-                                            <?php
-                                            foreach ($Admin as $liste)
-                                            {
-
-                                                ?>
-                                                <tr>
-                                                    <td> <?php echo $liste['nom_user'] ?> </td>
-                                                    <td> <?php echo $liste['prenom_user'] ?> </td>
-                                                    <td> <?php echo $liste['Email_user'] ?> </td>
-                                                    <td> <?php echo $liste['pseudo_user'] ?> </td>
-                                                    <td> <?php echo $liste['mot_de_passe'] ?> </td>
-                                                    <td> <?php echo $liste['date_de_naissance_user'] ?> </td>
-                                                    <td> <?php echo $liste['adresse_user'] ?> </td>
-                                                    <td> <?php echo $liste['cree_a_user'] ?> </td>
-                                                    <td> <?php echo $liste['numero_telephone_user'] ?> </td>
-                                                    <td>
-                                                        <form method="POST" action="">
-                                                            <input type="submit" name="supprimer" value="Bloquer" class="btn btn-success" ">
-                                                            <input type="hidden" value="<?PHP echo $liste['id_user']; ?>" name="ID">
-                                                        </form>
-                                                    </td>
-                                                    <td>
-                                                        <form method="POST" action="">
-                                                            <a type="button" class="btn btn-success" href = "ModifierAdmin.php">Modifier </a>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                            </section>
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -234,10 +239,7 @@ Administrateur
                     </div>
                 </div>
 
-                <div class="table-responsive">
-                    <a type="button" class="btn btn-success" href = "AjouterAdmin.php">Ajouter Administrateur</a>                </div>
         </main>
-
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
@@ -263,3 +265,5 @@ Administrateur
 <script src="assets\demo\datatables-demo.js"></script>
 </body>
 </html>
+
+

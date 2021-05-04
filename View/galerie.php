@@ -91,7 +91,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
     ?>
     <div class="container px-xl-0">
         <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
-            <h2 class="mb-40 small text-center">Sign Up Now</h2>
+            <h2 class="mb-40 small text-center">Gallery</h2>
             <div class="mb-20 input_holder">
             <img src="../i/<?=$Produit['image'] ?>" height="250" width="250">
             </div>

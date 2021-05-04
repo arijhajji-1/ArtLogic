@@ -97,7 +97,7 @@ if(isset($_POST['sign_out']))
         ?>
         <div class="container px-xl-0">
             <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
-                <h2 class="mb-40 small text-center">Sign Up Now</h2>
+                <h2 class="mb-40 small text-center">Profile</h2>
                 <div class="mb-20 input_holder">
                     <input type="text" name="nom" value="<?= $user['nom_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
                 </div>
@@ -124,7 +124,6 @@ if(isset($_POST['sign_out']))
                 </div>
                 <div class="mb-20 input_holder">
                     <input type="date" id="start" name="date_de_naissance" value="<?= $user['date_de_naissance_user']?>"
-                           value="2021-04-15"
                            min="1950-01-01" max="2003-04-22" class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
                 </div>
                 <div class="mb-20 input_holder">
@@ -142,12 +141,32 @@ if(isset($_POST['sign_out']))
                         <option value="1">Seller</option>
                     </select>
                 </div>
-                <div id="matricule_fiscale" style="display: none" class="mb-20 input_holder">
-                    <input type="text" name="Matricule_fiscale" value="0" placeholder="Registration number" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
-                <div id="type_produit" style="display: none" class="mb-20 input_holder">
-                    <input type="text" name="Type_produit"  value="NULL" placeholder="Product type"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
+                <?php
+                            if($user['Role_user'] == "0") {
+                                ?>
+                                <div id="matricule_fiscale" style="display: none" class="mb-20 input_holder">
+                                    <input type="text" name="Matricule_fiscale"
+                                           value="0" placeholder="Registration number"
+                                    class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                </div>
+                                <div id="type_produit" style="display: none" class="mb-20 input_holder">
+                                    <input type="text" name="Type_produit"
+                                           value="NULL" placeholder="Product type" class="input
+                                    border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                </div>
+                                <?php
+                            }if($user['Role_user'] == "1")
+                {?>
+                    <div id="matricule_fiscale"  class="mb-20 input_holder">
+                                    <input type="text" name="Matricule_fiscale"
+                                           value=<?= $user['matricule_fiscale_user'] ?> placeholder="Registration number" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+        </div>
+        <div id="type_produit"  class="mb-20 input_holder">
+            <input type="text" name="Type_produit"  value=<?= $user['type_produit'] ?> placeholder="Product type" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+        </div>
+                <?php
+                }
+        ?>
                 <div class="mb-20 input_holder">
                     <input type="text" name="adresse" value="<?= $user['adresse_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                 </div>
@@ -199,6 +218,20 @@ if(isset($_POST['sign_out']))
         </div>
     </div>
 </footer>
+<script>
+    $(function () {
+        $("#role_user").change(function () {
+            if ($(this).val() == "1") {
+                $("#matricule_fiscale").show();
+                $("#type_produit").show();
+
+            } else {
+                $("#matricule_fiscale").hide();
+                $("#type_produit").hide();
+            }
+        });
+    });
+</script>
 </body>
 </html>
 

@@ -15,8 +15,8 @@ class User
     private ?int $Matricule_fiscale;
     private ?int $Telephone;
     private string $Type_produit;
-
-    public function __construct($Nom,$Prenom,$Email,$Pseudo,$Role,$Mot_de_passe,$Sexe,$Date_de_naissance,$Adresse,$Matricule_fiscale,$Type_produit,$Telephone)
+    private string $key;
+    public function __construct($Nom,$Prenom,$Email,$Pseudo,$Role,$Mot_de_passe,$Sexe,$Date_de_naissance,$Adresse,$Matricule_fiscale,$Type_produit,$Telephone,$key)
     {
         $this->Nom = $Nom;
         $this->Prenom = $Prenom;
@@ -30,9 +30,14 @@ class User
         $this->Matricule_fiscale = $Matricule_fiscale;
         $this->Telephone = $Telephone;
         $this->Type_produit = $Type_produit;
+        $this->key = $key;
+
     }
     public function getId () {
         return $this->Id;
+    }
+    public function getkey () {
+        return $this->key;
     }
     public function getNom () {
         return $this->Nom;
