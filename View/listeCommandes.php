@@ -5,6 +5,7 @@ if(isset($_GET['search'])){
     $listeCommande= (new CommandeC())->rechercherCommande($_GET['search']);
 
 }
+ 
 
 ?>
 <html>
@@ -16,12 +17,19 @@ if(isset($_GET['search'])){
 <body>
 <div class="container mt-4">
    <h1 style="color: #17a2b8;text-align: center">La liste des Commandes : </h1>
+  
 <form method="get">
     <label>
         <input type="text" placeholder="Taper ici .... " name="search" class="form-control" />
     </label>
+   
     <button class="btn btn-info">Rechercher</button>
 </form>
+<td><form method="POST" action="genererPDF.php">
+	  <button class="btn btn-info">Enregistrer une facture</button>
+	<input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
+	</form>
+	</td>
 <table class="table" >
     <thead class="thead-dark">
     <tr>
@@ -50,7 +58,7 @@ if(isset($_GET['search'])){
                     <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
                 </form>
             </td>
-
+           
         </tr>
         <?PHP
     }

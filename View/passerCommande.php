@@ -14,7 +14,7 @@ $str=$str.$x['titre'].',';
     $prix_globale+=$x['prix_total'];
 }
 $str = rtrim($str, ", ");
-$commande = new commande('1234',$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= 1234");
+$commande = new commande('1234',$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= 1111");
 (new CommandeC())->ajouterCommande($commande);
 
 $panier->deleteAllcommandes('1234');

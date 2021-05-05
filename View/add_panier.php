@@ -15,6 +15,7 @@ if ( isset($_GET['id_produit']) and isset($_GET['prix_total']))
         $panier1C->ajouterPanier($p1);
 
     }else{
+        echo "<h2>lalala</h2>";
         $prd= (new ProduitC())->recupererProduit($_GET['id_produit']);
         $panier1C->modifierPanier($p1,$checkifexist,$prd['prix']);
     }
