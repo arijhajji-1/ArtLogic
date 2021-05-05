@@ -1,6 +1,8 @@
 <?php
 include_once '../controller/produitC.php';
 include_once '../model/produit.php'; 
+
+
 $produitC = new produitC(); 
 $produit=$produitC->afficherproduit();  
 
@@ -15,6 +17,13 @@ $produit=$produitC->afficherproduit();
 		<meta charset="utf-8" >
 		<title>ArtLogic</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+       <meta property="og:url"           content="http://afficherproduitfront.php" />
+        <meta property="og:type"          content="website" />
+       <meta property="og:title"         content="ArtLogic" />
+       <meta property="og:description"   content="welcome to our website" />
+       <meta property="og:image"         content="i/logo.png" />
+
 				<link rel="icon" href="i/logo.png" type="i/logo.png">
 		<!-- Google Fonts -->
 				<link href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,600,500,700,800,900|Karla:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
@@ -29,7 +38,7 @@ $produit=$produitC->afficherproduit();
 		<!-- FontAwesome CSS -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<!-- Startup 3 CSS (Styles for all blocks) -->
-					<link href="css/style.css" rel="stylesheet" />
+					<link href="css/style.css" rel="stylesheet" /> 
 				<!-- jQuery 3.3.1 -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -105,60 +114,73 @@ while ($array[] = $query->fetch_object());
 
 <!--rou7 zebda  -->
 
-<form class="table" action="" method="POST">
-<table>
-<tr>  
+<section class="container">
+			<h2>Liste des Produits</h2>
+			<br><br>
+			<div class="shop-items">
+				<?php
+					foreach ($produit as $produit) {
+				?>
+				<div class="shop-item">
+					<div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="box-title"><strong><?= $produit['NomP'] ?> </strong> </h4>
+                            </div>
+                            <div class="row">
+					<div class="shop-item-details">
+					 <img src="../image/<?= $produit['image'] ?>"height="200" width="200">
+						<span class="shop-item-des"><?= $produit['Description1'] ?>  </span>
+						<br><br>
+						<span class="shop-item-price">Prix: <?= $produit['Prix'] ?> TND </span>
+						<br><br>
+						<span class="shop-item-date"> Date d'ajout: <?= $produit['DateA'] ?>  </span>
+						<br><br>
+						<span class="shop-item-des">Genre :<?= $produit['Genre'] ?>  </span>
+						<br><br>
+						<span class="shop-item-date"> Quantité: <?= $produit['Quantite'] ?>  </span>
+						<br><br>
+						<a type="button" class="btn sm action-2 f-16" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">view</a>
+						<a type="button" class="btn sm action-2 f-16" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Ajouter Panier</a>
+		<!--	<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fafficherproduitfront.php&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+		-->
+</div> <!-- /.row -->
+                            <div class="card-body"></div>
+                        </div>
+                    </div><!-- /# column -->
+                </div>
+					</div>
+				</div>
+				<br><br>
+				<?php 
+					}
+				?>
+			</div>
+		</section>
 
-              
-              <th scope="col">image</th>
-              <th scope="col">id</th>
-              <th scope="col">date</th>
-              <th scope="col">description</th>
-              <th scope="col">genre</th> 
-              <th scope="col">Couleur</th>  
-              <th scope="col">Taille</th> 
-              <th scope="col">poids</th>
-                            <th scope="col">Prix</th>
-                            <th scope="col">Quantite</th> 
-                            <th> </th>
-
-            </tr>
-<?php
-foreach ($produit as $produit) {
-?> 
-<tr>                            <td> <img src="../image/<?= $produit['image'] ?>"height="150" width="150"</td> 
-                                 <td> <?php echo $produit['Id_produit'] ?></td>
-                                  <td>  <?php echo $produit['DateA'] ?> </td>
-                                <td>  <?php  echo $produit['Description1'] ?> </td>
-                                 <td>  <?php echo $produit['Genre'] ?> </td>
-                                    <td>  <?php  echo $produit['Couleur'] ?> </td>
-                                     <td>  <?php  echo $produit['Taille'] ?> </td>
-                                     
-                                <td>  <?php  echo $produit['poids'] ?> </td>
-                                <td>  <?php  echo $produit['Prix'] ?> </td> 
-                                <td>  <?php  echo $produit['Quantite'] ?> </td>   
-					<td><a type="button" class="contact100-form-btn" href = "">View</a></td>
-                    <td><a type="button" class="contact100-form-btn" href = "">Ajouter panier</a></td>          
-</tr> 
-
-<?php
-        }
-        ?>
-
-
-
-
-
-</table>
-	</form>
-
-
-
-
-
-
-
-
+		
+    <!-- Load Facebook SDK for JavaScript -->
+		<div id="fb-root"></div>
+       <script>
+	   (function(d, s, id)
+	    {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+       fjs.parentNode.insertBefore(js, fjs);
+         }
+       (document, 'script', 'facebook-jssdk'));
+       </script>
+		
+		<!-- Your share button code -->
+<div class="fb-share-button" 
+data-href="http://afficherproduitfront.php" 
+data-layout="button_count">
+</div>
+    
+	
 
  
 
@@ -221,7 +243,10 @@ foreach ($produit as $produit) {
 <!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
 <script src="js/jquery.maskedinput.min.js"></script>
 <!-- Startup 3 JS (Custom js for all blocks) -->
-<script src="js/script.js"></script>
+<script src="js/script.js"></script> 
+
+<!--<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v10.0" nonce="1avFbC5g"></script>-->
 
 </body>
 </html>

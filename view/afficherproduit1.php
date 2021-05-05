@@ -222,7 +222,9 @@ if (isset($_GET['Id_produit'])) {
              <p> <form method="POST" action="">
                 <input type="submit" name="submit" value="trier" >
                 <input type="submit" name="submit2" value="trierD">
-                <a type="button" class="contact100-form-btn" href = "rechercherproduit1.php">rechercher</a> 
+                <a type="button" class="contact100-form-btn" href = "rechercherproduit1.php">rechercher</a>  
+                <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  
+
                 
                </form> </p>   
             
@@ -237,6 +239,7 @@ if (isset($_GET['Id_produit'])) {
               
               
               <th scope="col">id</th>
+              <th scope="col">NomP</th>
               <th scope="col">date</th>
               <th scope="col">description</th>
               <th scope="col">genre</th> 
@@ -254,6 +257,7 @@ foreach ($produit as $produit) {
 ?> 
 <tr>
                                    <td> <?php echo $produit['Id_produit'] ?> </td>
+                                   <td>  <?php echo $produit['NomP'] ?> </td>
                                   <td>  <?php echo $produit['DateA'] ?> </td>
                                 <td>  <?php  echo $produit['Description1'] ?> </td>
                                  <td>  <?php echo $produit['Genre'] ?> </td>

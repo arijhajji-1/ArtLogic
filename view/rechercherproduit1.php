@@ -235,8 +235,9 @@ if (isset($_GET['Id_produit'])) {
             <tr>  
 
               
-              
+           
               <th scope="col">id</th>
+              <th scope="col">NomP</th>
               <th scope="col">date</th>
               <th scope="col">description</th>
               <th scope="col">genre</th> 
@@ -254,6 +255,7 @@ foreach ($result as $produit) {
 ?> 
 <tr>
                                    <td> <?php echo $produit['Id_produit'] ?> </td>
+                                   <td> <?php echo $produit['NomP'] ?> </td>
                                   <td>  <?php echo $produit['DateA'] ?> </td>
                                 <td>  <?php  echo $produit['Description1'] ?> </td>
                                  <td>  <?php echo $produit['Genre'] ?> </td>

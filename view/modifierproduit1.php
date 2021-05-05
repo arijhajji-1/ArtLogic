@@ -5,8 +5,8 @@ include_once '../model/produit.php';
 
 $produitC =  new produitC();
 
-    if (isset($_POST['DateA']) && isset($_POST['Description1']) && isset($_POST['Genre'])&& isset($_POST['Couleur'])&& isset($_POST['Taille'])&& isset($_POST['poids']) && isset($_POST['Prix'])&& isset($_POST['Quantite']) && isset($_POST['image'])   ) {
-        $produit = new produit($_POST['DateA'], $_POST['Description1'], $_POST['Genre'], $_POST['Couleur'], $_POST['Taille'], $_POST['poids'], $_POST['Prix'], $_POST['Quantite'], $_POST['image']);
+    if (isset($_POST['NomP']) && isset($_POST['DateA']) && isset($_POST['Description1']) && isset($_POST['Genre'])&& isset($_POST['Couleur'])&& isset($_POST['Taille'])&& isset($_POST['poids']) && isset($_POST['Prix'])&& isset($_POST['Quantite']) && isset($_POST['image'])   ) {
+        $produit = new produit($_POST['NomP'], $_POST['DateA'], $_POST['Description1'], $_POST['Genre'], $_POST['Couleur'], $_POST['Taille'], $_POST['poids'], $_POST['Prix'], $_POST['Quantite'], $_POST['image']);
         
         $produitC->modifierproduit($produit,$_GET['Id_produit']);
     }
@@ -222,7 +222,7 @@ $produitC =  new produitC();
 
               
               
-             
+                         <th scope="col">NomP</th> 
                          <th scope="col">date</th> 
                           <th scope="col">description</th> 
                             <th scope="col">genre</th>   
@@ -239,7 +239,7 @@ $produitC =  new produitC();
  
 
 <tr>
-                                
+                                     <td>  <input type="text" name="NomP" value="<?= $result['NomP'] ?>">  </td>
                                  <td>  <input type="text" name="DateA" value="<?= $result['DateA'] ?>">  </td>
                                 <td>  <input type="text" name="Description1" value="<?= $result['Description1'] ?>">  </td> 
                                 <?php

@@ -5,13 +5,14 @@
 	class produitC {
 		
 		function ajouterproduit($produit){
-			$sql="INSERT INTO produit (Id_produit, DateA, Description1, Genre, Couleur,Taille,poids,Prix,Quantite,image) 
-			VALUES (:Id_produit, :DateA, :Description1, :Genre, :Couleur, :Taille, :poids, :Prix,:Quantite,:image)";
+			$sql="INSERT INTO produit (Id_produit, NomP, DateA, Description1, Genre, Couleur,Taille,poids,Prix,Quantite,image) 
+			VALUES (:Id_produit, :NomP, :DateA, :Description1, :Genre, :Couleur, :Taille, :poids, :Prix,:Quantite,:image)";
 			$db = connection::getConnexion();
 			try{
 				$query = $db->prepare($sql);
 				$query->execute([
 					'Id_produit' => $produit->getId_produit(),
+					'NomP' => $produit->getNomP(),
 					'DateA' => $produit->getDateA(),
 					'Description1' => $produit->getDescription1(),
 					'Genre' => $produit->getGenre(),
@@ -60,7 +61,8 @@
 			try {
 				$db = connection::getConnexion();
 				$query = $db->prepare(
-					'UPDATE produit SET 
+					'UPDATE produit SET
+					    NomP = :NomP, 
 						DateA = :DateA, 
 						Description1 = :Description1,
 						Genre = :Genre,
@@ -73,6 +75,7 @@
 					WHERE Id_produit = :Id_produit'
 				);
 				$query->execute([
+					'NomP' => $produit->getNomP(),
 					'DateA' => $produit->getDateA(),
 					'Description1' => $produit->getDescription1(),
 					'Genre' => $produit->getGenre(),
@@ -163,7 +166,7 @@
             try { 
                 $pdo = connection::getConnexion();
                 $query = $pdo->prepare(
-                    'SELECT * FROM produit  WHERE Couleur like ("%":st"%")'
+                    'SELECT * FROM produit  WHERE NomP like ("%":st"%")'
                 );
                 $query->execute(['st' => $nomh]);
                 return $query->fetchAll();

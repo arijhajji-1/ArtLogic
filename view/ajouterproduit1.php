@@ -8,8 +8,9 @@ include_once '../model/produit.php';
 
 
 session_start();
-if(!empty($_POST['DateA']) && !empty($_POST['Description1']) && !empty($_POST['Genre']) && !empty($_POST['Couleur']) && !empty($_POST['Taille']) && !empty($_POST['poids']) && !empty($_POST['Prix']) && !empty($_POST['Quantite']) && !empty($_POST['image'])){
+if(!empty($_POST['NomP']) && !empty($_POST['DateA']) && !empty($_POST['Description1']) && !empty($_POST['Genre']) && !empty($_POST['Couleur']) && !empty($_POST['Taille']) && !empty($_POST['poids']) && !empty($_POST['Prix']) && !empty($_POST['Quantite']) && !empty($_POST['image'])){
 
+$NomP = $_POST['NomP'];    
 $DateA = $_POST['DateA'];
 $Description1 = $_POST['Description1'];
 $Genre = $_POST['Genre'];
@@ -26,7 +27,7 @@ $image= $_POST['image'];
 
 
 $produitC = new produitC();
-$produit=new produit ($DateA, $Description1, $Genre, $Couleur,$Taille,$poids,$Prix,$Quantite,$image);
+$produit=new produit ($NomP, $DateA, $Description1, $Genre, $Couleur,$Taille,$poids,$Prix,$Quantite,$image);
 try{
     $produitC->ajouterproduit($produit);
 }catch(Exception $e){
@@ -236,6 +237,10 @@ try{
       </div>
 
      
+      <div class="item">
+        <label for="NomP">NomP :</label>
+        <input id="NomP" type="text" name="NomP"/>
+      </div>
 
       <div class="item">
         <label for="bdate">Date d'ajout produit :<span></span></label>

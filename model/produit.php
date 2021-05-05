@@ -2,6 +2,7 @@
 class produit
 {
     private ?int $Id_produit = null;
+    private string $NomP;
     private string $DateA;
     private string $Description1;
     private string $Genre;
@@ -12,9 +13,10 @@ class produit
     private int $Quantite; 
     private string $image;
    
-    public function __construct($DateA,$Description1,$Genre,$Couleur,$Taille,$poids,$Prix,$Quantite,$image)
+    public function __construct($NomP,$DateA,$Description1,$Genre,$Couleur,$Taille,$poids,$Prix,$Quantite,$image)
     {  
       //  $this->Id_produit = $Id_produit;
+        $this->NomP = $NomP;
         $this->DateA = $DateA;
         $this->Description1 = $Description1;
         $this->Genre = $Genre;
@@ -28,6 +30,9 @@ class produit
     }
     public function getId_produit () {
         return $this->Id_produit;
+    }
+    public function getNomP () {
+        return $this->NomP;
     }
     public function getDateA () {
         return $this->DateA;
@@ -59,6 +64,9 @@ class produit
 
     public function setID_produit ($Id_produit){
         $this->Id_produit = $Id_produit;
+    }
+    public function setNomP ($NomP){
+        $this->NomP = $NomP;
     }
     
     public function setDateA ($DateA){
