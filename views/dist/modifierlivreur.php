@@ -136,15 +136,15 @@
 <?PHP
 include_once "C:/wamp64/www/Artlogic/entities/livreur.php";
 include_once "C:/wamp64/www/Artlogic/core/livreurC.php";
-if (isset($_GET['cin'])){
+if (isset($_GET['IDlivreur'])){
 	$livreurC=new livreurC();
-    $result=$livreurC->recupererlivreur($_GET['cin']);
+    $result=$livreurC->recupererlivreur($_GET['IDlivreur']);
 	foreach($result as $row){
-		$cin=$row['cin'];
-		$nom=$row['nom'];
-    $prenom=$row['prenom'];
-		$secteur=$row['secteur'];
-    $mail=$row['mail'];}}
+		$IDlivreur=$row['IDlivreur'];
+		$Nomlivreur=$row['Nomlivreur'];
+    $Matricule=$row['Matricule'];
+		$Zone=$row['Zone'];
+    $Numlivreur=$row['Numlivreur'];}}
 ?>
 <div class="col-md-6">
     <div class="panel panel-default">
@@ -157,21 +157,14 @@ if (isset($_GET['cin'])){
                   <center>
                     <table>
 
-                        <tr>
-                            <td>
-                               <label >Saisir lid</label>
-                           </td>
-                           <td>
-                               <input type="number" class="form-control" id="success" name="cin" value="<?PHP echo $cin ?>"/>
-                            </td>
-                        </tr>
+                    
 
                         <tr>
                             <td>
-                               <label>Saisir le nom</label>
+                               <label>Saisir le Nomlivreur</label>
                            </td>
                            <td>
-                               <input type="text" class="form-control" id="warning" name="nom" value="<?PHP echo $nom ?>"/>
+                               <input type="text" class="form-control" id="warning" name="Nomlivreur" value="<?PHP echo $Nomlivreur ?>"/>
                             </td>
                         </tr>
 
@@ -180,16 +173,16 @@ if (isset($_GET['cin'])){
                                <label>Saisir la matricule</label>
                            </td>
                            <td>
-                               <input type="text" class="form-control" id="error" name="prenom" value="<?PHP echo $prenom ?>"/>
+                               <input type="text" class="form-control" id="error" name="Matricule" value="<?PHP echo $Matricule ?>"/>
 				            </td>
                         </tr>    
                         <tr>
                             <td>
-                               <label >Choisir un secteur</label>
+                               <label >Choisir un Zone</label>
                            </td>
                            <td>
-                               <select id="secteur" name="secteur" type="text" >
-                                  <option><?PHP echo $secteur ?></option>
+                               <select id="Zone" name="Zone" type="text" >
+                                  <option><?PHP echo $Zone ?></option>
                                       <option>Ariana</option>
                                       <option>Béja</option>
                                       <option>Ben Arous</option>
@@ -223,7 +216,7 @@ if (isset($_GET['cin'])){
                                <label>Saisir le num</label>
                            </td>
                            <td>
-                               <input type="text" class="form-control" id="mail" name="mail" value="<?PHP echo $prenom ?>"/>
+                               <input type="text" class="form-control" id="Numlivreur" name="Numlivreur" value="<?PHP echo $Numlivreur ?>"/>
                            </td>
                         </tr>
 
@@ -231,7 +224,7 @@ if (isset($_GET['cin'])){
                             <td></td>
                             <td>
                                 <input type="submit" name="modifier" value="modifier" class="boutton">
-                                <input type="hidden" name="cin_ini" value="<?PHP echo $_GET['cin'];?>">
+                                <input type="hidden" name="IDlivreur_ini" value="<?PHP echo $_GET['IDlivreur'];?>">
                             </td>
                         </tr>
                     </table>

@@ -1,45 +1,48 @@
 <?PHP
 class livreur{
-	private $cin;
-	private $nom;
-	private $prenom;
-	private $secteur;
-	private $mail;
-	function __construct($cin,$nom,$prenom,$secteur,$mail){
-		$this->cin=$cin;
-		$this->nom=$nom;
-		$this->prenom=$prenom;
-		$this->secteur=$secteur;
-		$this->mail=$mail;
+	private  $IDlivreur=NULL;
+	private $Nomlivreur=NULL;
+	private $Matricule=NULL;
+	private $Zone=NULL;
+	private $Numlivreur=NULL;
+	function __construct($Nomlivreur,$Matricule,$Zone,$Numlivreur){
+		
+
+		$this->Nomlivreur =$Nomlivreur;
+		$this->Matricule =$Matricule;
+		$this->Zone =$Zone;
+		$this->Numlivreur=$Numlivreur;
+	}
+	function getIDlivreur(){
+		return $this->IDlivreur;
 	}
 	
-	function getCin(){
-		return $this->cin;
+	function getNomlivreur(){
+		return $this->Nomlivreur;
 	}
-	function getNom(){
-		return $this->nom;
+	function getMatricule(){
+		return $this->Matricule;
 	}
-	function getPrenom(){
-		return $this->prenom;
+	function getZone(){
+		return $this->Zone;
 	}
-	function getSecteur(){
-		return $this->secteur;
+	function getNumlivreur(){
+		return $this->Numlivreur;
 	}
-	function getMail(){
-		return $this->mail;
+	function setIDlivreur  ($IDlivreur){
+		$this->IDlivreur  =$IDlivreur;
 	}
-
-	function setNom($nom){
-		$this->nom=$nom;
+	function setNomlivreur  ($Nomlivreur){
+		$this->Nomlivreur  =$Nomlivreur;
 	}
-	function setPrenom($prenom){
-		$this->prenom;
+	function setMatricule  ($Matricule){
+		$this->Matricule  ;
 	}
-	function setSecteur($secteur){
-		$this->secteur=$secteur;
+	function setZone  ($Zone){
+		$this->Zone  =$Zone;
 	}
-	function setMail($mail){
-		$this->mail=$mail;
+	function setNumlivreur($Numlivreur){
+		$this->Numlivreur=$Numlivreur;
 	}
 	
 }

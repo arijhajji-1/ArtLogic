@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Sidenav Light - SB Admin</title>
+        <title>Livreurs</title>
         <script type="text/javascript" src="javasc.js"></script>
 
         <link href="css/styles.css" rel="stylesheet" />
@@ -136,26 +137,18 @@
                         </ol>
                    <div class="content-wrapper">
                     <script type="text/javascript" src="controlsaisi.js"></script>
+                        <form method="POST" action="ajoutlivreur.php" name="f" onsubmit="return test();">
 
-    <form method="POST" action="ajoutlivreur.php" name="f" onsubmit="return test();">
            <h2> <center> AJOUTER UN LIVREUR </center> </h2>
             <center>
                     <table class="table">
+                       
                         <tr>
                             <td>
-                                <input type="button" name="generer " onclick="Function"> generer l'id' </label>
+                                 <label class="control-label">saisir le Nomlivreur</label>
                             </td>
                             <td>
-                                 <input type="" class="form-control" id="cin" name="cin"/>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                 <label class="control-label">saisir le nom</label>
-                            </td>
-                            <td>
-                                 <input type="" class="form-control" id="nom" name="nom"/>
+                                 <input type="text" class="form-control" id="Nomlivreur" name="Nomlivreur"/>
                             </td>
                         </tr>
 
@@ -164,16 +157,16 @@
                                   <label class="control-label">saisir la matricule</label>
                             </td>
                             <td>
-                                  <input type="" class="form-control" id="prenom" name="prenom"/>
+                                  <input type="text" class="form-control" id="Matricule" name="Matricule"/>
                             </td>
                         </tr>
 
                         <tr>
                             <td>
-                                 <label>selectionner le secteur</label>
+                                 <label>selectionner la Zone</label>
                             </td>
                             <td>
-                                 <select class="form-control" name="secteur" type="text">
+                                 <select class="form-control" name="Zone" id="Zone" type="text">
                                     <option>Ariana</option>
                                     <option>Béja</option>
                                     <option>Ben Arous</option>
@@ -207,7 +200,7 @@
                                   <label>saisir le numero </label>
                             </td>
                             <td>
-                                  <input id="mail" name="mail"/>
+                                  <input type="text"  class="form-control" id="Numlivreur" name="Numlivreur"/>
                             </td>
                         </tr>
 

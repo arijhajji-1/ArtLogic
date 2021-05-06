@@ -1,10 +1,11 @@
 <?PHP
 include "../../entities/livreur.php";
 include "../../core/livreurC.php";
-
-if (isset($_POST['cin']) and isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['secteur']) and isset($_POST['mail'])){
-$livreur1=new livreur($_POST['cin'],$_POST['nom'],$_POST['prenom'],$_POST['secteur'],$_POST['mail']);
+echo "hell";
+if (isset($_POST['Nomlivreur']) and isset($_POST['Matricule']) and isset($_POST['Zone']) and isset($_POST['Numlivreur'])){
+$livreur1=new livreur($_POST['Nomlivreur'],$_POST['Matricule'],$_POST['Zone'],$_POST['Numlivreur']);
 $livreur1C=new livreurC();
+
 $livreur1C->ajouterlivreur($livreur1);
 header('Location: afficherlivreur.php');
 	

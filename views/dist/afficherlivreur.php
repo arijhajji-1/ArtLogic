@@ -1,4 +1,5 @@
-<?php include "C:/wamp64/www/Artlogic/core/livreurC.php";
+<?php include "../../entities/livreur.php";
+include "../../core/livreurC.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -159,6 +160,9 @@
        <h2> <center> LES LIVREURS DISPONIBLES </center> </h2>
        <form action="trielivreur.php" method="POST">
                         <input type="submit" name="" value="TRIER">
+                        <a type="submit"  href = "pdf.php">PDF</a>
+                        <a type="submit"  href = "Search.php">search</a>
+                        <td>  <a type="submit" class="contact100-form-btn" href = "stat.php">statistiques</a> </td>
        <br>
     </div>
 <div class="table-responsive">
@@ -167,9 +171,9 @@
         <thead>
             <tr>
                 <th>id</th>
-                <th>Nom</th>
+                <th>Nomlivreur</th>
                 <th>matricule</th>
-                <th>Secteur</th>
+                <th>Zone</th>
                 <th>numero</th>
                 <th>SUPPRIMER</th>
                 <th>MODIFIER</th>
@@ -182,18 +186,18 @@ foreach($listelivreurs as $row){
         <tbody>
            
             <tr>
-                <td align="center"><?PHP echo $row['cin']; ?></td>
-                <td align="center"><?PHP echo $row['nom']; ?></td>
-                <td align="center"><?php echo $row['prenom'];?></td>
-                <td align="center"><?PHP echo $row['secteur']; ?></td>
-                <td align="center"><?PHP echo $row['mail']; ?></td>
+                <td align="center"><?PHP echo $row['IDlivreur']; ?></td>
+                <td align="center"><?PHP echo $row['Nomlivreur']; ?></td>
+                <td align="center"><?php echo $row['Matricule'];?></td>
+                <td align="center"><?PHP echo $row['Zone']; ?></td>
+                <td align="center"><?PHP echo $row['Numlivreur']; ?></td>
                 <td align="center">
                     <form method="POST" action="supprimerlivreur.php">
 	                 <input type="submit" name="supprimer" value="supprimer" class="boutton">
-	                 <input type="hidden" value="<?PHP echo $row['cin']; ?>" name="cin">
+	                 <input type="hidden" value="<?PHP echo $row['IDlivreur']; ?>" name="IDlivreur">
 	                </form>
 	            </td>
-	            <td align="center"><a href="modifierlivreur.php?cin=<?PHP echo $row['cin']; ?>">
+	            <td align="center"><a href="modifierlivreur.php?IDlivreur=<?PHP echo $row['IDlivreur']; ?>">
 	Modifier</a></td>
             </tr>
            

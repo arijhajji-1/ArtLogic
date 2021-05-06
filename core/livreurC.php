@@ -1,29 +1,30 @@
 <?PHP
 include_once "../../config.php";
-class livreurC {
+class livreurC{
 function afficherlivreur ($livreur){
-		echo "Cin: ".$livreur->getCin()."<br>";
-		echo "Nom: ".$livreur->getNom()."<br>";
-		echo "Prénom: ".$livreur->getPrenom()."<br>";
-		echo "secteur: ".$livreur->getSecteur()."<br>";
-		echo "mail: ".$livreur->getmail()."<br>";
+		echo "IDlivreur : ".$livreur->getIDlivreur()."<br>";
+		echo "Nomlivreur  : ".$livreur->getNomlivreur()."<br>";
+		echo "Matricule   : ".$livreur->getMatricule()."<br>";
+		echo "Zone  : ".$livreur->getZone()."<br>";
+		echo "Numlivreur: ".$livreur->getNumlivreur()."<br>";
 	}
+
 	function ajouterlivreur($livreur){
-		$sql="insert into livreur (cin,nom,prenom,secteur,mail) values (:cin, :nom,:prenom,:secteur,:mail)";
+		$sql="insert into livreur (Nomlivreur  ,Matricule  ,Zone  ,Numlivreur) values (:Nomlivreur  ,:Matricule  ,:Zone  ,:Numlivreur)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
 		
-        $cin=$livreur->getCin();
-        $nom=$livreur->getNom();
-        $prenom=$livreur->getPrenom();
-        $secteur=$livreur->getSecteur();
-        $mail=$livreur->getmail();
-		$req->bindValue(':cin',$cin);
-		$req->bindValue(':nom',$nom);
-		$req->bindValue(':prenom',$prenom);
-		$req->bindValue(':secteur',$secteur);
-		$req->bindValue(':mail',$mail);		
+        
+        $Nomlivreur  =$livreur->getNomlivreur();
+        $Matricule  =$livreur->getMatricule();
+        $Zone  =$livreur->getZone();
+        $Numlivreur=$livreur->getNumlivreur();
+		
+		$req->bindValue(':Nomlivreur',$Nomlivreur);
+		$req->bindValue(':Matricule',$Matricule);
+		$req->bindValue(':Zone',$Zone);
+		$req->bindValue(':Numlivreur',$Numlivreur);		
             $req->execute();
            
         }
@@ -34,7 +35,7 @@ function afficherlivreur ($livreur){
 	}
 	
 	function afficherlivreurs(){
-		//$sql="SElECT * From livreur e inner join formationphp.livreur a on e.cin= a.cin";
+		//$sql="SElECT * From livreur e inner join formationphp.livreur a on e.IDlivreur = a.IDlivreur ";
 		$sql="SElECT * From livreur";
 		$db = config::getConnexion();
 		try{
@@ -45,11 +46,11 @@ function afficherlivreur ($livreur){
             die('Erreur: '.$e->getMessage());
         }	
 	}
-	function supprimerlivreur($cin){
-		$sql="DELETE FROM livreur where cin= :cin";
+	function supprimerlivreur($IDlivreur ){
+		$sql="DELETE FROM livreur where IDlivreur = :IDlivreur";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':cin',$cin);
+		$req->bindValue(':IDlivreur',$IDlivreur );
 		try{
             $req->execute();
            // header('Location: index.php');
@@ -58,25 +59,25 @@ function afficherlivreur ($livreur){
             die('Erreur: '.$e->getMessage());
         }
 	}
-	/*function modifierlivreur($livreur,$cin){
-		$sql="UPDATE livreur SET cin=:cinn, nom=:nom,prenom=:prenom,secteur=:secteur WHERE cin=:cin";
+	/*function modifierlivreur($livreur,$IDlivreur ){
+		$sql="UPDATE livreur SET IDlivreur =:IDlivreur n, Nomlivreur  =:Nomlivreur  ,Matricule  =:Matricule  ,Zone  =:Zone   WHERE IDlivreur =:IDlivreur ";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
 		$req=$db->prepare($sql);
 		
-		$cinn=$livreur->getCin();
-        $nom=$livreur->getNom();
-        $prenom=$livreur->getPrenom();
-        $secteur=$livreur->getSecteur();
-		$datas = array(':cinn'=>$cinn, ':cin'=>$cin, ':nom'=>$nom,':prenom'=>$prenom,':secteur'=>$secteur,':mail'=>$mail);
-		$req->bindValue(':cinn',$cinn);
-		$req->bindValue(':cin',$cin);
-		$req->bindValue(':nom',$nom);
-		$req->bindValue(':prenom',$prenom);
-		$req->bindValue(':secteur',$secteur);		
-		$req->bindValue(':mail',$mail);
+		$IDlivreur n=$livreur->getIDlivreur ();
+        $Nomlivreur  =$livreur->getNomlivreur  ();
+        $Matricule  =$livreur->getMatricule  ();
+        $Zone  =$livreur->getZone  ();
+		$datas = array(':IDlivreur n'=>$IDlivreur n, ':IDlivreur '=>$IDlivreur , ':Nomlivreur  '=>$Nomlivreur  ,':Matricule  '=>$Matricule  ,':Zone  '=>$Zone  ,':Numlivreur'=>$Numlivreur);
+		$req->bindValue(':IDlivreur n',$IDlivreur n);
+		$req->bindValue(':IDlivreur ',$IDlivreur );
+		$req->bindValue(':Nomlivreur  ',$Nomlivreur  );
+		$req->bindValue(':Matricule  ',$Matricule  );
+		$req->bindValue(':Zone  ',$Zone  );		
+		$req->bindValue(':Numlivreur',$Numlivreur);
 		
             $s=$req->execute();
 			
@@ -89,24 +90,23 @@ try{
         }
 		
 	}*/
-	public function modifierlivreur($livreur,$cin)
+	public function modifierlivreur($livreur,$IDlivreur )
 	{
-	  $sql="UPDATE `livreur` SET `cin`=:cin,`nom`=:nom,`prenom`=:prenom,`secteur`=:secteur,`mail`=:mail WHERE cin = '".$cin."' ;";
+	  $sql="UPDATE `livreur` SET `Nomlivreur`=:Nomlivreur,`Matricule`=:Matricule  ,`Zone`=:Zone  ,`Numlivreur`=:Numlivreur WHERE IDlivreur  = '".$IDlivreur ."' ;";
 
   
 	  $connexion=config::getConnexion();
 	  $rep=$connexion->prepare($sql);
-	  $rep->bindValue(":cin",$livreur->getCin());
-	  $rep->bindValue(":nom",$livreur->getNom());
-	  $rep->bindValue(":mail",$livreur->getMail());
-	  $rep->bindValue(":prenom",$livreur->getPrenom());
-	  $rep->bindValue(":secteur",$livreur->getSecteur());
+	  $rep->bindValue(":Nomlivreur",$livreur->getNomlivreur  ());
+	  $rep->bindValue(":Numlivreur",$livreur->getNumlivreur());
+	  $rep->bindValue(":Matricule",$livreur->getMatricule  ());
+	  $rep->bindValue(":Zone",$livreur->getZone  ());
 	  
 	  $rep->execute();
 
 	}
-	function recupererlivreur($cin){
-		$sql="SELECT * from livreur where cin=$cin";
+	function recupererlivreur($IDlivreur ){
+		$sql="SELECT * from livreur where IDlivreur =$IDlivreur ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -117,7 +117,7 @@ try{
         }
 	}
 	function trieListelivreurs(){
-        $sql="SELECT * From livreur ORDER BY(secteur) ASC";
+        $sql="SELECT * From livreur ORDER BY(Zone  ) ASC";
         $db = config::getConnexion();
         try{
         $liste=$db->query($sql);

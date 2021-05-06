@@ -1,7 +1,7 @@
 <?php include "C:/wamp64/www/Artlogic/core/livraisonC.php";
 ?>
 <!DOCTYPE html>
-<html >
+<html lang="en">
 	<head>
 		<meta charset="utf-8" >
 		<title>ArtLogic</title>
@@ -58,7 +58,8 @@
 
 
 <!-- Form 1 -->
-<div class="content-wrapper">
+
+<section class="form_2 pt-120 pb-120">
 <?PHP
         if(isset($_GET['tri']) and $_GET['tri']=='1')
         {
@@ -107,15 +108,20 @@ foreach($listelivraisons as $row){
                 <td align="center"><?php echo $row['Nomcat'];?></td>
                 <td align="center"><?PHP echo $row['IDclient']; ?></td>
                 <td align="center"><?PHP echo $row['NUMclient']; ?></td>
+                
+            
 
             </tr>
            
         </tbody>
-        </div>
-
-      
-       
-        
+        <?PHP
+    }
+    ?>
+    </table>
+    </center>
+</div>
+</div>
+</section>
 <!-- Footer 1 -->
 
 <footer class="footer_1 bg-light pt-75 pb-65 text-center">
