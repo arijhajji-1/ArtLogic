@@ -102,14 +102,13 @@ class UserC
         $e->getMessage();
     }
 }
-    public function getUser($email,$password) {
+    public function getUser($email) {
         try {
             $pdo = getConnexion();
-            $query = $pdo->prepare('SELECT * FROM users WHERE Email_user = :email && mot_de_passe= :password'
+            $query = $pdo->prepare('SELECT * FROM users WHERE Email_user = :email '
             );
             $query->execute([
                 'email' => $email,
-                'password' => $password
             ]);
             return $query->fetchAll();
         } catch (PDOException $e) {

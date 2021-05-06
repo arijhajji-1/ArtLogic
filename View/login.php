@@ -1,5 +1,7 @@
 <?php
 require_once '../connexion.php';
+require_once('../View/settings.php');
+
 if (isset($_POST['email'])){
     $email_client=$_POST['email'];
     $mot_passe=$_POST['password'];
@@ -98,6 +100,7 @@ if (isset($_POST['email'])){
     <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
 
     <input type="submit" name="submitButton" id="submitButton" value="LOGIN" class="mt-25 btn action-1 w-full"  >
+    <input type="submit" name="submit" id="submit" value="Connect with Gmail"   class="mt-25 btn action-1 w-full" onclick ="window.location ='<?php echo $login_url; ?>'">
 </form>
 </div>
 <!-- Footer 1 -->

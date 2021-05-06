@@ -6,7 +6,7 @@ session_start();
 $email= $_SESSION['email'];
 $pass= $_SESSION['mot_de_passe'];
 $UserC = new UserC();
-$User = $UserC->getUser($email,$pass);
+$User = $UserC->getUser($email);
 if(isset($_POST['sign_out']))
 {
     // session_destroy();
@@ -158,13 +158,16 @@ if(isset($_POST['sign_out']))
                                     <?php
                                     if($liste['Role_user']==1) {
                                         ?>
+                                        <tr>
                                         <td>Tax registration number :</td>
                                         <td><?php echo $liste['matricule_fiscale_user'] ?>
                                         </td>
+                                        </tr>
+                                        <tr>
                                         <td>Type of product :</td>
                                         <td><?php echo $liste['type_produit'] ?>
                                         </td>
-
+                                        </tr>
                                         <?php
                                     }
                                     }
