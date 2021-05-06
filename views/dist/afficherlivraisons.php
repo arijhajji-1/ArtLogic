@@ -58,8 +58,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="ajout livraison.html">Livraison</a>
-                                    <a class="nav-link" href="ajout livraisons.html">livraison</a>
+                                    <a class="nav-link" href="ajout livraison.php">Livraison</a>
+                                    <a class="nav-link" href="ajout livraison.php">livraison</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -137,7 +137,7 @@
                             <li class="breadcrumb-item active">Les livraisons</li>
                         </ol>
                    <div class="content-wrapper">
-    <a href="ajout livraison.html"> <-- Revenir à la page précédente </a></br>
+    <a href="ajout livraison.php"> <-- Revenir à la page précédente </a></br>
         <?PHP
         if(isset($_GET['tri']) and $_GET['tri']=='1')
         {

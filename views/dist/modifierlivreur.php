@@ -134,13 +134,13 @@
                         </ol>
                    <div class="content-wrapper">
 <?PHP
-include_once "C:/wamp64/www/Artlogic/entities/livreur.php";
-include_once "C:/wamp64/www/Artlogic/core/livreurC.php";
+include_once "../../entities/livreur.php";
+include_once "../../core/livreurC.php";
 if (isset($_GET['IDlivreur'])){
 	$livreurC=new livreurC();
     $result=$livreurC->recupererlivreur($_GET['IDlivreur']);
 	foreach($result as $row){
-		$IDlivreur=$row['IDlivreur'];
+		
 		$Nomlivreur=$row['Nomlivreur'];
     $Matricule=$row['Matricule'];
 		$Zone=$row['Zone'];
@@ -164,7 +164,7 @@ if (isset($_GET['IDlivreur'])){
                                <label>Saisir le Nomlivreur</label>
                            </td>
                            <td>
-                               <input type="text" class="form-control" id="warning" name="Nomlivreur" value="<?PHP echo $Nomlivreur ?>"/>
+                               <input type="text" class="form-control" id="Nomlivreur" name="Nomlivreur" value="<?PHP echo $Nomlivreur ?>"/>
                             </td>
                         </tr>
 
@@ -173,7 +173,7 @@ if (isset($_GET['IDlivreur'])){
                                <label>Saisir la matricule</label>
                            </td>
                            <td>
-                               <input type="text" class="form-control" id="error" name="Matricule" value="<?PHP echo $Matricule ?>"/>
+                               <input type="text" class="form-control" id="Matricule" name="Matricule" value="<?PHP echo $Matricule ?>"/>
 				            </td>
                         </tr>    
                         <tr>
@@ -224,7 +224,7 @@ if (isset($_GET['IDlivreur'])){
                             <td></td>
                             <td>
                                 <input type="submit" name="modifier" value="modifier" class="boutton">
-                                <input type="hidden" name="IDlivreur_ini" value="<?PHP echo $_GET['IDlivreur'];?>">
+                                <input type="hidden" name="IDlivreuris" value="<?PHP echo $_GET['IDlivreur'];?>">
                             </td>
                         </tr>
                     </table>

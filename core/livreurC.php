@@ -90,21 +90,31 @@ try{
         }
 		
 	}*/
-	public function modifierlivreur($livreur,$IDlivreur )
-	{
-	  $sql="UPDATE `livreur` SET `Nomlivreur`=:Nomlivreur,`Matricule`=:Matricule  ,`Zone`=:Zone  ,`Numlivreur`=:Numlivreur WHERE IDlivreur  = '".$IDlivreur ."' ;";
-
-  
-	  $connexion=config::getConnexion();
-	  $rep=$connexion->prepare($sql);
-	  $rep->bindValue(":Nomlivreur",$livreur->getNomlivreur  ());
-	  $rep->bindValue(":Numlivreur",$livreur->getNumlivreur());
-	  $rep->bindValue(":Matricule",$livreur->getMatricule  ());
-	  $rep->bindValue(":Zone",$livreur->getZone  ());
-	  
-	  $rep->execute();
-
-	}
+	
+	function modifierlivreur($livreur,$IDlivreur){
+		try {
+			$db = config::getConnexion();
+			$query = $db->prepare(
+				'UPDATE livreur SET
+					Nomlivreur = :Nomlivreur, 
+					Matricule = :Matricule, 
+					Zone = :Zone,
+					Numlivreur = :Numlivreur
+				WHERE IDlivreur = :IDlivreur'
+			);
+			$query->execute([
+				'Nomlivreur' => $livreur->getNomlivreur(),
+				'Matricule' => $livreur->getMatricule(),
+				'Zone' => $livreur->getZone(),
+				'Numlivreur' => $livreur->getNumlivreur(),
+				               
+				'IDlivreur' => $IDlivreur
+			]);
+			echo $query->rowCount() . " records UPDATED successfully <br>";
+		} catch (PDOException $e) {
+			$e->getMessage();
+		}
+	} 
 	function recupererlivreur($IDlivreur ){
 		$sql="SELECT * from livreur where IDlivreur =$IDlivreur ";
 		$db = config::getConnexion();

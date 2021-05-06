@@ -9,17 +9,16 @@ function afficherlivraison ($livraison){
 		echo "NUMclient: ".$livraison->getNUMclient()."<br>";
 	}
 	function ajouterlivraison($livraison){
-		$sql="insert into livraison (IDlivraison,IDproduit,Nomcat,IDclient,NUMclient) values (:IDlivraison, :IDproduit,:Nomcat,:IDclient,:NUMclient)";
+		$sql="insert into livraison (IDproduit,Nomcat,IDclient,NUMclient) values (:IDproduit,:Nomcat,:IDclient,:NUMclient)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
 		
-        $IDlivraison=$livraison->getIDlivraison();
+        
         $IDproduit=$livraison->getIDproduit();
         $Nomcat=$livraison->getNomcat();
         $IDclient=$livraison->getIDclient();
         $NUMclient=$livraison->getNUMclient();
-		$req->bindValue(':IDlivraison',$IDlivraison);
 		$req->bindValue(':IDproduit',$IDproduit);
 		$req->bindValue(':Nomcat',$Nomcat);
 		$req->bindValue(':IDclient',$IDclient);

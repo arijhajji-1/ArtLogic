@@ -1,12 +1,11 @@
 <?PHP
 class livraison{
-	private $IDlivraison;
+	private $IDlivraison=NULL;
 	private $IDproduit;
 	private $Nomcat;
 	private $IDclient;
 	private $NUMclient;
-	function __construct($IDlivraison,$IDproduit,$Nomcat,$IDclient,$NUMclient){
-		$this->IDlivraison=$IDlivraison;
+	function __construct($IDproduit,$Nomcat,$IDclient,$NUMclient){
 		$this->IDproduit=$IDproduit;
 		$this->Nomcat=$Nomcat;
 		$this->IDclient=$IDclient;
