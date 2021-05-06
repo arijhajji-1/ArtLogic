@@ -8,6 +8,15 @@
 {
     $listeevenement=$evenementC->trierEvenement();
 }
+if(isset($_POST['submit1']))
+{
+    $listeevenement=$evenementC->trierEvenement1();
+}
+if(isset($_POST['submit2']))
+{
+    header('Location:../views/evenementStat.php');
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -40,15 +49,16 @@
 				<div >
 		<hr>
         <br>
-		<form class="contact100-form validate-form" action="" method="POST">
-                <span class="contact100-form-title">
+		
+         <h1>Liste Des Evenements</h1>
+		 <br>
+		<form method="POST" action="">
+<button type="submit" id="triDate" name="submit" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par date </button> 
+<button type="submit" id="triDuree" name="submit1" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par Duree </button>
+<button type="submit" id="triDuree" name="submit2" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> Stat par Duree </button>
 
-               Liste des Evenement
-                </span> 
-
-             <p> <form method="POST" action="">
-                <input type="submit" name="submit" value="trier" > 
-               </form> </p>   
+        </form> 
+                 
 		<table   >
         
 			<tr >
@@ -78,6 +88,7 @@
 					<td ><img src="../assets/img/<?PHP echo $image ?>" alt="Texte Alternatif" width="100" height="100"> </td> <!-- affichage -->
 					
 					<td >
+
 						<form method="POST" action="../views/evenementDelete.php">
 						<input type="submit" name="supprimer" value="supprimer">
 						<input type="hidden" value=<?PHP echo $Evenenement['IdEvenement']; ?> name="IdEvenement">
@@ -91,7 +102,12 @@
 				}
 			?>
             
-		</table>         
+		</table>   
+		<br>
+		<form class="form-inline" method="post" action="../libs/generate_pdf.php">
+<button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>Generate PDF</button> 
+        </form> 
+		   
             <!-- footer -->
             <?php include_once 'footer.php'; ?>       
     </body>

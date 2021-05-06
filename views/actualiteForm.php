@@ -29,11 +29,14 @@
                 $_POST['ImageActualite'],       
             );
             $actualiteC->ajouterActualite($Actualite);
+            mail('assyl.kriaa@esprit.com','Un Ajout au table Actualite','Une nouvelle entite Actualite est ajouter il y a quelques secondes ','From: assyl.kriaa@esprit.tn');
            header('Location:../views/actualiteView.php');
         }
         else
             $error = "Missing information";
     }  
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -83,6 +86,7 @@
                           <input type="file" name="ImageActualite" id="ImageActualite">
                           <div class="btn-block">
                             <button type="submit" name="submit" value="submit"  onclick="return okEvent();" >Add</button>
+                            
                           </div>
                           
                         </form>

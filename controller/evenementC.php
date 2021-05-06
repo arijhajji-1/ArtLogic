@@ -7,7 +7,7 @@
 		function ajouterEvenement($Evenenement){
 			$sql="INSERT INTO evenement (TitreEvenement, LieuEvenement, DateEvenement,DureeEvenement,DescriptionEvenement,ImageEvenement) 
 			VALUES (:TitreEvenement,:LieuEvenement,:DateEvenement, :DureeEvenement, :DescriptionEvenement, :ImageEvenement)";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			try{
 				$query = $db->prepare($sql);
 				$query->execute([
@@ -26,7 +26,7 @@
 		
 		function afficherEvenement(){
 			$sql="SELECT * FROM evenement";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			try{
 				$liste = $db->query($sql);
 				return $liste;
@@ -38,7 +38,7 @@
 
 		function supprimerEvenement($IdEvenement){
 			$sql="DELETE FROM evenement WHERE IdEvenement= :IdEvenement";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			$req=$db->prepare($sql);
 			$req->bindValue(':IdEvenement',$IdEvenement);
 			try{
@@ -52,7 +52,7 @@
 			
 			try {
 				echo $Evenenement->getTitreEvenement();
-				$db = config::getConnexion();
+				$db = getConnexion();
 				$query = $db->prepare(
 					'UPDATE evenement SET 
 						TitreEvenement = :TitreEvenement, 
@@ -81,7 +81,7 @@
 
 		function recupererEvenement($IdEvenement){
 			$sql="SELECT * from evenement where IdEvenement=$IdEvenement";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			try{
 				$query=$db->prepare($sql);
 				$query->execute();
@@ -97,7 +97,20 @@
 		function trierEvenement(){
 			
 			$sql="SELECT * FROM evenement order by DateEvenement";
-			$db = config::getConnexion();
+			$db = getConnexion();
+			try{
+				$liste = $db->query($sql);
+				return $liste;
+			}
+			catch (Exception $e){
+				die('Erreur: '.$e->getMessage());
+			}	
+		}
+		
+		function trierEvenement1(){
+			
+			$sql="SELECT * FROM evenement order by DureeEvenement";
+			$db = getConnexion();
 			try{
 				$liste = $db->query($sql);
 				return $liste;
@@ -109,7 +122,7 @@
 
 		function recupererEvenement1($IdEvenement){
 			$sql="SELECT * from evenement where IdEvenement=$IdEvenement";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			try{
 				$query=$db->prepare($sql);
 				$query->execute();

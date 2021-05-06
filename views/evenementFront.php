@@ -35,23 +35,28 @@
 
 
 <!-- Contient  -->
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+</style>
 
-
-<body class="w3-light-grey w3-content" style="max-width:3000px">
+<body >
     <?php include_once 'headerfront.php'; ?>
 	<?PHP
 				foreach($listeevenement as $Evenenement){
 			    $image = $Evenenement['ImageEvenement']; // source iamge
+                
 		?>
-	<div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
-	<img src="../assets/img/<?PHP echo $image ?>" alt="Texte Alternatif" width="300" height="300">
-      <div class="w3-container w3-white">
+	<div class="content" >
+      <div class="w3-container w3-light-grey">
+	   <img src="../assets/img/<?PHP echo $image ?>" alt="Texte Alternatif" width="300" height="300">
         <p><b><?PHP echo $Evenenement['TitreEvenement']; ?></b></p>
         <p><?PHP echo $Evenenement['DateEvenement']; ?> |<?PHP echo $Evenenement['DureeEvenement']; ?> jour(s) <br> Description: <br> <?PHP echo $Evenenement['DescriptionEvenement']; ?></p>
-      </div>
-     </div>
-	 
+		<div> __________________________________________________  </div>
+		<br>
+		</div >
     </div>		
 	<?PHP } ?>	
         

@@ -35,6 +35,7 @@
                 $_POST['ImageEvenement'],       
             );
             $EvenementC->ajouterEvenement($Evenenement);
+            mail('assyl.kriaa@esprit.com','Un Ajout au table Evenement','Une nouvelle entite Evenement est ajouter il y a quelques secondes ','From: assyl.kriaa@esprit.tn');
            header('Location:../views/evenementView.php');
         }
         else

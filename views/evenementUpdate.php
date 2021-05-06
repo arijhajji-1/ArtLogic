@@ -35,7 +35,7 @@
 			);
 			
             $evenementC->modifierEvenement($Evenenement, $_GET['IdEvenement']);
-            header('refresh:5;url=../views/evenementView.php');
+            header('Location:../views/evenementView.php');
         }
         else
         $error = "Missing information";

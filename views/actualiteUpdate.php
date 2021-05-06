@@ -29,7 +29,7 @@
 			);
 			
             $actualiteC->modifierActualite($Actualite, $_GET['IdActualite']);
-            header('refresh:5;url=../views/actualiteView.php');
+            header('Location:../views/actualiteView.php');
         }
         else
         $error = "Missing information";

@@ -3,11 +3,22 @@
 
 	$actualiteC=new actualiteC();
 	$listeactualite=$actualiteC->afficherActualite();
-	if(isset($_POST['submit']))
+if(isset($_POST['submi']))
+{
+    $listeactualite=$actualiteC->afficherActualite();
+}
+if(isset($_POST['submit']))
 {
     $listeactualite=$actualiteC->trierActualite();
 }
-
+if(isset($_POST['submit1']))
+{
+    $listeactualite=$actualiteC->trierActualite1();
+}
+if(isset($_POST['submit2']))
+{
+    $listeactualite=$actualiteC->afficherActualite2();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,15 +49,13 @@
 				<div >
 		<hr>
         <br>
-		<form class="contact100-form validate-form" action="" method="POST">
-                <span class="contact100-form-title">
-
-               Liste des actualite
-                </span> 
-
-             <p> <form method="POST" action="">
-                <input type="submit" name="submit" value="trier" > 
-               </form> </p>  
+		<h1>Liste Des Actualites</h1> 
+		<form method="POST" action="">
+<button type="submit" id="trititre" name="submi" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> afficher les News  </button>
+<button type="submit" id="triDate" name="submit" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par date </button> 
+<button type="submit" id="trititre" name="submit1" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par titre </button>
+<button type="submit" id="trititre" name="submit2" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> afficher les News en meme temp Event </button>
+        </form>   
 		<table   >
         
 			<tr >
@@ -85,7 +94,11 @@
 				}
 			?>
             
-		</table>         
+		</table> 
+		<br>
+		<form class="form-inline" method="post" action="../libs/generate_pdfActualite.php">
+<button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>Generate PDF</button> 
+        </form>         
             <!-- footer -->
             <?php include_once 'footer.php'; ?>       
     </body>

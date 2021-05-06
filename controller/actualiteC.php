@@ -7,7 +7,7 @@
 		function ajouterActualite($Actualite){
 			$sql="INSERT INTO actualite (TitreActualite, DateActualite, DescriptionActualite,ImageActualite) 
 			VALUES (:TitreActualite,:DateActualite, :DescriptionActualite, :ImageActualite)";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			try{
 				$query = $db->prepare($sql);
 				$query->execute([
@@ -24,7 +24,20 @@
 		
 		function afficherActualite(){
 			$sql="SELECT * FROM actualite";
-			$db = config::getConnexion();
+			$db = getConnexion();
+			try{
+				$liste = $db->query($sql);
+				return $liste;
+			}
+			catch (Exception $e){
+				die('Erreur: '.$e->getMessage());
+			}	
+			
+		}
+
+		function afficherActualite2(){
+			$sql="SELECT * FROM actualite INNER JOIN evenement ON actualite.DateActualite = evenement.DateEvenement AND actualite.TitreActualite = evenement.TitreEvenement ";
+			$db = getConnexion();
 			try{
 				$liste = $db->query($sql);
 				return $liste;
@@ -37,7 +50,19 @@
         function trierActualite(){
 			
 			$sql="SELECT * FROM actualite order by DateActualite";
-			$db = config::getConnexion();
+			$db = getConnexion();
+			try{
+				$liste = $db->query($sql);
+				return $liste;
+			}
+			catch (Exception $e){
+				die('Erreur: '.$e->getMessage());
+			}	
+		}
+		function trierActualite1(){
+			
+			$sql="SELECT * FROM actualite order by TitreActualite";
+			$db = getConnexion();
 			try{
 				$liste = $db->query($sql);
 				return $liste;
@@ -49,7 +74,7 @@
 
 		function supprimerActualite($IdActualite){
 			$sql="DELETE FROM actualite WHERE IdActualite= :IdActualite";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			$req=$db->prepare($sql);
 			$req->bindValue(':IdActualite',$IdActualite);
 			try{
@@ -63,7 +88,7 @@
 			
 			try {
 				echo $Actualite->getTitreActualite();
-				$db = config::getConnexion();
+				$db = getConnexion();
 				$query = $db->prepare(
 					'UPDATE actualite SET 
 						TitreActualite = :TitreActualite,
@@ -88,7 +113,7 @@
 
 		function recupererActualite($IdActualite){
 			$sql="SELECT * from actualite where IdActualite=$IdActualite";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			try{
 				$query=$db->prepare($sql);
 				$query->execute();
@@ -103,7 +128,7 @@
 
 		function recupererActualite1($IdActualite){
 			$sql="SELECT * from actualite where IdActualite=$IdActualite";
-			$db = config::getConnexion();
+			$db = getConnexion();
 			try{
 				$query=$db->prepare($sql);
 				$query->execute();

@@ -1,6 +1,6 @@
 <header> 
  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <img src="../logo.png" alt="" height="65" width="150" href="../index.html" >
+            <img src="../assets/img/logo.png" alt="" height="65" width="150" href="../index.html" >
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item dropdown">
