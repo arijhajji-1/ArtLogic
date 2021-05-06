@@ -218,13 +218,18 @@ if (isset($_GET['Id_produit'])) {
 
                Liste des Produits
                 </span> 
+                
+              
 
              <p> <form method="POST" action="">
-                <input type="submit" name="submit" value="trier" >
-                <input type="submit" name="submit2" value="trierD">
-                <a type="button" class="contact100-form-btn" href = "rechercherproduit1.php">rechercher</a>  
-                <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  
-
+             <table>
+               <tr> 
+              <td>  <input type="submit" name="submit" value="trier" class="contact100-form-btn" > </td>
+               <td> <input type="submit" name="submit2" value="trierD"  class="contact100-form-btn"> </td>
+              <td>  <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  </td>
+             <td>  <a type="submit" class="contact100-form-btn" href = "Search.php">search</a> </td>
+             </tr>
+           </table>
                 
                </form> </p>   
             
@@ -322,4 +327,5 @@ foreach ($produit as $produit) {
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
     </body>
-</html>
+</html> 
+

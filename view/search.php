@@ -1,25 +1,12 @@
 <?php
-include_once '../controller/produitC.php';
-include_once '../model/produit.php'; 
-$produitC = new produitC(); 
 
-
-
-
-
-if (isset($_GET['Id_produit'])) {
-  $produitC->supprimerproduit($_GET['Id_produit']);
-  header('Location:afficherproduit1.php');
-}
-
-
-
-
+require_once '../controller/produitC.php';
+require_once '../model/produit.php';
+$produitC = new produitC();
+$produit = $produitC->afficherproduit();
 
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,31 +17,36 @@ if (isset($_GET['Id_produit'])) {
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Artlogic Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+       
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-            <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/noui/nouislider.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/util.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
 <!--===============================================================================================-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
@@ -71,7 +63,7 @@ if (isset($_GET['Id_produit'])) {
     </head>
    <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <img src="../logo.png" alt="" height="150" width="150" href="index.html" >
+            <img src="logo.png" alt="" height="150" width="150" href="index.html" >
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -116,19 +108,7 @@ if (isset($_GET['Id_produit'])) {
                                     <a class="nav-link" href="layout-static.html">Livraison</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                                 </nav>
-                            </div> 
-
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
-                              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                              Produits
-                              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                          </a>
-                          <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                              <nav class="sb-sidenav-menu-nested nav">
-                              <a class="nav-link" href="afficherproduit1.php">Produits</a>
-                                  <a class="nav-link" href="affichercategorie1.php">catégories</a>
-                              </nav>
-                          </div>
+                            </div>
 
                             
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
@@ -138,8 +118,8 @@ if (isset($_GET['Id_produit'])) {
                             </a>
                             <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="list.html">List</a>
-                                    <a class="nav-link" href="promo.html">promo</a>
+                                    <a class="nav-link" href="list.php">List</a>
+                                    <a class="nav-link" href="promo.php">promo</a>
                                 </nav>
                             </div>
                              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts7" aria-expanded="false" aria-controls="collapseLayouts7">
@@ -202,105 +182,45 @@ if (isset($_GET['Id_produit'])) {
                 </nav>
             </div>
  <div class="container-contact100">
-        <div class="">
-      <form class="contact100-form validate-form" action="" method="POST">
+                   <div class="wrap-contact100">
+      <!--<form class="contact100-form validate-form" >-->
                 <span class="contact100-form-title">
 
-               Liste des Produits
-                </span> 
+                  recherche Produits
+                </span>
 
-             <p> <form method="POST" action="">
-               <input type="text" name="Couleur" value="" >
-                <input type="submit" name="submit" value="rechercher" >
-               
-                
-               </form> </p>   
-               <?php
-                if(isset($_POST['submit']))
-                {
-                     $result=$produitC->rechercherproduit($_POST['Couleur']);
-                
-                if($result!==false)
-                {
+ 
+                <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+                </div>
+                </div>
+<br />
+            <div id="result"></div>
+      
+        <div style="clear:both"></div>
+        <br />
+        
+        <br />
+        
+        <br />
+        <br />
+        <br />
 
-               ?>
-                       
-         
-     
 
-              
-                
-        <table class="table custom-table">
-          <thead>
-            <tr>  
-
-              
-           
-              <th scope="col">id</th>
-              <th scope="col">NomP</th>
-              <th scope="col">date</th>
-              <th scope="col">description</th>
-              <th scope="col">genre</th> 
-              <th scope="col">Couleur</th>  
-              <th scope="col">Taille</th> 
-              <th scope="col">poids</th>
-                            <th scope="col">Prix</th>
-                            <th scope="col">Quantite</th> 
-                            <th scope="col">image</th> 
-                            <th> </th>
-
-            </tr>
-            <?php
-foreach ($result as $produit) {
-?> 
-<tr>
-                                   <td> <?php echo $produit['Id_produit'] ?> </td>
-                                   <td> <?php echo $produit['NomP'] ?> </td>
-                                  <td>  <?php echo $produit['DateA'] ?> </td>
-                                <td>  <?php  echo $produit['Description1'] ?> </td>
-                                 <td>  <?php echo $produit['Genre'] ?> </td>
-                                    <td>  <?php  echo $produit['Couleur'] ?> </td>
-                                     <td>  <?php  echo $produit['Taille'] ?> </td>
-                                     
-                                <td>  <?php  echo $produit['poids'] ?> </td>
-                                <td>  <?php  echo $produit['Prix'] ?> </td> 
-                                <td>  <?php  echo $produit['Quantite'] ?> </td> 
-                                <td> <img src="../image/<?= $produit['image'] ?>"height="50" width="50"</td> 
-             <td><a type="button" class="contact100-form-btn" href = "afficherproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Supprimer</a></td>  
-             <td><a type="button" class="contact100-form-btn" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">modifier</a></td>                            
-
-                               
-
+</div>
        
-</tr> 
-
-
-
-
-
-
-<?php
-        }
-    }
-}
-        ?>
-
-          
-          
-        </table>
-      </div>
-
-
     </div>
 
   </div>
     
-    
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -317,14 +237,36 @@ foreach ($result as $produit) {
                 </footer>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
+     
     </body>
 </html>
+    
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(query)
+    {
+        $.ajax({
+            url:"rech.php",
+            method:"post",
+            data:{query:query},
+            success:function(data)
+            {
+                $('#result').html(data);
+            }
+        });
+    }
+    
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();            
+        }
+    });
+});
+</script>
