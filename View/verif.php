@@ -37,8 +37,7 @@ else
 </head>
 
 <body>
-<img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="ArtLogic" />
-<section class="form_1 pt-120 pb-120">
+<a href="index.html" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a><section class="form_1 pt-120 pb-120">
 
     <div class="container px-xl-0">
       <h2>Bienvenue sur ArtLogic</h2>.

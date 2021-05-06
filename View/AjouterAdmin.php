@@ -6,8 +6,9 @@ $UserC =  new UserC();
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email'])  && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
     $role = 2;
     if($role == 2)
-    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], "2", $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone']);}
-    $sql="SELECT * FROM users WHERE Email_user='" . $_POST['email'] . "' && pseudo_user = '". $_POST['pseudo']."'";
+    {$Vkey=md5(time().$_POST['nom']);
+        $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], "2", $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$Vkey);}
+    $sql="SELECT * FROM users WHERE Email_user='" . $_POST['email'] . "' || pseudo_user = '". $_POST['pseudo']."'";
     $db = getConnexion();
     try{
 
@@ -16,7 +17,31 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email'])  &
         $count=$query->rowCount();
         if($count==0){
             $user=$query->fetch();
-            $UserC->ajouterUser($User);
+
+
+            $to =$_POST['email'];
+            $subject = 'Welcome to ArtLogic  ';
+            $message = $message = 'Bienvenue sur ArtLogic,
+ 
+Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
+ou copier/coller dans votre navigateur Internet.
+ 
+http://localhost:63342/ArtLogic/View/verif.php?vkey='.urlencode($Vkey).'
+ 
+ 
+---------------
+Ceci est un mail automatique, Merci de ne pas y répondre.';
+            $from = 'From: fourat.halaoua@esprit.tn';
+
+            if (mail($to, $subject, $message,$from)) {
+                echo 'Your mail has been sent successfully.';
+                $UserC->ajouterUser($User);
+            } else {
+                echo 'Unable to send email. Please try again.';
+            }
+
+
+
 
             header('Location:administrateur.php');
         }
