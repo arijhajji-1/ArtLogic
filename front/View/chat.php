@@ -7,15 +7,15 @@ session_start();
 $pseudo=$_SESSION['pseudo_user'];
 $id=$_SESSION['id_user'];
 
-if(isset($_SESSION['id_user'])&&isset($_POST['msg'])&&!empty($_POST['msg']))
+if(isset($_SESSION['id_user'])&&isset($_SESSION['pseudo_user'])&&isset($_POST['msg'])&&!empty($_POST['msg']))
 {
 
 	$msg=htmlspecialchars($_POST['msg']);
 	
 	//$msg=$_SESSION['id_user'];
 	
-	$insertmsg=$pdo->prepare('INSERT INTO messages (msg, id) values (?,?)');
-$insertmsg->execute(array ($msg,$id));
+	$insertmsg=$pdo->prepare('INSERT INTO messages (msg, id,pseudo) values (?,?,?)');
+$insertmsg->execute(array ($msg,$id,$pseudo));
 header('location:chat.php');
 }
 
@@ -93,7 +93,7 @@ header('location:chat.php');
         <div class="col-md-5">
             <div class="panel panel-primary">
                 <div class="panel-heading" id="accordion">
-                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <span class="glyphicon glyphicon-comment"></span> Forum de Discussion 
                     <div class="btn-group pull-right">
                         <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                             <span class="glyphicon glyphicon-chevron-down"></span>
@@ -115,10 +115,10 @@ while($msg =$allmsg->fetch())
 
 
 ?>
-                        
+                        <section id="messages">
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong class="primary-font"><?php echo $pseudo ; ?></strong> <small class="pull-right text-muted">
+                                    <strong class="primary-font"><?php echo $msg['pseudo'] ; ?></strong> <small class="pull-right text-muted">
                                         <span class="glyphicon glyphicon-time"></span><?php echo $msg['date_message']; ?></small>
                                 </div>
                                 <p><?php echo $msg['msg']; ?></p>
@@ -129,7 +129,7 @@ while($msg =$allmsg->fetch())
 }
 ?>
                 </div>
- 
+ </section>
                 <div class="panel-footer">
                     <div class="input-group">
                         <input id="btn-input" type="text" name="msg" id="messages" class="form-control input-sm" placeholder="Type your message here..." />
@@ -152,12 +152,11 @@ while($msg =$allmsg->fetch())
 </form>
 
 
-
 <script type="text/javascript">
-	setInterval('load_message()',500);
+	setInterval('load_message()',5000);
 	function load_message()
 	{
-		$('#messages').load('chat.php');
+		$('#messages').load('loadMessages.php');
 	}
 </script>
 
