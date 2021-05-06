@@ -11,14 +11,19 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
    else if($role == 0)
    {$Vkey=md5(time().$_POST['nom']);
        $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$Vkey);}
-    $sql="SELECT * FROM users WHERE Email_user='" . $_POST['email'] . "' && pseudo_user = '". $_POST['pseudo']."'";
+    $SecretKey = '6LfH5MYaAAAAAAjsaVxuXQK4GxM_2vUHTMhrkH04';
+    $reponseKey = $_POST['g-recaptcha-response'];
+    $serverIP = $_SERVER['REMOTE_ADDR'];
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret=$SecretKey&reponse=$reponseKey&remotip=$serverIP";
+    $reponse = file_get_contents($url);
+   $sql="SELECT * FROM users WHERE Email_user='" . $_POST['email'] . "' || pseudo_user = '". $_POST['pseudo']."'";
     $db = getConnexion();
     try{
 
         $query=$db->prepare($sql);
         $query->execute();
         $count=$query->rowCount();
-        if($count==0){
+        if($count==0 && $reponseKey == true){
             $user=$query->fetch();
 
 
@@ -36,7 +41,6 @@ http://localhost:63342/ArtLogic/View/verif.php?vkey='.urlencode($Vkey).'
 Ceci est un mail automatique, Merci de ne pas y répondre.';
             $from = 'From: fourat.halaoua@esprit.tn';
 
-// Sending email
             if (mail($to, $subject, $message,$from)) {
                 echo 'Your mail has been sent successfully.';
                 $UserC->ajouterUser($User);
@@ -49,14 +53,13 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
             $message = 'Hi, Your account is now live, which means you are ready to buy and sell items in our Website!';
             $from = 'fourat.halaoua@esprit.tn';
 
-// Sending email
             if (mail($to, $subject, $message)) {
                 echo 'Your mail has been sent successfully.';
             } else {
                 echo 'Unable to send email. Please try again.';
             }
 
-            //header('Location:index.html');
+            header('Location:index.html');
         }
 
     }
@@ -166,6 +169,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
                 <div class="mb-20 input_holder">
                     <input type="password" name="mot_de_passe" minlength="8" placeholder="Your password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                 </div>
+            <div  class="g-recaptcha" data-sitekey="6LfH5MYaAAAAAORmnuU0u-zLxZGW0npcAS_HnGzJ"></div>
                         <div>
                 <input type="submit" value="Create an Account" name = "submit"  class="mt-25 btn action-1 w-full"   >
             </div>
@@ -218,7 +222,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
         });
     });
 </script>
-
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 </body>
 
 </html>
