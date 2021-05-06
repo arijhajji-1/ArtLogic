@@ -17,7 +17,7 @@ $produit = $produitC->afficherproduit();
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Artlogic Admin</title>
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
        
@@ -45,8 +45,8 @@ $produit = $produitC->afficherproduit();
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../vendor/noui/nouislider.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../css/util.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
@@ -63,7 +63,7 @@ $produit = $produitC->afficherproduit();
     </head>
    <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <img src="logo.png" alt="" height="150" width="150" href="index.html" >
+            <img src="../logo.png" alt="" height="150" width="150" href="index.html" >
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -217,10 +217,10 @@ $produit = $produitC->afficherproduit();
     
 
 
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -237,7 +237,9 @@ $produit = $produitC->afficherproduit();
                 </footer>
             </div>
         </div>
-     
+        
+        <script src="js/scripts.js"></script>
+       
     </body>
 </html>
     

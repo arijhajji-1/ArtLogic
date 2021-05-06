@@ -1,35 +1,12 @@
 <?php
-include_once '../controller/produitC.php';
-include_once '../model/produit.php'; 
-$produitC = new produitC(); 
-$produit=$produitC->afficherproduit(); 
-
-if(isset($_POST['submit']))
-{
-    $produit=$produitC->trierproduit();
-}
-elseif(isset($_POST['submit2']))
-{
-    $produit=$produitC->trierproduitdesc();
-}
 
 
-
-
-
-if (isset($_GET['Id_produit'])) {
-  $produitC->supprimerproduit($_GET['Id_produit']);
-  header('Location:afficherproduit1.php');
-}
-
-
-
-
+$connect = mysqli_connect("localhost", "root", "", "yahya");  
+$query = "SELECT Genre, count(*) as number FROM produit GROUP BY Genre";  
+$result = mysqli_query($connect, $query);  
 
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,9 +18,40 @@ if (isset($_GET['Id_produit'])) {
         <meta name="author" content="" />
         <title>Artlogic Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+           <script type="text/javascript">  
+           google.charts.load('current', {'packages':['corechart']});  
+           google.charts.setOnLoadCallback(drawChart);  
+           function drawChart()  
+           {  
+                var data = google.visualization.arrayToDataTable([  
+                          ['Genre', 'Number'],  
+                          <?php  
+                          while($row = mysqli_fetch_array($result))  
+                          {  
+                               echo "['".$row["Genre"]."', ".$row["number"]."],";  
+                          }  
+                          ?>  
+                     ]);  
+                var options = {  
+                      title: 'Percentage des catégories',  
+                      //is3D:true,  
+                      pieHole: 0.4  
+                     };  
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));  
+                chart.draw(data, options);  
+           }  
+           </script>  
+
+       
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-            <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -126,19 +134,7 @@ if (isset($_GET['Id_produit'])) {
                                     <a class="nav-link" href="layout-static.html">Livraison</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                                 </nav>
-                            </div> 
-
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
-                              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                              Produits
-                              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                          </a>
-                          <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                              <nav class="sb-sidenav-menu-nested nav">
-                              <a class="nav-link" href="afficherproduit1.php">Produits</a>
-                                  <a class="nav-link" href="affichercategorie1.php">catégories</a>
-                              </nav>
-                          </div>
+                            </div>
 
                             
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
@@ -148,8 +144,8 @@ if (isset($_GET['Id_produit'])) {
                             </a>
                             <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="list.html">List</a>
-                                    <a class="nav-link" href="promo.html">promo</a>
+                                    <a class="nav-link" href="list.php">List</a>
+                                    <a class="nav-link" href="promo.php">promo</a>
                                 </nav>
                             </div>
                              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts7" aria-expanded="false" aria-controls="collapseLayouts7">
@@ -211,92 +207,36 @@ if (isset($_GET['Id_produit'])) {
                     </div>
                 </nav>
             </div>
- <div class="container-contact100">
-        <div class="">
-      <form class="contact100-form validate-form" action="" method="POST">
-                <span class="contact100-form-title">
 
-               Liste des Produits
-                </span> 
-                
-              
-
-             <p> <form method="POST" action="">
-             <table>
-               <tr> 
-              <td>  <input type="submit" name="submit" value="trier" class="contact100-form-btn" > </td>
-               <td> <input type="submit" name="submit2" value="trierD"  class="contact100-form-btn"> </td>
-              <td>  <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  </td>
-             <td>  <a type="submit" class="contact100-form-btn" href = "Search.php">search</a> </td>
-             <td>  <a type="submit" class="contact100-form-btn" href = "stat.php">stat</a> </td>
-             </tr>
-           </table>
-                
-               </form> </p>   
+           
+           
+            <div style="width:900px;">  
+                <h3 align="center">Statistique</h3>  
+                <br />  
+                <div id="piechart" style="width: 900px; height: 500px;"></div>  
+                  </div>  
             
-     
-
-              
-                
-        <table class="table custom-table">
-          <thead>
-            <tr>  
-
-              
-              
-              <th scope="col">id</th>
-              <th scope="col">NomP</th>
-              <th scope="col">date</th>
-              <th scope="col">description</th>
-              <th scope="col">genre</th> 
-              <th scope="col">Couleur</th>  
-              <th scope="col">Taille</th> 
-              <th scope="col">poids</th>
-                            <th scope="col">Prix</th>
-                            <th scope="col">Quantite</th> 
-                            <th scope="col">image</th> 
-                            <th> </th>
-
-            </tr>
-            <?php
-foreach ($produit as $produit) {
-?> 
-<tr>
-                                   <td> <?php echo $produit['Id_produit'] ?> </td>
-                                   <td>  <?php echo $produit['NomP'] ?> </td>
-                                  <td>  <?php echo $produit['DateA'] ?> </td>
-                                <td>  <?php  echo $produit['Description1'] ?> </td>
-                                 <td>  <?php echo $produit['Genre'] ?> </td>
-                                    <td>  <?php  echo $produit['Couleur'] ?> </td>
-                                     <td>  <?php  echo $produit['Taille'] ?> </td>
-                                     
-                                <td>  <?php  echo $produit['poids'] ?> </td>
-                                <td>  <?php  echo $produit['Prix'] ?> </td> 
-                                <td>  <?php  echo $produit['Quantite'] ?> </td> 
-                                <td> <img src="../image/<?= $produit['image'] ?>"height="50" width="50"</td> 
-             <td><a type="button" class="contact100-form-btn" href = "afficherproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Supprimer</a></td>  
-             <td><a type="button" class="contact100-form-btn" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">modifier</a></td>                            
-
-                               
-
-       
-</tr> 
-
-<?php
-        }
-        ?>
-
-          
-          
-        </table>
-      </div>
+           
+ 
 
 
-    </div>
+
+
+            
+        <br />
+        
+        <br />
+        
+        <br />
+        <br />
+        <br />
+
+
+
 
   </div>
     
-    
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -328,5 +268,5 @@ foreach ($produit as $produit) {
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
     </body>
-</html> 
-
+</html>
+  
