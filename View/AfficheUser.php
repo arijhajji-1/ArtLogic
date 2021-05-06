@@ -61,6 +61,7 @@ if(isset($_POST['sign_out']))
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Startup 3 CSS (Styles for all blocks) -->
     <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/profile.css" rel="stylesheet" id="bootstrap-css" />
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -91,103 +92,105 @@ if(isset($_POST['sign_out']))
 
 
     <section class="form_1 pt-120 pb-120">
-        <?php
-        foreach ($User as $user)
-        {
-        ?>
-        <div class="container px-xl-0">
-            <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
-                <h2 class="mb-40 small text-center">Profile</h2>
-                <div class="mb-20 input_holder">
-                    <input type="text" name="nom" value="<?= $user['nom_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
-                </div>
-                <div class="mb-20 input_holder" >
-                    <input type="text" name="prenom" value="<?= $user['prenom_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
-                </div>
-                <div class="mb-20 input_holder" >
-                    <input type="email" name="email" value="<?= $user['Email_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
-                <div class="mb-20 input_holder">
-                    <input type="text" name="pseudo" value="<?= $user['pseudo_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
-                <div class="mb-20 input_holder">
-                    <select name="sexe" id="sexe_user" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
-                        <option value="<?= $user['sexe_user']?>"><?php
-                            if($user['sexe_user'] == "male")
-                                echo "Male";
-                            else if(($user['sexe_user'] =="female"))
-                                echo "Female";
-                            ?></option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-                <div class="mb-20 input_holder">
-                    <input type="date" id="start" name="date_de_naissance" value="<?= $user['date_de_naissance_user']?>"
-                           min="1950-01-01" max="2003-04-22" class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
-                </div>
-                <div class="mb-20 input_holder">
-                    <input type="tel" name="numero_telephone" value="<?= $user['numero_telephone_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
-                <div class="mb-20 input_holder" >
-                    <select name="role" id="role_user" onchange = "ShowHideDiv()" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
-                        <option value="<?= $user['Role_user']?>"><?php
-                            if($user['Role_user'] == "0")
-                                echo "Client";
-                            else if(($user['Role_user'] =="1"))
-                                echo "Seller";
-                            ?></option>
-                        <option value="0">Client</option>
-                        <option value="1">Seller</option>
-                    </select>
-                </div>
-                <?php
-                            if($user['Role_user'] == "0") {
-                                ?>
-                                <div id="matricule_fiscale" style="display: none" class="mb-20 input_holder">
-                                    <input type="text" name="Matricule_fiscale"
-                                           value="0" placeholder="Registration number"
-                                    class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                                </div>
-                                <div id="type_produit" style="display: none" class="mb-20 input_holder">
-                                    <input type="text" name="Type_produit"
-                                           value="NULL" placeholder="Product type" class="input
-                                    border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                                </div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+                    <div class="panel panel-info" >
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Profile</h4>
+                        </div>
+                        <br>
+                        <div class="panel-body">
+                            <div class="row">
+
+
                                 <?php
-                            }if($user['Role_user'] == "1")
-                {?>
-                    <div id="matricule_fiscale"  class="mb-20 input_holder">
-                                    <input type="text" name="Matricule_fiscale"
-                                           value=<?= $user['matricule_fiscale_user'] ?> placeholder="Registration number" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-        </div>
-        <div id="type_produit"  class="mb-20 input_holder">
-            <input type="text" name="Type_produit"  value=<?= $user['type_produit'] ?> placeholder="Product type" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-        </div>
-                <?php
-                }
-        ?>
-                <div class="mb-20 input_holder">
-                    <input type="text" name="adresse" value="<?= $user['adresse_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                foreach ($User as $liste)
+                                {
+
+                                ?>
+                                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="../i/<?php echo $liste['image']?>" width="75"  height="75" class="img-circle img-responsive"> </div>
+                                <div class=" col-md-9 col-lg-9 ">
+                                    <table class="table table-user-information">
+                                        <tbody>
+                                        <tr>
+                                            <td>Role:</td>
+                                            <td><?php
+                                            if($liste['Role_user']==0)
+                                                echo "Client";
+                                                else
+                                                    echo "Seller";   ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Creation date:</td>
+                                            <td><?php echo $liste['cree_a_user'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date of Birth</td>
+                                            <td><?php echo $liste['date_de_naissance_user'] ?></td>
+                                        </tr>
+
+                                        <tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td><?php echo $liste['sexe_user'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Home Address</td>
+                                            <td><?php echo $liste['adresse_user'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>
+                                                <a href="<?php echo $liste['Email_user'] ?>"><?php echo $liste['Email_user'] ?></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone Number</td>
+                                            <td><?php echo $liste['numero_telephone_user'] ?>
+                                            </td>
+
+
+                                        </tr>
+                                        <?php
+                                        if($liste['Role_user']==1) {
+                                            ?>
+                                            <td>Tax registration number :</td>
+                                            <td><?php echo $liste['matricule_fiscale_user'] ?>
+                                            </td>
+                                            <td>Type of product :</td>
+                                            <td><?php echo $liste['type_produit'] ?>
+                                            </td>
+
+                                            <?php
+                                        }
+                                     }
+                                        ?>
+                                        </tbody>
+                                    </table>
+
+                                    <a href="modifierUsers.php" class="btn btn-primary">Edit Profile</a>
+                                    <a href="AfficheWishList.php" class="btn btn-primary">Wish List</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                            <span class="pull-right">
+                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                        </span>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="mb-20 input_holder">
-                    <input type="password" name="mot_de_passe" value="<?= $user['mot_de_passe']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
-                <div>
-                    <input type="submit" value="Modify an Account" name = "submit" class="mt-25 btn action-1 w-full"   >
-                </div>
-                <div>
-                    <a type="button" class="mt-25 btn action-1 w-full" href = "AfficheWishList.php">Wish List</a>
-                </div>
-                <div>
-                    <input type="submit" value="Sign out" name = "sign_out" class="mt-25 btn action-1 w-full"   >
-                </div>
-            </form>
+            </div>
         </div>
     </section>
-<?php
-}
-?>
+
 <!-- Footer 1 -->
 
 <footer class="footer_1 bg-light pt-75 pb-65 text-center">
@@ -218,20 +221,10 @@ if(isset($_POST['sign_out']))
         </div>
     </div>
 </footer>
-<script>
-    $(function () {
-        $("#role_user").change(function () {
-            if ($(this).val() == "1") {
-                $("#matricule_fiscale").show();
-                $("#type_produit").show();
 
-            } else {
-                $("#matricule_fiscale").hide();
-                $("#type_produit").hide();
-            }
-        });
-    });
-</script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </body>
 </html>
 

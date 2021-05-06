@@ -4,6 +4,7 @@ require_once '../Model/User.php';
 
 $UserC = new UserC();
 $Client = $UserC->afficherClient();
+$trie=$_POST['trie'];
 if(isset ($_POST['supprimer']))
 {
     $Client = $UserC->supprimerUser($_POST['ID']);
@@ -12,12 +13,9 @@ if(isset ($_POST['supprimer']))
 }
 if(isset($_POST['trie1']))
 {
-    $Client=$UserC->trierClient();
+    $Client=$UserC->trierClient($trie);
 }
-elseif(isset($_POST['trie2']))
-{
-    $Client=$UserC->trierClientdesc();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,13 +163,16 @@ elseif(isset($_POST['trie2']))
                           Clients
                     </div>
                     <p> <form method="POST" action="">
-<<<<<<< HEAD
-                        <input type="submit" name="trie1" value="trier A-Z" class="btn btn-success" >
-                        <input type="submit" name="trie2" value="trier Z-A" class="btn btn-success">
-=======
+  <select name="trie" id="trie" class="btn btn-success" >
+                            <option value="Nom">Nom</option>
+                            <option value="Prenom">Prenom</option>
+                            <option value="Pseudo">Pseudo</option>
+                            <option value="Date de naissance">Date de naissance</option>
+                            <option value="Date de creation">Date de creation</option>
+
+                        </select>
                         <input type="submit" name="trie1" value="trier" class="btn btn-success" >
-                        <input type="submit" name="trie2" value="trierD" class="btn btn-success">
->>>>>>> 15b96fc737c821f498763e391013967b544d88f1
+
                     </form> </p>
                     <div class="row">
                         <div class="col-md-12">
@@ -238,7 +239,7 @@ elseif(isset($_POST['trie2']))
                     <div class="text-muted">Copyright &copy; Your Website 2020</div>
                     <div>
                         <a href="#">Privacy Policy</a>
-                        &middot;
+
                         <a href="#">Terms &amp; Conditions</a>
                     </div>
                 </div>

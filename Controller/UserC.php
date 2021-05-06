@@ -143,9 +143,28 @@ class UserC
         }
     }
 
-    function trierVendeur(){
-
-        $sql='SELECT * FROM users WHERE Role_user ="1" order by nom_user ';
+    function trierVendeur($trie){
+        if($trie == "Nom")
+        {
+        $selon= "nom_user";
+    }
+    else if($trie == "Prenom")
+        {
+            $selon= "prenom_user";
+        }
+        else  if($trie == "Pseudo")
+        {
+            $selon= "pseudo_user";
+        }
+        else  if($trie == "Date de creation")
+        {
+            $selon= "cree_a_user";
+        }
+        else  if($trie == "Date de naissance")
+        {
+            $selon= "date_de_naissance_user";
+        }
+        $sql='SELECT * FROM users WHERE Role_user ="1" order by '.$selon.' ';
         $db =getConnexion();
         try{
             $liste = $db->query($sql);
@@ -157,22 +176,29 @@ class UserC
     }
 
 
-    function trierClientdesc(){
 
-        $sql='SELECT * FROM users WHERE Role_user ="0" order by nom_user desc ';
-        $sql='SELECT * FROM users WHERE Role_user ="0" order by nom_user  ';
-        $db = getConnexion();
-        try{
-            $liste = $db->query($sql);
-            return $liste;
-        }
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }
+    function trierClient($trie){
+        if($trie == "Nom")
+        {
+        $selon= "nom_user";
     }
-    function trierClient(){
-
-        $sql='SELECT * FROM users WHERE Role_user = "0"  order by nom_user ';
+    else if($trie == "Prenom")
+        {
+            $selon= "prenom_user";
+        }
+        else  if($trie == "Pseudo")
+        {
+            $selon= "pseudo_user";
+        }
+        else  if($trie == "Date de creation")
+        {
+            $selon= "cree_a_user";
+        }
+        else  if($trie == "Date de naissance")
+        {
+            $selon= "date_de_naissance_user";
+        }
+        $sql='SELECT * FROM users WHERE Role_user = "0"  order by '.$selon.' ';
         $db =getConnexion();
         try{
             $liste = $db->query($sql);
@@ -184,22 +210,29 @@ class UserC
     }
 
 
-    function trierVendeurdesc(){
 
-        $sql='SELECT * FROM users  WHERE Role_user = "1" order by nom_user desc  ';
-        $sql='SELECT * FROM users  WHERE Role_user = "1" order by nom_user  ';
-        $db = getConnexion();
-        try{
-            $liste = $db->query($sql);
-            return $liste;
+    function trierAdmin($trie){
+if($trie == "Nom")
+{
+    $selon= "nom_user";
+}
+else if($trie == "Prenom")
+{
+    $selon= "prenom_user";
+}
+       else  if($trie == "Pseudo")
+        {
+            $selon= "pseudo_user";
         }
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }
-    }
-    function trierAdmin(){
-
-        $sql='SELECT * FROM users WHERE Role_user = "2"  order by nom_user ';
+       else  if($trie == "Date de creation")
+       {
+           $selon= "cree_a_user";
+       }
+       else  if($trie == "Date de naissance")
+       {
+           $selon= "date_de_naissance_user";
+       }
+        $sql='SELECT * FROM users WHERE Role_user = "2"  order by '. $selon.' ';
         $db =getConnexion();
         try{
             $liste = $db->query($sql);
@@ -211,19 +244,7 @@ class UserC
     }
 
 
-    function trierAdmindesc(){
 
-        $sql='SELECT * FROM users  WHERE Role_user = "2" order by nom_user  desc';
-        $sql='SELECT * FROM users  WHERE Role_user = "2" order by nom_user  ';
-        $db = getConnexion();
-        try{
-            $liste = $db->query($sql);
-            return $liste;
-        }
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }
-    }
     public function verifier($vkey) {
         try {
             $pdo = getConnexion();
