@@ -1,18 +1,34 @@
 <?php
 require_once '../Controller/UserC.php';
 require_once '../Model/User.php';
-$UserC =  new UserC();
+
+session_start();
+$email= $_SESSION['email'];
+$pass= $_SESSION['mot_de_passe'];
+$UserC = new UserC();
+$User = $UserC->getUser($email,$pass);
+if(isset($_POST['sign_out']))
+{
+    // session_destroy();
+
+    $_SESSION['email'] = "";
+    $_SESSION['mot_de_passe'] =  "";
+    $_SESSION['id_user'] = 0;
+    header('Location:index.html');
+}
+foreach ($User as $user) {
+    $id = $user['id_user'];
 
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
     $role = $_POST['role'];
     if($role == 1)
-    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],$_POST['Matricule_fiscale'],$_POST['Type_produit'],$_POST['numero_telephone']);}
+    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],$_POST['Matricule_fiscale'],$_POST['Type_produit'],$_POST['numero_telephone'],$user['VerifiKey']);}
     else if($role == 0)
-    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone']);}
+    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$user['VerifiKey']);}
 
-    $UserC->modifierUser($User,$_GET['ID']);
-    header('Location:index.html');
-}
+    $UserC->modifierUser($User,$id);
+    header('Location:AfficheUser.php');
+}}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -48,17 +64,17 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
     <div class="container px-xl-0">
         <div class="row justify-content-center align-items-center f-16">
             <div class="mt-20 d-flex align-items-center author_info">
-                <a href="index.php" class="link color-main mx-15"><img  src="../i\logo.png" class="w-300 h-300 radius_full" alt="" /></a>
-                <div class="col-lg-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-                    <a href="#" class="link color-main mx-15">Home</a>
-                    <a href="#" class="link color-main mx-15">Profile</a>
+                <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
+                <div class="col-lg-6" >
+                    <a href="index.html" class="link color-main mx-15">Home</a>
+                    <a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
                     <a href="#" class="link color-main mx-15">Blog</a>
                     <a href="#" class="link color-main mx-15">About</a>
-                    <a href="#" class="link color-main mx-15">Shop</a>
+                    <a href="galerie.php" class="link color-main mx-15">Shop</a>
                     <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
                 </div>
-                <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-                    <a href="connect.php" class="mr-20 link color-main">Sign In</a>
+                <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
+                    <a href="login.php" class="mr-20 link color-main">Sign In</a>
                 </div>
             </div>
         </div>
@@ -67,61 +83,83 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
 
     <div class="container px-xl-0">
         <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
-            <h2 class="mb-40 small text-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">Modify an account</h2>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="150">
-                <input type="text" name="ID" placeholder="Your ID" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+            <?php
+            foreach ($User as $user)
+            {
+            ?>
+            <h2 class="mb-40 small text-center" >Modify
+                an account</h2>
+            <div class="mb-20 input_holder" >
+                <input type="text" name="nom" value="<?= $user['nom_user'] ?>"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-                <input type="text" name="nom" placeholder="Your Last Name" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+            <div class="mb-20 input_holder" >
+                <input type="text" name="prenom" value="<?= $user['prenom_user'] ?>"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="450">
-                <input type="text" name="prenom" placeholder="Your First Name" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+            <div class="mb-20 input_holder" >
+                <input type="email" name="email" value="<?= $user['Email_user'] ?>"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-                <input type="email" name="email" placeholder="Your Email" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+            <div class="mb-20 input_holder" >
+                <input type="text" name="pseudo" value="<?= $user['pseudo_user'] ?>"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="750">
-                <input type="text" name="pseudo" placeholder="Your Pseudo" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-            </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="900">
-                <select name="sexe" id="sexe_user" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
-                    <option value="">--Please choose your sex--</option>
+            <div class="mb-20 input_holder" >
+                <select name="sexe" id="sexe_user"
+                        class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
+                    <option value="$user['sexe_user']"><?php if ($user['sexe_user'] == "male") {
+                            echo "Male";
+                        } else echo "Female"; ?></option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1050">
+            <div class="mb-20 input_holder" >
                 <input type="date" id="start" name="date_de_naissance"
-                       value="2021-04-15"
-                       min="1950-01-01"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
+                       value="<?= $user['date_de_naissance_user'] ?>"
+                       min="1950-01-01"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1200">
-                <input type="tel" name="numero_telephone" placeholder="+123 45 678 910" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+            <div class="mb-20 input_holder" >
+                <input type="tel" name="numero_telephone" value="<?= $user['numero_telephone_user'] ?>"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1350">
-                <select name="role" id="role_user" onchange = "ShowHideDiv()" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
-                    <option value="">--Please choose a role--</option>
+            <div class="mb-20 input_holder" >
+                <select name="role" id="role_user" onchange="ShowHideDiv()"
+                        class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
+                    <option value="<?= $user['Role_user'] ?>"><?php if ($user['Role_user'] == 0) {
+                            echo "Client";
+                        } else echo "Seller"; ?></option>
                     <option value="0">Client</option>
                     <option value="1">Seller</option>
                 </select>
             </div>
-            <div id="matricule_fiscale" style="display: none" class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1500">
-                <input type="text" name="Matricule_fiscale" value="0" placeholder="Registration number" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+            <div id="matricule_fiscale" style="display: none" class="mb-20 input_holder" d>
+                <input type="text" name="Matricule_fiscale" value="<?= $user['matricule_fiscale_user'] ?>"
+                       placeholder="Registration number"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div id="type_produit" style="display: none" class="mb-20 input_holder"  data-aos-duration="600" data-aos="fade-down" data-aos-delay="1650">
-                <input type="text" name="Type_produit"  value="NULL" placeholder="Product type"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+            <div id="type_produit" style="display: none" class="mb-20 input_holder"  >
+                <input type="text" name="Type_produit" value="<?= $user['type_produit'] ?>" placeholder="Product type"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1800">
-                <input type="text" name="adresse" placeholder="Your Address" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+            <div class="mb-20 input_holder" >
+                <input type="text" name="adresse" value="<?= $user['adresse_user'] ?>"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
-            <div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1950">
-                <input type="password" name="mot_de_passe" placeholder="Your password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+            <div class="mb-20 input_holder" >
+                <input type="password" name="mot_de_passe" value="<?= $user['mot_de_passe'] ?>"
+                       class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
             </div>
 
-            <div data-aos-duration="600" data-aos="fade-down" data-aos-delay="2100">
-                <input type="submit" value="Update" name = "submit" class="mt-25 btn action-1 w-full"   >
+            <div >
+                <input type="submit" value="Update" name="submit" class="mt-25 btn action-1 w-full">
             </div>
         </form>
+        <?php
+        }
+        ?>
     </div>
 </section>
 <!-- Footer 1 -->
@@ -129,7 +167,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
 <footer class="footer_1 bg-light pt-75 pb-65 text-center">
     <div class="container px-xl-0">
         <div class="row justify-content-between align-items-center lh-40 links">
-            <div class="col-lg-4 col-sm-6 text-sm-right text-lg-left order-1 order-lg-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+            <div class="col-lg-4 col-sm-6 text-sm-right text-lg-left order-1 order-lg-0" >
                 <a href="#" class="mr-15 link color-main">About</a>
                 <a href="#" class="mx-15 link color-main">Policy</a>
                 <a href="#" class="mx-15 link color-main">Terms</a>
@@ -137,7 +175,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
             <div class="mt-20 d-flex align-items-center author_info">
                 <img  src="../i\logo.png" class="w-300 h-300 radius_full" alt="" />
             </div>
-            <div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+            <div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0" >
                 <a href="#" class="mr-15 link color-main">Contacts</a>
                 <a href="#" class="mx-15 link color-main"><i class="fab fa-twitter"></i></a>
                 <a href="#" class="mx-15 link color-main"><i class="fab fa-facebook-square"></i></a>
@@ -145,7 +183,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="mt-10 col-xl-4 col-lg-5 col-md-6 col-sm-8" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+            <div class="mt-10 col-xl-4 col-lg-5 col-md-6 col-sm-8" >
                 <div class="color-heading text-adaptive">
                     Be sure to take a look at our <a href="#" class="link color-heading">Terms of Use</a> <br />
                     and <a href="#" class="link color-heading">Privacy Policy</a>
@@ -155,21 +193,6 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
     </div>
 </footer>
 
-<!-- Bootstrap 4.3.1 JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<!-- Google maps JS API -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U"></script>
-<!-- Slick 1.8.1 jQuery plugin JS (Sliders) -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<!-- AOS 2.3.1 jQuery plugin JS (Animations) -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
-<script src="../js/jquery.maskedinput.min.js"></script>
-<!-- Startup 3 JS (Custom js for all blocks) -->
-<script src="../js/script.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#role_user").change(function () {

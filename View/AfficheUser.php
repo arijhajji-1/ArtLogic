@@ -9,7 +9,7 @@ $UserC = new UserC();
 $User = $UserC->getUser($email,$pass);
 if(isset($_POST['sign_out']))
 {
-   // session_destroy();
+    // session_destroy();
 
     $_SESSION['email'] = "";
     $_SESSION['mot_de_passe'] =  "";
@@ -17,7 +17,7 @@ if(isset($_POST['sign_out']))
     header('Location:index.html');
 }
 foreach ($User as $user) {
-$id = $user['id_user'];
+    $id = $user['id_user'];
 }
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
     $role = $_POST['role'];
@@ -28,7 +28,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
     }
 
 
-   $UserC->modifierUser($User,$id);
+    $UserC->modifierUser($User,$id);
 
     header('Location:AfficheUser.php');
 }
@@ -91,105 +91,105 @@ if(isset($_POST['sign_out']))
 </nav>
 
 
-    <section class="form_1 pt-120 pb-120">
-        <div class="container">
-            <div class="row">
+<section class="form_1 pt-120 pb-120">
+    <div class="container">
+        <div class="row">
 
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-
-
-                    <div class="panel panel-info" >
-                        <div class="panel-heading">
-                            <h4 class="panel-title">Profile</h4>
-                        </div>
-                        <br>
-                        <div class="panel-body">
-                            <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
 
-                                <?php
-                                foreach ($User as $liste)
-                                {
+                <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Profile</h4>
+                    </div>
+                    <br>
+                    <div class="panel-body">
+                        <div class="row">
 
-                                ?>
-                                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="../i/<?php echo $liste['image']?>" width="75"  height="75" class="img-circle img-responsive"> </div>
-                                <div class=" col-md-9 col-lg-9 ">
-                                    <table class="table table-user-information">
-                                        <tbody>
-                                        <tr>
-                                            <td>Role:</td>
-                                            <td><?php
+
+                            <?php
+                            foreach ($User as $liste)
+                            {
+
+                            ?>
+                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="../i/<?php echo $liste['image']?>" width="75"  height="75" class="img-circle img-responsive"> </div>
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>Role:</td>
+                                        <td><?php
                                             if($liste['Role_user']==0)
                                                 echo "Client";
-                                                else
-                                                    echo "Seller";   ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Creation date:</td>
-                                            <td><?php echo $liste['cree_a_user'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Date of Birth</td>
-                                            <td><?php echo $liste['date_de_naissance_user'] ?></td>
-                                        </tr>
+                                            else
+                                                echo "Seller";   ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creation date:</td>
+                                        <td><?php echo $liste['cree_a_user'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Birth</td>
+                                        <td><?php echo $liste['date_de_naissance_user'] ?></td>
+                                    </tr>
 
-                                        <tr>
-                                        <tr>
-                                            <td>Gender</td>
-                                            <td><?php echo $liste['sexe_user'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Home Address</td>
-                                            <td><?php echo $liste['adresse_user'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email</td>
-                                            <td>
-                                                <a href="<?php echo $liste['Email_user'] ?>"><?php echo $liste['Email_user'] ?></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phone Number</td>
-                                            <td><?php echo $liste['numero_telephone_user'] ?>
-                                            </td>
+                                    <tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td><?php echo $liste['sexe_user'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Home Address</td>
+                                        <td><?php echo $liste['adresse_user'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>
+                                            <a href="<?php echo $liste['Email_user'] ?>"><?php echo $liste['Email_user'] ?></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone Number</td>
+                                        <td><?php echo $liste['numero_telephone_user'] ?>
+                                        </td>
 
 
-                                        </tr>
-                                        <?php
-                                        if($liste['Role_user']==1) {
-                                            ?>
-                                            <td>Tax registration number :</td>
-                                            <td><?php echo $liste['matricule_fiscale_user'] ?>
-                                            </td>
-                                            <td>Type of product :</td>
-                                            <td><?php echo $liste['type_produit'] ?>
-                                            </td>
-
-                                            <?php
-                                        }
-                                     }
+                                    </tr>
+                                    <?php
+                                    if($liste['Role_user']==1) {
                                         ?>
-                                        </tbody>
-                                    </table>
+                                        <td>Tax registration number :</td>
+                                        <td><?php echo $liste['matricule_fiscale_user'] ?>
+                                        </td>
+                                        <td>Type of product :</td>
+                                        <td><?php echo $liste['type_produit'] ?>
+                                        </td>
 
-                                    <a href="modifierUsers.php" class="btn btn-primary">Edit Profile</a>
-                                    <a href="AfficheWishList.php" class="btn btn-primary">Wish List</a>
-                                </div>
+                                        <?php
+                                    }
+                                    }
+                                    ?>
+                                    </tbody>
+                                </table>
+
+                                <a href="modifierUsers.php" class="btn btn-primary">Edit Profile</a>
+                                <a href="AfficheWishList.php" class="btn btn-primary">Wish List</a>
                             </div>
                         </div>
-                        <div class="panel-footer">
-                            <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                            <span class="pull-right">
+                    </div>
+                    <div class="panel-footer">
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
                             <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                             <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                         </span>
-                        </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- Footer 1 -->
 
