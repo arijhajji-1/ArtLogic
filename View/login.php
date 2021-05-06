@@ -5,7 +5,7 @@ require_once('../View/settings.php');
 if (isset($_POST['email'])){
     $email_client=$_POST['email'];
     $mot_passe=$_POST['password'];
-    $sql="SELECT * FROM users WHERE Email_user='" . $email_client . "' && mot_de_passe = '". $mot_passe."' && verification = 1";
+    $sql="SELECT * FROM users WHERE Email_user='" . $email_client . "' && mot_de_passe = '". $mot_passe."' ";
     $db = getConnexion();
     try {
 
@@ -15,19 +15,21 @@ if (isset($_POST['email'])){
         if ($count == 1) {
             session_start();
             $user = $query->fetch();
-            $_SESSION['email'] = $_POST['email'];
-            $_SESSION['mot_de_passe'] = $_POST['password'];
-            $_SESSION['id_user'] = $user['pseudo_user'];
-            $_SESSION['pseudo_user'] = $user['id_user'];
-            $_SESSION['id_user'] = $user['id_user'];
-            if ($user['Role_user'] == 2) {
-                header('Location:administrateur.php');
-            }
-            else
+            if($user['verification']==1) {
+                $_SESSION['email'] = $_POST['email'];
+                $_SESSION['mot_de_passe'] = $_POST['password'];
+                $_SESSION['id_user'] = $user['pseudo_user'];
+                $_SESSION['pseudo_user'] = $user['id_user'];
+                $_SESSION['id_user'] = $user['id_user'];
+                if ($user['Role_user'] == 2) {
+                    header('Location:administrateur.php');
+                } else {
+                    header('Location:AfficheUser.php');
+                }
+            } elseif($user['verification']==0)
             {
-                header('Location:AfficheUser.php');
+                header('Location:login_erreur_verif.php');
             }
-
         }
     }
     catch (Exception $e){
@@ -47,7 +49,7 @@ if (isset($_POST['email'])){
     <meta charset="utf-8" >
     <title>ArtLogic Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../i/favicon.png" type="image/x-icon">
+    <link rel="icon" href="../i/logo.png" type="image/x-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,600,500,700,800,900|Karla:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
     <!-- Bootstrap 4.3.1 CSS -->
