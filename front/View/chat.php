@@ -53,6 +53,7 @@ header('location:chat.php');
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 			</head> 
 	<body>
 <!-- Navigation 1 -->
@@ -104,35 +105,23 @@ header('location:chat.php');
                 <div class="panel-body">
                     
                         	
-                        	<?php
-                        	$id=$_SESSION['id_user'];
-                        	
-$allmsg=$pdo->query("SELECT * from messages   order by date_message ASC");
-$allmsg->execute();
-
-while($msg =$allmsg->fetch())
-{
-
-
-?>
-                        <section id="messages">
-                            <div class="chat-body clearfix">
+                        <div class="messages">
+<div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong class="primary-font"><?php echo $msg['pseudo'] ; ?></strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span><?php echo $msg['date_message']; ?></small>
-                                </div>
-                                <p><?php echo $msg['msg']; ?></p>
-                            </div>
-                        
-                  
-                                   <?php
-}
-?>
-                </div>
+                        	
+
+                        <section id="messages">
+                         
+   
+               
  </section>
+ </div>
+ </div>
+                        </div>
+  </div>
                 <div class="panel-footer">
                     <div class="input-group">
-                        <input id="btn-input" type="text" name="msg" id="messages" class="form-control input-sm" placeholder="Type your message here..." />
+                        <input id="btn-input" type="text" name="msg" id="message" class="form-control input-sm" placeholder="Type your message here..." />
                         <span class="input-group-btn">
                             <input type="submit" name="submit" value="Send" class="btn btn-warning btn-sm" id="btn-chat">
                                 
@@ -152,8 +141,8 @@ while($msg =$allmsg->fetch())
 </form>
 
 
-<script type="text/javascript">
-	setInterval('load_message()',5000);
+<script>
+	setInterval('load_message()',500);
 	function load_message()
 	{
 		$('#messages').load('loadMessages.php');
