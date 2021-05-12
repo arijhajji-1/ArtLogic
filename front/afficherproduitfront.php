@@ -142,9 +142,10 @@ while ($array[] = $query->fetch_object());
 						<span class="shop-item-date"> Quantité: <?= $produit['Quantite'] ?>  </span>
 						<br><br>
 						<a type="button" class="btn sm action-2 f-16" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">view</a>
-						<a type="button" class="btn sm action-2 f-16" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Ajouter Panier</a>
-		<!--	<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fafficherproduitfront.php&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-		-->
+						<a type="button" class="btn sm action-2 f-16" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Ajouter Panier</a> 
+						<a type="button" class="btn sm action-2 f-16" href = "#">Whishlist</a>
+			<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fafficherproduitfront.php&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+		
 </div> <!-- /.row -->
                             <div class="card-body"></div>
                         </div>
