@@ -3,11 +3,11 @@ require_once '../Controller/UserC.php';
 require_once '../Model/User.php';
 $UserC =  new UserC();
 
-if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email'])  && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
+if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email'])  && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone'])&& isset($_POST['image']) ) {
     $role = 2;
     if($role == 2)
     {$Vkey=md5(time().$_POST['nom']);
-        $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], "2", $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$Vkey);}
+        $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], "2", $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$Vkey,$_POST['image']);}
     $sql="SELECT * FROM users WHERE Email_user='" . $_POST['email'] . "' || pseudo_user = '". $_POST['pseudo']."'";
     $db = getConnexion();
     try{
@@ -218,6 +218,10 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
                                 <br>
                                 <div class="mb-20 input_holder">
                                     <input type="text" name="pseudo" placeholder="Your Pseudo" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                </div>
+                                <br>
+                                <div class="mb-20 input_holder">
+                                    <input type="file" name="image" placeholder="Your photo" accept="image/png, image/jpeg" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                                 </div>
                                 <br>
                                 <div class="mb-20 input_holder">

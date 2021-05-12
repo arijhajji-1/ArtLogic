@@ -3,16 +3,22 @@ require_once "../Controller/UserC.php";
 require_once '../Model/User.php';
 session_start();
 $email= $_SESSION['email'];
-$pass= $_SESSION['mot_de_passe'];
+//$pass= $_SESSION['mot_de_passe'];
 $UserC = new UserC();
-$User = $UserC->getUser($email,$pass);
+$User = $UserC->getUser($email);
 
 foreach ($User as $user) {
     $id = $user['id_user'];
+    $vkey=$user['VerifiKey'];
+    $img=$user['image'];
+}
+if(!empty($_POST['image']))
+{
+    $img=$_POST['image'];
 }
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email'])  && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
 
-$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], "2", $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$User['VerifiKey']);
+$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], "2", $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$vkey,$img);
     $UserC->modifierUser($User,$id);
 
     header('Location:administrateur.php');
@@ -170,6 +176,7 @@ $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseud
                                 foreach ($User as $user)
                                 {
                                 ?>
+
                                 <div class="container px-xl-0">
                                     <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
                                         <h2>Modify Admin</h2>
@@ -188,6 +195,10 @@ $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseud
                                         <br>
                                         <div class="mb-20 input_holder">
                                             <input type="text" name="pseudo" value="<?= $user['pseudo_user']?>" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                        </div>
+                                        <br>
+                                        <div class="mb-20 input_holder">
+                                            <input type="file" name="image"  accept="image/png, image/jpeg" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                                         </div>
                                         <br>
                                         <div class="mb-20 input_holder">
@@ -222,11 +233,10 @@ $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseud
                                         </div>
                                         <br>
                                         <div>
-<<<<<<< HEAD
+
                                             <input type="submit" value="Modifier Administrateur" name = "submit" class="btn btn-success"   >
-=======
+
                                             <input type="submit" value="Ajouter Administrateur" name = "submit" class="btn btn-success"   >
->>>>>>> 15b96fc737c821f498763e391013967b544d88f1
                                         </div>
                                     </form>
                                 </div>

@@ -3,14 +3,14 @@ require_once '../Controller/UserC.php';
 require_once '../Model/User.php';
 $UserC =  new UserC();
 
-if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
+if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) && isset($_POST['image'])) {
     $role = $_POST['role'];
     if($role == 1)
     {$Vkey=md5(time().$_POST['nom']);
-        $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],$_POST['Matricule_fiscale'],$_POST['Type_produit'],$_POST['numero_telephone'],$Vkey);}
+        $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],$_POST['Matricule_fiscale'],$_POST['Type_produit'],$_POST['numero_telephone'],$Vkey,$_POST['image']);}
    else if($role == 0)
    {$Vkey=md5(time().$_POST['nom']);
-       $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$Vkey);}
+       $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$Vkey,$_POST['image']);}
     $SecretKey = '6LfH5MYaAAAAAAjsaVxuXQK4GxM_2vUHTMhrkH04';
     $reponseKey = $_POST['g-recaptcha-response'];
     $serverIP = $_SERVER['REMOTE_ADDR'];
@@ -126,6 +126,9 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
                 <div class="mb-20 input_holder">
                     <input type="text" name="pseudo" placeholder="Your Pseudo" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                 </div>
+            <div class="mb-20 input_holder">
+                <input type="file" name="image"  placeholder="Your photo" accept="image/png, image/jpeg" />
+            </div>
                 <div class="mb-20 input_holder">
                     <select name="sexe" id="sexe_user" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
                         <option value="">--Please choose your sex--</option>

@@ -64,6 +64,7 @@ if (isset($_POST['email'])){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Startup 3 CSS (Styles for all blocks) -->
     <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/google.css" rel="stylesheet" />
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -71,7 +72,7 @@ if (isset($_POST['email'])){
 
 <body>
 <!-- Navigation 1 -->
-
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
     <div class="container px-xl-0">
         <div class="row justify-content-center align-items-center f-16">
@@ -102,7 +103,11 @@ if (isset($_POST['email'])){
     <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
 
     <input type="submit" name="submitButton" id="submitButton" value="LOGIN" class="mt-25 btn action-1 w-full"  >
-    <input type="submit" name="submit" id="submit" value="Connect with Gmail"   class="mt-25 btn action-1 w-full" onclick ="window.location ='<?php echo $login_url; ?>'">
+    <br>
+    <br>
+    <input type="image" name="submit" id="submit" src="../i/google.png" height="50" width="330"   onclick ="window.location ='<?php echo $login_url; ?>'">
+
+
 </form>
 </div>
 <!-- Footer 1 -->

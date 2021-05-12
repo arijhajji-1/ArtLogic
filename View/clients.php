@@ -185,6 +185,7 @@ if(isset($_POST['trie1']))
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <tr>
+                                                <th>Photo</th>
                                                 <th>Nom</th>
                                                 <th>Prenom</th>
                                                 <th>Email</th>
@@ -203,6 +204,7 @@ if(isset($_POST['trie1']))
                                             {
                                                 ?>
                                                 <tr>
+                                                    <td> <img src="../i/<?php echo $liste['image'] ?>" width="80" height="80" /></td>
                                                     <td> <?php echo $liste['nom_user'] ?> </td>
                                                     <td> <?php echo $liste['prenom_user'] ?> </td>
                                                     <td> <?php echo $liste['Email_user'] ?> </td>

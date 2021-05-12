@@ -7,8 +7,8 @@ class UserC
     public function ajouterUser($User) {
         try {
             $pdo = getConnexion();
-            $query = $pdo->prepare('INSERT INTO users (nom_user, prenom_user, Email_user, pseudo_user, Role_user, mot_de_passe, sexe_user, date_de_naissance_user,adresse_user,matricule_fiscale_user,numero_telephone_user,type_produit,	VerifiKey) 
-                VALUES (:Nom, :Prenom, :Email, :Pseudo, :Role, :Mot_de_passe, :Sexe, :Date_de_naissance, :Adresse , :Matricule_fiscale , :Telephone , :Type_produit , :key)'
+            $query = $pdo->prepare('INSERT INTO users (nom_user, prenom_user, Email_user, pseudo_user, Role_user, mot_de_passe, sexe_user, date_de_naissance_user,adresse_user,matricule_fiscale_user,numero_telephone_user,type_produit,	VerifiKey,image) 
+                VALUES (:Nom, :Prenom, :Email, :Pseudo, :Role, :Mot_de_passe, :Sexe, :Date_de_naissance, :Adresse , :Matricule_fiscale , :Telephone , :Type_produit , :key, :image)'
             );
 
             $query->execute([
@@ -25,6 +25,7 @@ class UserC
                 'Telephone' => $User->getTelephone(),
                 'Type_produit' => $User->getType_produit(),
                 'key' => $User->getkey(),
+                'image' => $User->getImage(),
             ]);
         } catch (PDOException $e) {
             $e->getMessage();
@@ -120,7 +121,7 @@ class UserC
         try {
             $pdo = getConnexion();
             $query = $pdo->prepare(
-                'UPDATE users SET nom_user = :Nom,prenom_user = :Prenom,Email_user = :Email,pseudo_user = :Pseudo,mot_de_passe = :Mot_de_passe,sexe_user = :Sexe,date_de_naissance_user = :Date_de_naissance,adresse_user = :Adresse,matricule_fiscale_user = :Matricule_fiscale,numero_telephone_user = :Telephone,type_produit = :Type_produit WHERE id_user = :id'
+                'UPDATE users SET nom_user = :Nom,prenom_user = :Prenom,Email_user = :Email,pseudo_user = :Pseudo,mot_de_passe = :Mot_de_passe,sexe_user = :Sexe,date_de_naissance_user = :Date_de_naissance,adresse_user = :Adresse,matricule_fiscale_user = :Matricule_fiscale,numero_telephone_user = :Telephone,type_produit = :Type_produit, image= :image WHERE id_user = :id'
             );
             $query->execute([
                 'Nom' => $User->getNom(),
@@ -134,7 +135,8 @@ class UserC
                 'Matricule_fiscale' => $User->getMatricule_fiscale(),
                 'Telephone' => $User->getTelephone(),
                 'Type_produit' => $User->getType_produit(),
-                'id' => $id
+                'id' => $id,
+                'image'=>$User->getImage(),
             ]);
             echo $query->rowCount() . " records UPDATED successfully";
         } catch (PDOException $e) {

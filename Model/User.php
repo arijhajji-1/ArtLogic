@@ -16,7 +16,8 @@ class User
     private ?int $Telephone;
     private string $Type_produit;
     private string $key;
-    public function __construct($Nom,$Prenom,$Email,$Pseudo,$Role,$Mot_de_passe,$Sexe,$Date_de_naissance,$Adresse,$Matricule_fiscale,$Type_produit,$Telephone,$key)
+    private string $image;
+    public function __construct($Nom,$Prenom,$Email,$Pseudo,$Role,$Mot_de_passe,$Sexe,$Date_de_naissance,$Adresse,$Matricule_fiscale,$Type_produit,$Telephone,$key,$image)
     {
         $this->Nom = $Nom;
         $this->Prenom = $Prenom;
@@ -31,10 +32,13 @@ class User
         $this->Telephone = $Telephone;
         $this->Type_produit = $Type_produit;
         $this->key = $key;
-
+        $this->image = $image;
     }
     public function getId () {
         return $this->Id;
+    }
+    public function getImage () {
+        return $this->image;
     }
     public function getkey () {
         return $this->key;

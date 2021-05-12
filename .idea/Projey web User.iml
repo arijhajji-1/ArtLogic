@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/google/apiclient" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/google/apiclient-services" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/google/auth" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/paragonie/constant_time_encoding" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/phpseclib/phpseclib" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/View/vendor/ralouphie/getallheaders" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

@@ -6,7 +6,7 @@ session_start();
 $email= $_SESSION['email'];
 $pass= $_SESSION['mot_de_passe'];
 $UserC = new UserC();
-$User = $UserC->getUser($email,$pass);
+$User = $UserC->getUser($email);
 if(isset($_POST['sign_out']))
 {
     // session_destroy();
@@ -18,13 +18,17 @@ if(isset($_POST['sign_out']))
 }
 foreach ($User as $user) {
     $id = $user['id_user'];
-
+    $img=$user['image'];
+if(!empty($_POST['image']))
+{
+    $img=$_POST['image'];
+}
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['pseudo'])   && isset($_POST['mot_de_passe']) && isset($_POST['sexe']) && isset($_POST['date_de_naissance']) && isset($_POST['adresse']) && isset($_POST['numero_telephone']) ) {
     $role = $_POST['role'];
     if($role == 1)
-    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],$_POST['Matricule_fiscale'],$_POST['Type_produit'],$_POST['numero_telephone'],$user['VerifiKey']);}
+    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],$_POST['Matricule_fiscale'],$_POST['Type_produit'],$_POST['numero_telephone'],$user['VerifiKey'],$img);}
     else if($role == 0)
-    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$user['VerifiKey']);}
+    {$User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseudo'], $_POST['role'], $_POST['mot_de_passe'], $_POST['sexe'], $_POST['date_de_naissance'], $_POST['adresse'],'0','NULL',$_POST['numero_telephone'],$user['VerifiKey'],$img);}
 
     $UserC->modifierUser($User,$id);
     header('Location:AfficheUser.php');
@@ -104,6 +108,9 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
             <div class="mb-20 input_holder" >
                 <input type="text" name="pseudo" value="<?= $user['pseudo_user'] ?>"
                        class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+            </div>
+            <div class="mb-20 input_holder">
+                <input type="file" name="image"  placeholder="Your photo" accept="image/png, image/jpeg" />
             </div>
             <div class="mb-20 input_holder" >
                 <select name="sexe" id="sexe_user"

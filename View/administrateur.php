@@ -2,8 +2,8 @@
 include "../Controller/UserC.php";
 require_once '../Model/User.php';
 session_start();
-$email= $_SESSION['email'];
-$pass= $_SESSION['mot_de_passe'];
+//$email= $_SESSION['email'];
+//$pass= $_SESSION['mot_de_passe'];
 
 $UserC = new UserC();
 $Admin = $UserC->afficherAdmin();
@@ -187,6 +187,7 @@ Administrateur
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <tr>
+                                                <th>Photo</th>
                                                 <th>Nom</th>
                                                 <th>Prenom</th>
                                                 <th>Email</th>
@@ -203,28 +204,40 @@ Administrateur
                                             foreach ($Admin as $liste)
                                             {
 
-                                                ?>
-                                                <tr>
-                                                    <td> <?php echo $liste['nom_user'] ?> </td>
-                                                    <td> <?php echo $liste['prenom_user'] ?> </td>
-                                                    <td> <?php echo $liste['Email_user'] ?> </td>
-                                                    <td> <?php echo $liste['pseudo_user'] ?> </td>
-                                                    <td> <?php echo $liste['mot_de_passe'] ?> </td>
-                                                    <td> <?php echo $liste['date_de_naissance_user'] ?> </td>
-                                                    <td> <?php echo $liste['adresse_user'] ?> </td>
-                                                    <td> <?php echo $liste['cree_a_user'] ?> </td>
-                                                    <td> <?php echo $liste['numero_telephone_user'] ?> </td>
+                                            ?>
+                                            <tr>
+                                                <td><img src="../i/<?php echo $liste['image'] ?>" width="80"
+                                                         height="80"/></td>
+                                                <td> <?php echo $liste['nom_user'] ?> </td>
+                                                <td> <?php echo $liste['prenom_user'] ?> </td>
+                                                <td> <?php echo $liste['Email_user'] ?> </td>
+                                                <td> <?php echo $liste['pseudo_user'] ?> </td>
+                                                <td> <?php echo $liste['mot_de_passe'] ?> </td>
+                                                <td> <?php echo $liste['date_de_naissance_user'] ?> </td>
+                                                <td> <?php echo $liste['adresse_user'] ?> </td>
+                                                <td> <?php echo $liste['cree_a_user'] ?> </td>
+                                                <td> <?php echo $liste['numero_telephone_user'] ?> </td>
+                                                <td>
+                                                    <form method="POST" action="">
+                                                        <input type="submit" name="supprimer" value="Bloquer"
+                                                               class="btn btn-success" ">
+                                                        <input type="hidden" value="<?PHP echo $liste['id_user']; ?>"
+                                                               name="ID">
+                                                    </form>
+                                                </td>
+                                                <?php
+                                                if ($liste['Email_user'] == $_SESSION['email'])
+                                                {
+                                                    ?>
                                                     <td>
                                                         <form method="POST" action="">
-                                                            <input type="submit" name="supprimer" value="Bloquer" class="btn btn-success" ">
-                                                            <input type="hidden" value="<?PHP echo $liste['id_user']; ?>" name="ID">
+                                                            <a type="button" class="btn btn-success"
+                                                               href="ModifierAdmin.php">Modifier </a>
                                                         </form>
                                                     </td>
-                                                    <td>
-                                                        <form method="POST" action="">
-                                                            <a type="button" class="btn btn-success" href = "ModifierAdmin.php">Modifier </a>
-                                                        </form>
-                                                    </td>
+                                                    <?php
+                                                }
+                                                        ?>
                                                 </tr>
                                             <?php } ?>
                                         </table>
