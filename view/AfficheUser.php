@@ -179,6 +179,7 @@ if(isset($_POST['sign_out']))
 
                                 <a href="modifierUsers.php" class="btn btn-primary">Edit Profile</a>
                                 <a href="AfficheWishList.php" class="btn btn-primary">Wish List</a>
+                                 <a href="listreclamation.php" class="btn btn-primary">list reclamation</a>
                             </div>
                         </div>
                     </div>
