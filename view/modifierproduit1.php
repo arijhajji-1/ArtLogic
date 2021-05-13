@@ -244,7 +244,7 @@ $produitC =  new produitC();
                                 <td>  <input type="text" name="Description1" value="<?= $result['Description1'] ?>">  </td> 
                                 <?php
                       require_once('../connection.php');
-                 $mysqli = new mysqli('localhost', 'root', '' ,'yahya');
+                 $mysqli = new mysqli('localhost', 'root', '' ,'web');
                 if($mysqli->connect_error){
                 die('Connect-Error (' . $mysqli->connect_error . ') '
                . $mysqli->connect_error);

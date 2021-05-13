@@ -15,6 +15,12 @@ $produit=$produitC->getprodByGenre($Genre);
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
+	<style> 
+    .amount-old {
+    text-decoration: line-through;
+}
+	</style>
 		<meta charset="utf-8" >
 		<title>ArtLogic</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,7 +86,7 @@ $produit=$produitC->getprodByGenre($Genre);
 	  <ul class="navbar-nav">
 	  <?php
 require_once('../connection.php');
-$mysqli = new mysqli('localhost', 'root', '' ,'yahya');
+$mysqli = new mysqli('localhost', 'root', '' ,'web');
 if($mysqli->connect_error){
     die('Connect-Error (' . $mysqli->connect_error . ') '
         . $mysqli->connect_error);
@@ -118,7 +124,9 @@ while ($array[] = $query->fetch_object());
 					 <img src="../image/<?= $list['image'] ?>"height="200" width="200">
 						<span class="shop-item-des"><?= $list['Description1'] ?>  </span>
 						<br><br>
-						<span class="shop-item-price">Prix: <?= $list['Prix'] ?> TND </span>
+						<span class="amount-old" class="shop-item-price">Prix: <?= $list['Prix'] ?> TND </span>
+						<br><br>
+						<span class="shop-item-price">nouveau Prix: <?= $list['nouveauPrix'] ?> TND </span>
 						<br><br>
 						<span class="shop-item-date"> Date d'ajout: <?= $list['DateA'] ?>  </span>
 						<br><br>

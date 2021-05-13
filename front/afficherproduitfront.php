@@ -13,7 +13,13 @@ $produit=$produitC->afficherproduit();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+	<head> 
+
+	<style> 
+    .amount-old {
+    text-decoration: line-through;
+}
+	</style>
 		<meta charset="utf-8" >
 		<title>ArtLogic</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,7 +92,7 @@ $produit=$produitC->afficherproduit();
 	  <ul class="navbar-nav">
 	  <?php
 require_once('../connection.php');
-$mysqli = new mysqli('localhost', 'root', '' ,'yahya');
+$mysqli = new mysqli('localhost', 'root', '' ,'web');
 if($mysqli->connect_error){
     die('Connect-Error (' . $mysqli->connect_error . ') '
         . $mysqli->connect_error);
@@ -134,8 +140,16 @@ while ($array[] = $query->fetch_object());
 					 <img src="../image/<?= $produit['image'] ?>"height="200" width="200">
 						<span class="shop-item-des"><?= $produit['Description1'] ?>  </span>
 						<br><br>
-						<span class="shop-item-price">Prix: <?= $produit['Prix'] ?> TND </span>
+						<?php if($produit['nouveauPrix']==0) { ?>
+						<span class="" class="shop-item-price">Prix: <?= $produit['Prix'] ?> TND </span>
 						<br><br>
+
+						<?php } else { ?>
+							<span class="amount-old" class="shop-item-price">Prix: <?= $produit['Prix'] ?> TND </span>
+						<br><br>
+						<span class="shop-item-price">nouveau Prix: <?= $produit['nouveauPrix'] ?> TND </span>
+						<br><br>  
+					   <?php }?>
 						<span class="shop-item-date"> Date d'ajout: <?= $produit['DateA'] ?>  </span>
 						<br><br>
 						<span class="shop-item-des">Genre :<?= $produit['Genre'] ?>  </span>
