@@ -78,7 +78,17 @@ if(isset($_POST['trie1']))
                                 <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                             </nav>
                         </div>
-
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                              Produits
+                              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                          </a>
+                          <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                              <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="afficherproduit1.php">Produits</a>
+                                  <a class="nav-link" href="affichercategorie1.php">catégories</a>
+                              </nav>
+                          </div>
 
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
