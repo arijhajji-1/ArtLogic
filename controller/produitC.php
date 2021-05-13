@@ -112,6 +112,20 @@
             }
         }
   
+		public function getprodByGenre($Genre) {
+            try {
+                $pdo = connection::getConnexion();
+                $query = $pdo->prepare(
+                    'SELECT * FROM produit WHERE Genre = :Genre'
+                );
+                $query->execute([
+                    'Genre' => $Genre
+                ]);
+                return $query->fetchAll();
+            } catch (PDOException $e) {
+                $e->getMessage();
+            }
+        }
 		
 		
 

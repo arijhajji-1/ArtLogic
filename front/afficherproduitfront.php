@@ -98,9 +98,10 @@ while ($array[] = $query->fetch_object());
 ?>                            
      <li class="nav-item">
    		 
-     <?php foreach ( $array as $option ) :?>
+     <?php foreach ( $array as $option ) :$opt=$option->NomC?>
 
-  <a href="afficherproduitfront2.php" class="nav-link" value="<?php echo $option->NomC; ?>"><?php echo $option->NomC; ?></a> <br>
+ <a href="afficherproduitfront2.php?Genre=<?= $option->NomC ?>"  class="nav-link"><?php echo $option->NomC; ?></a> <br> 
+
      <?php endforeach; ?>       
 	 </li> 
 	 

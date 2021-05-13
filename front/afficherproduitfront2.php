@@ -4,8 +4,10 @@ include_once '../model/produit.php';
 
 
 $produitC = new produitC(); 
-$produit=$produitC->afficherproduit();  
+ 
 
+$Genre=$_GET['Genre'];
+$produit=$produitC->getprodByGenre($Genre); 
 
 
 
@@ -90,9 +92,9 @@ while ($array[] = $query->fetch_object());
 ?>                            
      <li class="nav-item">
    		 
-     <?php foreach ( $array as $option ) :?>
+     <?php foreach ( $array as $option ) :$opt=$option->NomC?>
 		
-		  <a href="" class="nav-link" value="<?php echo $option->NomC; ?>"><?php echo $option->NomC; ?></a> <br>
+		<a href="afficherproduitfront2.php?Genre=",$opt class="nav-link"><?php echo $option->NomC; ?></a> <br>
      <?php endforeach; ?>       
 	 </li> 
 	 
@@ -101,60 +103,48 @@ while ($array[] = $query->fetch_object());
   </nav>
 
   
-  
+  <?php
+					foreach ($produit as $list) {
+				?>
+				<div class="shop-item">
+					<div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="box-title"><strong><?= $list['NomP'] ?> </strong> </h4>
+                            </div>
+                            <div class="row">
+					<div class="shop-item-details">
+					 <img src="../image/<?= $list['image'] ?>"height="200" width="200">
+						<span class="shop-item-des"><?= $list['Description1'] ?>  </span>
+						<br><br>
+						<span class="shop-item-price">Prix: <?= $list['Prix'] ?> TND </span>
+						<br><br>
+						<span class="shop-item-date"> Date d'ajout: <?= $list['DateA'] ?>  </span>
+						<br><br>
+						<span class="shop-item-des">Genre :<?= $list['Genre'] ?>  </span>
+						<br><br>
+						<span class="shop-item-date"> Quantité: <?= $list['Quantite'] ?>  </span>
+						<br><br>
+						
+		
+</div> <!-- /.row -->
+                            <div class="card-body"></div>
+                        </div>
+                    </div><!-- /# column -->
+                </div>
+					</div>
+				</div>
+				<br><br>
+				<?php 
+					}
+				?>
  
   
 
 <!--rou7 zebda  -->
 
-<form class="table" action="" method="POST">
-<table>
-<tr>  
 
-              
-              <th scope="col">image</th>
-              <th scope="col">id</th>
-              <th scope="col">date</th>
-              <th scope="col">description</th>
-              <th scope="col">genre</th> 
-              <th scope="col">Couleur</th>  
-              <th scope="col">Taille</th> 
-              <th scope="col">poids</th>
-                            <th scope="col">Prix</th>
-                            <th scope="col">Quantite</th> 
-                            <th> </th>
-
-            </tr>
-<?php
-foreach ($produit as $produit) {
-?> 
-<tr>                            <td> <img src="../image/<?= $produit['image'] ?>"height="150" width="150"</td> 
-                                 <td> <?php echo $produit['Id_produit'] ?></td>
-                                  <td>  <?php echo $produit['DateA'] ?> </td>
-                                <td>  <?php  echo $produit['Description1'] ?> </td>
-                                 <td>  <?php echo $produit['Genre'] ?> </td>
-                                    <td>  <?php  echo $produit['Couleur'] ?> </td>
-                                     <td>  <?php  echo $produit['Taille'] ?> </td>
-                                     
-                                <td>  <?php  echo $produit['poids'] ?> </td>
-                                <td>  <?php  echo $produit['Prix'] ?> </td> 
-                                <td>  <?php  echo $produit['Quantite'] ?> </td>   
-					<td><a type="button" class="contact100-form-btn" href = "">View</a></td>
-                    <td><a type="button" class="contact100-form-btn" href = "">Ajouter panier</a></td>          
-</tr> 
-
-<?php
-        }
-        ?>
-
-    
-    
-
-
-
-
-</table>
-	</form>
 
 
 
