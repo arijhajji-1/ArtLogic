@@ -51,26 +51,23 @@ class reclamationc {
 
     
     
- public function modifier($reclamation, $id_reclamation) {
+ public function modifier($etat, $id_reclamation) {
             try {
                 $pdo = getConnexion();
                 $query = $pdo->prepare(
                     'UPDATE reclamation SET 
-                    date_reclamation = :date_reclamation,
-                     description_reclamation = :description_reclamation ,
-                     type_reclamation = :type_reclamation,
                        etat=:etat 
                        WHERE id_reclamation= :id_reclamation'                                                                       
                 );
+                
                 $query->execute([
-                    'date_reclamation' => $reclamation->getdate(),
-                    'description_reclamation' => $reclamation->getdescription(),
-                    'type_reclamation' => $reclamation->gettype(),
-                    'etat' => $reclamation->getetat(),
+                    'etat' => $etat,
                     'id_reclamation'=>$id_reclamation
                 ]);
+                
                 echo $query->rowCount() . " records UPDATED successfully";
             } catch (PDOException $e) {
+                echo "erreur";
                 $e->getMessage();
             }
         }

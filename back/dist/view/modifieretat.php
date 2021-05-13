@@ -2,13 +2,19 @@
 require_once '../controllers/reclamationc.php';
 require_once '../model/reclamation.php';
 $reclamationc = new reclamationc();
+if (isset($_POST['modifier'])){
+ 
+    echo $_POST['etat'];
+if ( isset($_POST['etat'])) {
 
-if (isset($_POST['date_reclamation']) && isset($_POST['description_reclamation'])&& isset($_POST['type_reclamation'])&& isset($_POST['etat'])) {
-     
-    $reclamation=new reclamation($_POST['date_reclamation'],$_POST['description_reclamation'],$_POST['type_reclamation'],$_POST['etat']);
-    $reclamationc->modifier($reclamation,$_GET['id_reclamation']);
+   
+    $id_reclamation=$_GET['id_reclamation'];
+    echo $id_reclamation;
+
+    $reclamationc->modifier($_POST['etat'],$id_reclamation);
     //echo $_POST['id_reclamation'] ;
  //header("Location: modifieretat.php");
+}
 }
 ?>
 <!DOCTYPE html>
@@ -59,8 +65,12 @@ if (isset($_POST['date_reclamation']) && isset($_POST['description_reclamation']
     <link rel="stylesheet" href="../css/style.css">
     </head>
    <body class="sb-nav-fixed">
+ 
+
+
+    ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <img src="C:\wamp64\www\backend\dist\assets\img\logo.png" alt="" height="150" width="150" href="index.html" >
+            <img src="../logo.png" alt="" height="150" width="150" href="index.html" >
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -178,8 +188,9 @@ if (isset($_POST['date_reclamation']) && isset($_POST['description_reclamation']
                     </div>
                 </nav>
             </div>
+            
               <?php
-    
+  
         if (isset($_GET['id_reclamation'])) {
             
             $result = $reclamationc->recupereretat($_GET['id_reclamation']);
@@ -190,7 +201,7 @@ if (isset($_POST['date_reclamation']) && isset($_POST['description_reclamation']
        <form class="contact100-form validate-form" action="#" method="POST">
                 <span class="contact100-form-title">
 
-                  Retour
+                  Reclamation
                 </span>
                 
 
@@ -214,9 +225,9 @@ if (isset($_POST['date_reclamation']) && isset($_POST['description_reclamation']
 <tr>
                                
                                 
-                                        <td>  <input type="text" name="date_reclamation" value="<?= $result['date_reclamation'] ?>" disabled> </td>
-                                                <td> <input type="text" name="description_reclamation" value="<?= $result['description_reclamation'] ?>" disabled> </td>
-                                 <td>  <input type="text" name="type_reclamation" value="<?= $result['type_reclamation'] ?>" disabled>  </td>
+                                        <td>  <input type="text" name="date_reclamation" value="<?= $result['date_reclamation'] ?>" > </td>
+                                                <td> <input type="text" name="description_reclamation" value="<?= $result['description_reclamation'] ?>"> </td>
+                                 <td>  <input type="text" name="type_reclamation" value="<?= $result['type_reclamation'] ?>" >  </td>
                             
                              
                                 <td>  <input type="text" name="etat" value="<?= $result['etat'] ?>"> </td>
@@ -236,7 +247,7 @@ if (isset($_POST['date_reclamation']) && isset($_POST['description_reclamation']
         else {
             header('Location:retour.php');
         }
-    
+   
     ?>
 
 </table>
@@ -280,5 +291,6 @@ if (isset($_POST['date_reclamation']) && isset($_POST['description_reclamation']
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="../assets/demo/datatables-demo.js"></script>
+      
     </body>
 </html>
