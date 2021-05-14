@@ -27,38 +27,17 @@ $produit = $produitC->afficherproduit();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
             <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+  
     <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/noui/nouislider.min.css">
+
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../css/util.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
 <!--===============================================================================================-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../fonts/icomoon/style.css">
-
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    
-    <!-- Style -->
-    <link rel="stylesheet" href="../css/style.css">
 
     </head>
    <body class="sb-nav-fixed">
@@ -123,12 +102,12 @@ $produit = $produitC->afficherproduit();
                               </nav>
                           </div>
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts8" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="list.php">List</a>
                                     <a class="nav-link" href="promo.php">promo</a>

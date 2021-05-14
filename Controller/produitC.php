@@ -1,6 +1,6 @@
 <?PHP
 	include '../connection.php';
-	include '../model/produit.php';
+	include '../Model/produit.php';
 
 	class produitC {
 		

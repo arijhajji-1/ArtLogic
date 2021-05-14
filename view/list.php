@@ -2,7 +2,11 @@
 
 require_once '../Controller/promotionc.php';
 require_once '../Model/promotion.php';
+include_once '../Controller/produitC.php';
+include_once '../Model/produit.php'; 
 $promotionc = new promotionc();
+
+
 $promotion = $promotionc->afficherpromotion();
 
 if(isset($_POST['submit']))
@@ -105,12 +109,12 @@ if (isset($_GET['reference'])) {
                               </nav>
                           </div>
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts8" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="list.php">List</a>
                                     <a class="nav-link" href="promo.php">promo</a>

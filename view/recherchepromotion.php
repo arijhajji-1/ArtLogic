@@ -60,7 +60,7 @@ if (isset($_GET['reference'])) {
     </head>
    <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <img src="C:\Users\arouj\OneDrive\Desktop\2A\s2\web\startbootstrap-sb-admin-gh-pages\dist\assets\img\logo.png" alt="" height="150" width="150" href="index.html" >
+            <img src="../i/logo.png" alt="" height="150" width="150" href="index.html" >
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -94,7 +94,7 @@ if (isset($_GET['reference'])) {
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                                                        <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Livraison
@@ -105,15 +105,27 @@ if (isset($_GET['reference'])) {
                                     <a class="nav-link" href="layout-static.html">Livraison</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                                 </nav>
-                            </div>
+                            </div> 
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                              Produits
+                              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                          </a>
+                          <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                              <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="afficherproduit1.php">Produits</a>
+                                  <a class="nav-link" href="affichercategorie1.php">catégories</a>
+                              </nav>
+                          </div>
 
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts8" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="list.php">List</a>
                                     <a class="nav-link" href="promo.php">promo</a>
@@ -130,7 +142,21 @@ if (isset($_GET['reference'])) {
                                     <a class="nav-link" href="listreclamation.html">Messages</a>
                                 </nav>
                             </div>
-                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        User
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="administrateur.php">administrateur</a>
+                            <a class="nav-link" href="clients.php">client</a>
+                            <a class="nav-link" href="vendeurs.php">vendeur</a>
+                        </nav>
+                    </div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Evenement&Actualité
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -144,19 +170,7 @@ if (isset($_GET['reference'])) {
                                 </nav>
                             </div>
 
-                           
-
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                User
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static-user.html">client</a>
-                                    <a class="nav-link" href="layout-sidenav-light-user.html">vendeur</a>
-                                </nav>
-                            </div>
+                          
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">

@@ -120,14 +120,14 @@ if (isset($_GET['Id_produit'])) {
                           </div>
 
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts8" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="list.php">List</a>
+                                    <a class="nav-link" href="list.php">List</a>
                                     <a class="nav-link" href="promo.php">promo</a>
                                 </nav>
                             </div>
@@ -248,6 +248,7 @@ if (isset($_GET['Id_produit'])) {
                             <th scope="col">Prix</th>
                             <th scope="col">Quantite</th> 
                             <th scope="col">image</th> 
+                            <th scope="col">promotion</th> 
                             <th> </th>
 
             </tr>
@@ -267,6 +268,8 @@ foreach ($produit as $produit) {
                                 <td>  <?php  echo $produit['Prix'] ?> </td> 
                                 <td>  <?php  echo $produit['Quantite'] ?> </td> 
                                 <td> <img src="../image/<?= $produit['image'] ?>"height="50" width="50"</td> 
+                                 <td>  <?php  echo $produit['nouveauPrix'] ?> </td> 
+
              <td><a type="button" class="contact100-form-btn" href = "afficherproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Supprimer</a></td>  
              <td><a type="button" class="contact100-form-btn" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">modifier</a></td>                            
 

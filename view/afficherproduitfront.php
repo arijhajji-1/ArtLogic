@@ -6,6 +6,7 @@ require_once '../Model/wishliste.php';
 session_start();
 $id_user= $_SESSION['id_user'];
 $produitC = new produitC();
+ 
 $Produit = $produitC->afficherproduit();
 
 if (isset($_POST['submit']))
