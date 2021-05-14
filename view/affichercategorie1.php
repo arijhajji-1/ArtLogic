@@ -196,7 +196,11 @@ if (isset($_GET['Id_categorie'])) {
 
                Liste des categories
                 </span>
-
+<table>
+    <tr>
+        <td>  <a type="submit" class="contact100-form-btn" href = "ajoutercategorie1.php">Ajouter</a> </td>
+    </tr>
+</table>
         <table class="table custom-table">
           <thead>
             <tr>  

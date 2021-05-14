@@ -222,6 +222,7 @@ if (isset($_GET['Id_produit'])) {
               <td>  <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "Searchp.php">search</a> </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "stat.php">stat</a> </td>
+             <td>  <a type="submit" class="contact100-form-btn" href = "ajouterproduit1.php">Ajouter</a> </td>
              </tr>
            </table>
                 
