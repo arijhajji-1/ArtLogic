@@ -4,7 +4,7 @@ include_once "config.php";
 class CommandeC
 {
     function ajouterCommande($commande){
-        $sql="insert into commande (id_utilisateur,prix_total,mode_de_payement,description_commande,produits) values (:id_utilisateur,:prix_total,:mode_de_payement,:description_commande,:produits)";
+        $sql="INSERT into commande (id_utilisateur,prix_total,mode_de_payement,description_commande,produits) values (:id_utilisateur,:prix_total,:mode_de_payement,:description_commande,:produits)";
         $db = config::getConnexion();
         try{
             $req=$db->prepare($sql);
@@ -59,7 +59,7 @@ class CommandeC
 
     function rechercherCommande($valuesearch)
     {
-                $sql="SELECT * from commande where prix_total like '%$valuesearch%' or mode_de_payement like '%$valuesearch%' or description_commande like '%$valuesearch%' or id_utilisateur like '%$valuesearch%'or id_commande like '%$valuesearch%' or produits like '%$valuesearch%'";
+                $sql="SELECT * from commande where prix_total like '%$valuesearch%' or mode_de_payement like '%$valuesearch%' or description_commande like '%$valuesearch%' or  id_commande like '%$valuesearch%'";
                 $db = config::getConnexion();
       	try{
             $liste=$db->query($sql);

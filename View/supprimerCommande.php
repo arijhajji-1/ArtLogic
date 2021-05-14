@@ -1,5 +1,5 @@
 <?PHP
-include "../core/commandeC.php";
+include "../Core/commandeC.php";
 
 $commandeC=new commandeC();
 

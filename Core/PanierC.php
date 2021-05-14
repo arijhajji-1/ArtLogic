@@ -3,18 +3,17 @@ include_once "config.php";
 class panierC
 {
     function ajouterPanier($panier){
-        $sql="insert into panier (id_client,id_produit,quantite,prix_total) values (:id_client,:id_produit,:quantite,:prix_total)";
+        $sql="insert into panier (id_user,Id_produit,Quantite,prix_total) values (:id_user,:Id_produit,:Quantite,:prix_total)";
         $db = config::getConnexion();
         try{
             $req=$db->prepare($sql);
-
-            $id_client=$panier->get_id_client();
-            $id_produit=$panier->get_id_produit();
-            $quantite=$panier->get_quantite();
+            $id_user=$panier->get_id_user();
+            $Id_produit=$panier->get_Id_produit();
+            $Quantite=$panier->get_Quantite();
             $prix_total=$panier->get_prix_total();
-            $req->bindValue(':id_client',$id_client);
-            $req->bindValue(':id_produit',$id_produit);
-            $req->bindValue(':quantite',$quantite);
+            $req->bindValue(':id_user',$id_user);
+            $req->bindValue(':Id_produit',$Id_produit);
+            $req->bindValue(':Quantite',$Quantite);
             $req->bindValue(':prix_total',$prix_total);
 
             $req->execute();
@@ -26,25 +25,26 @@ class panierC
 
     }
 
-    function afficherPanier($id_client){
-        $sql="SElECT * From panier INNER JOIN produit ON panier.id_produit=produit.id where id_client='$id_client'";
-        $db = config::getConnexion();
-        try{
-            $liste=$db->query($sql);
-            return $liste->fetchAll();
-        }
+    function afficherPanier($id_user){
+        $sql="SElECT * From panier INNER JOIN produit ON panier.Id_produit=produit.Id_produit where id_user='$id_user'";
+        		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
-        }
-    }
+        }	
+	}
 
 
-    function supprimerPanier($id_client,$id_produit){
-        $sql="DELETE FROM panier where (id_client=:id_client and id_produit=:id_produit)";
+
+    function supprimerPanier($id_user,$Id_produit){
+        $sql="DELETE FROM panier where (id_user=:id_user and Id_produit=:Id_produit)";
         $db = config::getConnexion();
         $req=$db->prepare($sql);
-        $req->bindValue(':id_client',$id_client);
-        $req->bindValue(':id_produit',$id_produit);
+        $req->bindValue(':id_user',$id_user);
+        $req->bindValue(':Id_produit',$Id_produit);
         try{
             $req->execute();
         }
@@ -52,11 +52,11 @@ class panierC
             die('Erreur supprimerPanier: '.$e->getMessage());
         }
     }
-    function deleteAllcommandes($id_client){
-        $sql="DELETE FROM panier where (id_client=:id_client)";
+    function deleteAllcommandes($id_user){
+        $sql="DELETE FROM panier where (id_user=:id_user)";
         $db = config::getConnexion();
         $req=$db->prepare($sql);
-        $req->bindValue(':id_client',$id_client);
+        $req->bindValue(':id_user',$id_user);
         try{
             $req->execute();
         }
@@ -65,18 +65,18 @@ class panierC
         }
     }
 
-    function modifierPanier($panier,$x,$prix){
-        $sql="UPDATE panier SET quantite=:quantite, prix_total=:prix_total WHERE (id_client=:id_client and id_produit=:id_produit)";
+    function modifierPanier($panier,$x,$Prix){
+        $sql="UPDATE panier SET Quantite=:Quantite, prix_total=:prix_total WHERE (id_user=:id_user and Id_produit=:Id_produit)";
         $db = config::getConnexion();
         try{
             $req=$db->prepare($sql);
-            $id_client=$panier->get_id_client();
-            $id_produit=$panier->get_id_produit();
-            $quantite=$panier->get_quantite()+1;
-            $prix_total=$panier->get_prix_total()+$prix;
-            $req->bindValue(':id_client',$id_client);
-            $req->bindValue(':id_produit',$id_produit);
-            $req->bindValue(':quantite',$quantite);
+            $id_user=$panier->get_id_user();
+            $Id_produit=$panier->get_Id_produit();
+            $Quantite=$panier->get_quantite()+1;
+            $prix_total=$panier->get_prix_total()+$Prix;
+            $req->bindValue(':id_user',$id_user);
+            $req->bindValue(':Id_produit',$Id_produit);
+            $req->bindValue(':Quantite',$Quantite);
             $req->bindValue(':prix_total',$prix_total);
             $s=$req->execute();
         }
@@ -84,18 +84,18 @@ class panierC
             die(" Erreur modiferpanier ! ".$e->getMessage()) ;
         }
     }
-    function modifierPanierminus($panier,$x,$prix){
-        $sql="UPDATE panier SET quantite=:quantite, prix_total=:prix_total WHERE (id_client=:id_client and id_produit=:id_produit)";
+    function modifierPanierminus($panier,$x,$Prix){
+        $sql="UPDATE panier SET Quantite=:Quantite, prix_total=:prix_total WHERE (id_user=:id_user and Id_produit=:Id_produit)";
         $db = config::getConnexion();
         try{
             $req=$db->prepare($sql);
-            $id_client=$panier->get_id_client();
-            $id_produit=$panier->get_id_produit();
-            $quantite=$panier->get_quantite()-1;
-            $prix_total=$panier->get_prix_total()-$prix;
-            $req->bindValue(':id_client',$id_client);
-            $req->bindValue(':id_produit',$id_produit);
-            $req->bindValue(':quantite',$quantite);
+            $id_user=$panier->get_id_user();
+            $Id_produit=$panier->get_Id_produit();
+            $Quantite=$panier->get_quantite()-1;
+            $prix_total=$panier->get_prix_total()+$Prix;
+            $req->bindValue(':id_user',$id_user);
+            $req->bindValue(':Id_produit',$Id_produit);
+            $req->bindValue(':Quantite',$Quantite);
             $req->bindValue(':prix_total',$prix_total);
             $s=$req->execute();
         }
@@ -103,9 +103,9 @@ class panierC
             die(" Erreur modiferpanier ! ".$e->getMessage()) ;
         }
     }
-    function recupererPanier($id_client,$id_prod){
+    function recupererPanier($id_user,$Id_produit){
 
-        $sql="SELECT * from panier where (id_client='$id_client') and (id_produit='$id_prod')";
+        $sql="SELECT * from panier where (id_user='$id_user') and (Id_produit='$Id_produit')";
         $db = config::getConnexion();
         try{
             $liste=$db->query($sql);

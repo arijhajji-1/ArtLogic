@@ -16,8 +16,8 @@ class ProduitC
             die('Erreur: '.$e->getMessage());
         }
     }
-    function recupererProduit($id){
-        $sql="SELECT * from produit where id= $id";
+    function recupererProduit($Id_produit){
+        $sql="SELECT * from produit where Id_produit= $Id_produit";
         $db = config::getConnexion();
         try{
             $sth = $db->prepare($sql);

@@ -1,71 +1,101 @@
 <?php
-
-
-class Produit
+class produit
 {
-private $id;
-private $titre;
-private $description;
-private $prix;
-private $quantite;
-
-    public function __construct($id, $titre, $description, $prix, $quantite)
-    {
-        $this->id = $id;
-        $this->titre = $titre;
-        $this->description = $description;
-        $this->prix = $prix;
-        $this->quantite = $quantite;
+    private ?int $Id_produit = null;
+    private string $NomP;
+    private string $DateA;
+    private string $Description1;
+    private string $Genre;
+    private string $Couleur;
+    private string $Taille;
+    private float $poids;
+    private float $Prix;
+    private int $Quantite; 
+    private string $image;
+   
+    public function __construct($NomP,$DateA,$Description1,$Genre,$Couleur,$Taille,$poids,$Prix,$Quantite,$image)
+    {  
+      //  $this->Id_produit = $Id_produit;
+        $this->NomP = $NomP;
+        $this->DateA = $DateA;
+        $this->Description1 = $Description1;
+        $this->Genre = $Genre;
+        $this->Couleur = $Couleur;
+        $this->Taille = $Taille;
+        $this->poids = $poids;
+        $this->Prix = $Prix;
+        $this->Quantite = $Quantite; 
+        $this->image = $image;
+       
+    }
+    public function getId_produit () {
+        return $this->Id_produit;
+    }
+    public function getNomP () {
+        return $this->NomP;
+    }
+    public function getDateA () {
+        return $this->DateA;
+    }
+    public function getDescription1 () {
+        return $this->Description1;
+    }
+    public function getGenre () {
+        return $this->Genre;
+    }
+    public function getCouleur () {
+        return $this->Couleur;
+    }
+    public function getTaille() {
+        return $this->Taille;
+    }
+    public function getpoids () {
+        return $this->poids;
+    }
+    public function getPrix () {
+        return $this->Prix;
+    }
+    public function getQuantite () {
+        return $this->Quantite;
+    } 
+    public function getimage () {
+        return $this->image;
     }
 
-    public function getId()
-    {
-        return $this->id;
+    public function setID_produit ($Id_produit){
+        $this->Id_produit = $Id_produit;
     }
-
-    public function setId($id)
-    {
-        $this->id = $id;
+    public function setNomP ($NomP){
+        $this->NomP = $NomP;
     }
-
-    public function getTitre()
-    {
-        return $this->titre;
+    
+    public function setDateA ($DateA){
+        $this->DateA = $DateA;
     }
-
-    public function setTitre($titre)
-    {
-        $this->titre = $titre;
+    public function setDescription1 ($Description1){
+        $this->Description1 = $Description1;
     }
-
-    public function getDescription()
-    {
-        return $this->description;
+    public function setGenre ($Genre){
+        $this->Genre = $Genre;
     }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
+    public function setCouleur ($Couleur){
+        $this->Couleur = $Couleur;
     }
-
-    public function getPrix()
-    {
-        return $this->prix;
+    public function setTaille ($Taille){
+        $this->Taille = $Taille;
     }
-
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
+   public function setpoids ($poids){
+        $this->poids = $poids;
     }
-
-    public function getQuantite()
-    {
-        return $this->quantite;
+    public function setPrix ($Prix){
+        $this->Prix = $Prix;
     }
-
-    public function setQuantite($quantite)
-    {
-        $this->quantite = $quantite;
+    public function setQuantite ($Quantite){
+        $this->Quantite = $Quantite;
+    } 
+    public function setimage ($image){
+        $this->image = $image;
     }
-
+    
 }
+?>

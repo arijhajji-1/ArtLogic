@@ -3,7 +3,7 @@ include_once "../Core/panierC.php";
 include_once "../Core/commandeC.php";
 include_once "../fpdf182/fpdf.php";
 
-session_start();
+
 $panier1C=new panierC();
 $commande1C= new commandeC();
 
@@ -94,7 +94,7 @@ function WriteHTML($html)
         {
             // Balise
             if($e[0]=='/')
-                $this->CloseTag(strtoupper(substr($e,1)));
+                $this->CloseTag(strtoupper(substr($e,1)));//majus
             else
             {
                 // Extraction des attributs
@@ -160,7 +160,7 @@ $html = ' ';
 $pdf = new PDF();
  $pdf->AliasNbPages();
 // Titres des colonnes
-$header = array('id commande','id_client', 'prix total', 'payement');
+$header = array('id commande','id_user', 'prix total', 'payement');
  
 // Chargement des données
 $data = $listeCommande;

@@ -1,39 +1,39 @@
 <?php
 class panier
 {
-    private $id_client;
-    private $id_produit;
-    private $quantite;
+    private $id_user;
+    private $Id_produit;
+    private $Quantite;
     private $prix_total;
 
-    function __construct($id_client,$id_produit,$quantite,$prix_total)
+    function __construct($id_user,$Id_produit,$Quantite,$prix_total)
     {
-        $this->id_client=$id_client;
-        $this->id_produit=$id_produit;
-        $this->quantite=$quantite;
+        $this->id_user=$id_user;
+        $this->Id_produit=$Id_produit;
+        $this->Quantite=$Quantite;
         $this->prix_total=$prix_total;
     }
 
-    function set_id_client($id_client)
-    { $this->id_client=$id_client; }
+    function set_id_user($id_user)
+    { $this->id_user=$id_user; }
 
-    function set_id_produit($id_produit)
-    { $this->id_produit=$id_produit; }
+    function set_Id_produit($Id_produit)
+    { $this->Id_produit=$Id_produit; }
 
-    function set_quantite($quantite)
-    { $this->quantite=$quantite; }
+    function set_Quantite($Quantite)
+    { $this->Quantite=$Quantite; }
 
     function set_prix_total($prix_total)
     { $this->prix_total=$prix_total; }
 
-    function get_id_client()
-    { return $this->id_client; }
+    function get_id_user()
+    { return $this->id_user; }
 
-    function get_id_produit()
-    { return $this->id_produit; }
+    function get_Id_produit()
+    { return $this->Id_produit; }
 
-    function get_quantite()
-    { return $this->quantite; }
+    function get_Quantite()
+    { return $this->Quantite; }
 
     function get_prix_total()
     { return $this->prix_total; }

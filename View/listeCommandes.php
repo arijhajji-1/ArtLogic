@@ -1,6 +1,6 @@
 <?php
 include "../Core/CommandeC.php";
-$listeCommande= (new CommandeC())->afficherCommande('1234');
+$listeCommande= (new CommandeC())->afficherCommande('id_user');
 if(isset($_GET['search'])){
     $listeCommande= (new CommandeC())->rechercherCommande($_GET['search']);
 
@@ -25,11 +25,8 @@ if(isset($_GET['search'])){
    
     <button class="btn btn-info">Rechercher</button>
 </form>
-<td><form method="POST" action="genererPDF.php">
-	  <button class="btn btn-info">Enregistrer une facture</button>
-	<input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
-	</form>
-	</td>
+<button type="submit" class="btn btn-info" style="width: 600;" onclick="location.href='stat.php'">statistique</button>
+
 <table class="table" >
     <thead class="thead-dark">
     <tr>
@@ -40,6 +37,7 @@ if(isset($_GET['search'])){
         <th>Produits</th>
         <th>Description</th>
         <th>supprimer</th>
+        <th>facture</th>
     </tr>
     </thead>
     <tbody>
@@ -57,6 +55,11 @@ if(isset($_GET['search'])){
                     <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
                     <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
                 </form>
+                <td><form method="POST" action="genererPDF.php">
+	  <button class="btn btn-info">Enregistrer   facture</button>
+	<input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
+	</form>
+	</td>
             </td>
            
         </tr>

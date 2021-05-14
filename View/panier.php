@@ -9,7 +9,7 @@ $products = $product->afficherProduit();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>panier</title>
 </head>
 <body>
 <div class="container">
@@ -24,11 +24,11 @@ $products = $product->afficherProduit();
     foreach ($products as $p){
         ?>
         <div class="col-md-5 card">
-            <h1><?php echo $p["titre"]; ?></h1>
-            <p><?php echo $p["description"] ?></p>
-            <span> <?php echo $p["prix"] ?> DT</span>
-            <span> <?php echo $p["quantite"] ?> in stock</span>
-            <a class="btn btn-success" href="add_panier.php?id_produit=<?php echo $p["id"]; ?>&&prix_total=<?php echo $p["prix"]; ?>" >Ajouter au panier</a>
+            <h1><?php echo $p["NomP"]; ?></h1>
+            <p><?php echo $p["Description1"] ?></p>
+            <span> <?php echo $p["Prix"] ?> DT</span>
+            <span> <?php echo $p["Quantite"] ?> in stock</span>
+            <a class="btn btn-success" href="add_panier.php?Id_produit=<?php echo $p["Id_produit"]; ?>&&prix_total=<?php echo $p["Prix"]; ?>" >Ajouter au panier</a>
         </div>
     <?php
     }

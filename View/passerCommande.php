@@ -6,18 +6,18 @@ include "../Core/panierC.php";
 include "../Core/produitC.php";
 $produit = new ProduitC();
 $panier = new panierC();
-$touslesitems= $panier->afficherPanier('1234');
+$touslesitems= $panier->afficherPanier('id_user');
 $prix_globale= 0;
 $str = "";
 foreach($touslesitems as $x){
-$str=$str.$x['titre'].',';
+$str=$str.$x['NomP'].',';
     $prix_globale+=$x['prix_total'];
 }
 $str = rtrim($str, ", ");
-$commande = new commande('1234',$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= 1111");
+$commande = new commande('$id_user',$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= 'id_user'");
 (new CommandeC())->ajouterCommande($commande);
 
-$panier->deleteAllcommandes('1234');
+$panier->deleteAllcommandes('id_user');
 echo '<script>
 alert("Votre commande à ete passé avec success!");
 location.href="panier.php";
