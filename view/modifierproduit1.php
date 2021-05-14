@@ -1,25 +1,20 @@
 <?php
+include_once '../Controller/produitC.php';
+include_once '../Model/produit.php'; 
 
-require_once '../Controller/promotionc.php';
-require_once '../Model/promotion.php';
-$promotionc = new promotionc();
-$promotion = $promotionc->afficherpromotion();
 
-if(isset($_POST['submit']))
-{
-    $promotion=$promotionc->trierpromotion();
-}
-elseif(isset($_POST['submit2']))
-{
-    $promotion=$promotionc->trierpromotiondesc();
-}
+$produitC =  new produitC();
 
-if (isset($_GET['reference'])) {
-        $promotionc->supprimerpromotion($_GET['reference']);
-        header('Location:list.php');
+    if (isset($_POST['NomP']) && isset($_POST['DateA']) && isset($_POST['Description1']) && isset($_POST['Genre'])&& isset($_POST['Couleur'])&& isset($_POST['Taille'])&& isset($_POST['poids']) && isset($_POST['Prix'])&& isset($_POST['Quantite']) && isset($_POST['image'])   ) {
+        $produit = new produit($_POST['NomP'], $_POST['DateA'], $_POST['Description1'], $_POST['Genre'], $_POST['Couleur'], $_POST['Taille'], $_POST['poids'], $_POST['Prix'], $_POST['Quantite'], $_POST['image']);
+        
+        $produitC->modifierproduit($produit,$_GET['Id_produit']);
     }
 
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,8 +27,9 @@ if (isset($_GET['reference'])) {
         <link href="../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-            <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
-<!--===============================================================================================-->   <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+            <link rel="icon" type="../image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -44,33 +40,34 @@ if (isset($_GET['reference'])) {
 <!--===============================================================================================-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
+
     </head>
    <body class="sb-nav-fixed">
-       <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a href="index.html" class="link color-main mx-15"><img  src="..\i\logo.png" height="150" width="150" class="w-300 h-300 radius_full" alt="" /></a>
-    <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
-    </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ml-auto ml-md-0">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="index.html">Logout</a>
-            </div>
-        </li>
-    </ul>
-</nav>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <img src="../i/logo.png" alt="" height="150" width="150" href="index.html" >
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -92,8 +89,9 @@ if (isset($_GET['reference'])) {
                                     <a class="nav-link" href="layout-static.html">Livraison</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                                 </nav>
-                            </div>
-                               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            </div> 
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -104,8 +102,9 @@ if (isset($_GET['reference'])) {
                                   <a class="nav-link" href="affichercategorie1.php">catégories</a>
                               </nav>
                           </div>
+
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -128,9 +127,7 @@ if (isset($_GET['reference'])) {
                                 </nav>
                             </div>
 
-                           
-
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                         User
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -143,7 +140,7 @@ if (isset($_GET['reference'])) {
                         </nav>
                     </div>
 
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Evenement&Actualité
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -156,8 +153,6 @@ if (isset($_GET['reference'])) {
                                     <a class="nav-link" href="actualiteView.php">View Actualité</a>
                                 </nav>
                             </div>
-
-
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     
@@ -191,66 +186,105 @@ if (isset($_GET['reference'])) {
                     </div>
                 </nav>
             </div>
-          <div class="container-contact100">
-            <div class="wrap-contact100">
-                 <form class="contact100-form validate-form" action="" method="post">
+            
+            <?php
+    
+        if (isset($_GET['Id_produit'])) {
+            $result = $produitC->getprodById($_GET['Id_produit']);
+            if ($result !== false) {
+    ?>  
+        
+
+ <div class="container-contact100">
+        <div class="">
+
+        
+          
+
+      <form class="contact100-form validate-form" action="" method="POST">
                 <span class="contact100-form-title">
 
-                  Promotions
+               Liste des Produits
                 </span>
 
- <p> <form method="POST" action="">
-                <input type="submit" name="submit" value="trierA" class="contact100-form-btn" >
-                <input type="submit" name="submit2" value="trierD" class="contact100-form-btn">
-                <a type="button" class="contact100-form-btn" href = "recherchepromotion.php">rechercher</a> 
-                
-               </form> </p>   
-            
-
         <table class="table custom-table">
-          <thead>
+        <!--  <thead> -->
             <tr>  
 
               
               
-              <th scope="col">Reference</th>
-              <th scope="col">produit</th>
-              <th scope="col">Date debut</th>
-              <th scope="col">Date fin</th>
-                            <th scope="col">Pourcentage</th>
-
+                         <th scope="col">NomP</th> 
+                         <th scope="col">date</th> 
+                          <th scope="col">description</th> 
+                            <th scope="col">genre</th>   
+                           <th scope="col">Couleur</th>  
+                           <th scope="col">Taille</th>  
+                           <th scope="col">poids</th>  
+                            <th scope="col">Prix</th>   
+                            <th scope="col">Quantite</th>   
+                            <th scope="col">image</th>  
+                            <th> </th>  
+             
             </tr>
-          </thead>
-         <?php
-foreach ($promotion as $promotion) {
+           
+ 
 
+<tr>
+                                     <td>  <input type="text" name="NomP" value="<?= $result['NomP'] ?>">  </td>
+                                 <td>  <input type="text" name="DateA" value="<?= $result['DateA'] ?>">  </td>
+                                <td>  <input type="text" name="Description1" value="<?= $result['Description1'] ?>">  </td> 
+                                <?php
+                      require_once('../connection.php');
+                 $mysqli = new mysqli('localhost', 'root', '' ,'web');
+                if($mysqli->connect_error){
+                die('Connect-Error (' . $mysqli->connect_error . ') '
+               . $mysqli->connect_error);
+                 }
+               $query = $mysqli->query( "SELECT * FROM categorie");
+              while ($array[] = $query->fetch_object());
+              # code...
+         array_pop ( $array );
+            ?>                            
+                                     <td>                
+                                 <select name="Genre">
+                                  <?php foreach ( $array as $option ) :?>
+                                 <option value="<?php echo $option->NomC; ?>"><?php echo $option->NomC; ?> </option>
+                                 <?php endforeach; ?>       
+                                 </select> 
+                                  </td>
 
+                                    <td>  <input type="text" name="Couleur" value="<?= $result['Couleur'] ?>"> </td>
+                                     <td> <input type="text" name="Taille" value="<?= $result['Taille'] ?>"> </td>
+                                <td>  <input type="text" name="poids" value="<?= $result['poids'] ?>"> </td>
+                                <td>  <input type="text" name="Prix" value="<?= $result['Prix'] ?>"> </td> 
+                                <td>  <input type="text" name="Quantite" value="<?= $result['Quantite'] ?>"> </td> 
+                                <td>  <input type="file" name="image" value="<?= $result['image'] ?>"> </td> 
+                                <td><input type="submit" name="modifier" class="contact100-form-btn" value="modifier"></td> 
+                            
+                             
+                                       
 
-           ?>
-          <tbody>
-            
-            <tr>
-                
-                
-                                   <td> <?= $promotion['reference'] ?> </td> 
-                                  <td>  <?=  $promotion['pr'] ?> </td>
-                                <td>  <?=  $promotion['dateDebut'] ?> </td>
-                                 <td>  <?=  $promotion['dateFin'] ?> </td>
-                                    <td>  <?=  $promotion['pourcentage'] ?> </td> <td><a type="button" class="contact100-form-btn" href = "list.php?reference=<?= $promotion['reference'] ?>">Supprimer</a></td> 
-                                    <td><a type="button" class="contact100-form-btn" href = "modifier.php?reference=<?= $promotion['reference'] ?>">Modifier</a></td> 
-                                
-                      
                                
 
        
-</tr>
-                 
-                
-          </tbody>
+</tr> 
 
-             <?php
+<?php
         }
-        ?>
+    }
+        else {
+            header('Location:afficherproduit1.php');
+        }
+    
+    ?>
+
+
+       <!--   </thead>  -->
+
+    
+
+
+          
         </table>
       </div>
 
@@ -259,12 +293,12 @@ foreach ($promotion as $promotion) {
 
   </div>
     
-    
+    </form>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -292,3 +326,5 @@ foreach ($promotion as $promotion) {
         <script src="../assets/demo/datatables-demo.js"></script>
     </body>
 </html>
+
+

@@ -121,6 +121,7 @@ if(isset($_POST['trie1']))
                         </a>
                         <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                                 <a class="nav-link" href="administrateur.php">Administrateur</a>
                                 <a class="nav-link" href="clients.php">client</a>
                                 <a class="nav-link" href="vendeurs.php">vendeur</a>
                             </nav>
@@ -149,35 +150,7 @@ if(isset($_POST['trie1']))
                                         <a class="nav-link" href="password.html">Forgot Password</a>
                                     </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-
-                                    <div class="sb-sidenav-collapse-arrow">options<i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">401 Page</a>
-                                        <a class="nav-link" href="404.html">404 Page</a>
-                                        <a class="nav-link" href="500.html">500 Page</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
-
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Panier
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="charts.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Statistique
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            DataViewer
-                        </a>
-                    </div>
+                                
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
@@ -191,7 +164,7 @@ if(isset($_POST['trie1']))
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Clients
+                            Vendeurs
                         </div>
                         <p> <form method="POST" action="">
 
@@ -210,7 +183,7 @@ if(isset($_POST['trie1']))
                                 <!-- Advanced Tables -->
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        Liste des clients
+                                        Liste des Vendeurs
                                     </div>
                                     <div class="panel-body">
                                         <div class="table-responsive">

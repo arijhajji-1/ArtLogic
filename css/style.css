@@ -2001,6 +2001,10 @@ b, strong {
   background: #521a21 url(../i/form_1_bg.jpg) no-repeat 50% 50%;
   background-size: cover;
 }
+.form_2 {
+  background: #521a21 url(../i/bg2.jpg) no-repeat 50% 50%;
+  background-size: cover;
+}
 @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   .form_1 {
     background-image: url(../i/form_1_bg@2x.jpg);

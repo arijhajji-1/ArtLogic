@@ -1,25 +1,35 @@
 <?php
 
-require_once '../Controller/promotionc.php';
-require_once '../Model/promotion.php';
-$promotionc = new promotionc();
-$promotion = $promotionc->afficherpromotion();
+include_once '../Controller/categorieC.php';
+include_once '../Model/categorie.php'; 
+session_start();
+if(!empty($_POST['NomC']) && !empty($_POST['DescriptionC'])){
 
-if(isset($_POST['submit']))
-{
-    $promotion=$promotionc->trierpromotion();
-}
-elseif(isset($_POST['submit2']))
-{
-    $promotion=$promotionc->trierpromotiondesc();
+$NomC = $_POST['NomC'];
+$DescriptionC = $_POST['DescriptionC'];
+
+
+
+
+
+
+
+
+$categorieC = new categorieC();
+$categorie=new categorie ($NomC, $DescriptionC);
+try{
+    $categorieC->ajoutercategorie($categorie);
+}catch(Exception $e){
+    echo "ERREUR connection.php : ".$e->getMessage();
+    exit;
 }
 
-if (isset($_GET['reference'])) {
-        $promotionc->supprimerpromotion($_GET['reference']);
-        header('Location:list.php');
-    }
+
+}
+
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,12 +38,12 @@ if (isset($_GET['reference'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Artlogic Admin</title>
+        <title>ajouter categorie</title>
         <link href="../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-            <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
-<!--===============================================================================================-->   <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+            <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--============================================================================================================================================================================================-->  <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -46,31 +56,31 @@ if (isset($_GET['reference'])) {
 
     </head>
    <body class="sb-nav-fixed">
-       <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a href="index.html" class="link color-main mx-15"><img  src="..\i\logo.png" height="150" width="150" class="w-300 h-300 radius_full" alt="" /></a>
-    <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
-    </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ml-auto ml-md-0">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="index.html">Logout</a>
-            </div>
-        </li>
-    </ul>
-</nav>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <img src="../i/logo.png" alt="" height="150" width="150" href="index.html" >
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -92,8 +102,9 @@ if (isset($_GET['reference'])) {
                                     <a class="nav-link" href="layout-static.html">Livraison</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                                 </nav>
-                            </div>
-                               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            </div> 
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -104,6 +115,7 @@ if (isset($_GET['reference'])) {
                                   <a class="nav-link" href="affichercategorie1.php">catégories</a>
                               </nav>
                           </div>
+
                             
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -112,8 +124,8 @@ if (isset($_GET['reference'])) {
                             </a>
                             <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="list.php">List</a>
-                                    <a class="nav-link" href="promo.php">promo</a>
+                                    <a class="nav-link" href="list.html">List</a>
+                                    <a class="nav-link" href="promo.html">promo</a>
                                 </nav>
                             </div>
                              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts7" aria-expanded="false" aria-controls="collapseLayouts7">
@@ -130,33 +142,17 @@ if (isset($_GET['reference'])) {
 
                            
 
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        User
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="administrateur.php">administrateur</a>
-                            <a class="nav-link" href="clients.php">client</a>
-                            <a class="nav-link" href="vendeurs.php">vendeur</a>
-                        </nav>
-                    </div>
-
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Evenement&Actualité
+                                User
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="evenementForm.php">Add Evenement</a>
-                                    <a class="nav-link" href="evenementView.php">View Evenement</a>
-                                    <a class="nav-link" href="actualiteForm.php">Add Actualité</a>
-                                    <a class="nav-link" href="actualiteView.php">View Actualité</a>
+                                    <a class="nav-link" href="layout-static-user.html">client</a>
+                                    <a class="nav-link" href="layout-sidenav-light-user.html">vendeur</a>
                                 </nav>
                             </div>
-
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -191,67 +187,46 @@ if (isset($_GET['reference'])) {
                     </div>
                 </nav>
             </div>
-          <div class="container-contact100">
-            <div class="wrap-contact100">
-                 <form class="contact100-form validate-form" action="" method="post">
+ <div class="container-contact100">
+        <div class="wrap-contact100">
+      <form class="contact100-form validate-form" action="" method="POST">
                 <span class="contact100-form-title">
 
-                  Promotions
-                </span>
+                  Ajouter catégorie
+                </span> 
+                <!--contenu sous forme de boite-->  
+<section class="showcase_2 bg-light pt-105 pb-90 text-center">
+<div class="testbox">
+    <form action="" method="POST">
+      <div class="banner">
+        
+      </div>
 
- <p> <form method="POST" action="">
-                <input type="submit" name="submit" value="trierA" class="contact100-form-btn" >
-                <input type="submit" name="submit2" value="trierD" class="contact100-form-btn">
-                <a type="button" class="contact100-form-btn" href = "recherchepromotion.php">rechercher</a> 
-                
-               </form> </p>   
-            
+     
 
-        <table class="table custom-table">
-          <thead>
-            <tr>  
+      <div class="item">
+        <label for="NomC">Nom du catégorie :<span></span></label>
+        <input id="NomC" type="text" name="NomC" required/>
+      </div>
+      <div class="item">
+        <div class="name-item">
+          <div>
+            <label for="DescriptionC">Description :<span></span></label>
+            <input id="DescriptionC" type="text" name="DescriptionC" required/>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="btn-block">
+        <button type="submit"   href="/">Ajouter</button>
+      </div>
+    </form>
+  </div> 
+</section>
 
-              
-              
-              <th scope="col">Reference</th>
-              <th scope="col">produit</th>
-              <th scope="col">Date debut</th>
-              <th scope="col">Date fin</th>
-                            <th scope="col">Pourcentage</th>
-
-            </tr>
-          </thead>
-         <?php
-foreach ($promotion as $promotion) {
-
-
-
-           ?>
-          <tbody>
-            
-            <tr>
-                
-                
-                                   <td> <?= $promotion['reference'] ?> </td> 
-                                  <td>  <?=  $promotion['pr'] ?> </td>
-                                <td>  <?=  $promotion['dateDebut'] ?> </td>
-                                 <td>  <?=  $promotion['dateFin'] ?> </td>
-                                    <td>  <?=  $promotion['pourcentage'] ?> </td> <td><a type="button" class="contact100-form-btn" href = "list.php?reference=<?= $promotion['reference'] ?>">Supprimer</a></td> 
-                                    <td><a type="button" class="contact100-form-btn" href = "modifier.php?reference=<?= $promotion['reference'] ?>">Modifier</a></td> 
-                                
-                      
-                               
 
        
-</tr>
-                 
-                
-          </tbody>
-
-             <?php
-        }
-        ?>
-        </table>
       </div>
 
 
@@ -261,10 +236,10 @@ foreach ($promotion as $promotion) {
     
     
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+   <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">

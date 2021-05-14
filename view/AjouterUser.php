@@ -34,7 +34,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
 Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
 ou copier/coller dans votre navigateur Internet.
  
-http://localhost:63342/ArtLogic/View/verif.php?vkey='.urlencode($Vkey).'
+http://localhost:63342/ArtLogic-master/view/verif.php?vkey='.urlencode($Vkey).'
  
  
 ---------------
