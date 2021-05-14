@@ -1,3 +1,65 @@
 @import 'variables.scss';
 @import '../css/framework.css';
 @import 'layout.scss';
+	padding: 7rem 0;
+}
+h2 {
+	font-size: 20px;
+}
+
+
+
+
+
+.media-29101 {
+  text-align: center;
+
+  img {
+    margin-bottom: 20px;
+    border-radius: 50%;
+    width: 80px!important;
+    margin: 0 auto 40px auto;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 900!important;
+    margin-bottom: 30px;
+    a {
+      color: $secondary;
+    }
+  }
+
+}
+
+.owl-2-style {
+  .owl-nav {
+    display: none;
+  }
+  .owl-dots {
+    text-align: center;
+    position: relative;
+    bottom: -30px;
+    .owl-dot {
+      display: inline-block;
+      span {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 0px;
+        background: lighten($black, 80%);
+        transition: .3s all cubic-bezier(.32, .71, .53, .53);
+        margin: 3px;
+        border-radius: 50%;
+      }
+      &.active {
+        span {
+          background: $primary;
+        }
+      }
+
+      &:active, &:focus {
+				outline: none;
+			}
+    }
+  }
+}

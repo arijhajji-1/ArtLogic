@@ -111,6 +111,18 @@ $produit = $produitC->afficherproduit();
                             </div>
 
                             
+                          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                              Produits
+                              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                          </a>
+                          <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                              <nav class="sb-sidenav-menu-nested nav">
+                              <a class="nav-link" href="afficherproduit1.php">Produits</a>
+                                  <a class="nav-link" href="affichercategorie1.php">catégories</a>
+                              </nav>
+                          </div>
+                            
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
@@ -136,17 +148,32 @@ $produit = $produitC->afficherproduit();
 
                            
 
-                          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            User
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="clients.php">client</a>
-                                <a class="nav-link" href="vendeurs.php">vendeur</a>
-                            </nav>
-                        </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                User
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="administrateur.php">administrateur</a>
+                            <a class="nav-link" href="clients.php">client</a>
+                            <a class="nav-link" href="vendeurs.php">vendeur</a>
+                        </nav>
+                    </div>
+ <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Evenement&Actualité
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="evenementForm.php">Add Evenement</a>
+                                    <a class="nav-link" href="evenementView.php">View Evenement</a>
+                                    <a class="nav-link" href="actualiteForm.php">Add Actualité</a>
+                                    <a class="nav-link" href="actualiteView.php">View Actualité</a>
+                                </nav>
+                            </div>
+                            
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">

@@ -116,7 +116,7 @@ if (isset($_GET['reference'])) {
                                     <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                                 </nav>
                             </div>
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -166,6 +166,20 @@ if (isset($_GET['reference'])) {
                         </nav>
                     </div>
 
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Evenement&Actualité
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="evenementForm.php">Add Evenement</a>
+                                    <a class="nav-link" href="evenementView.php">View Evenement</a>
+                                    <a class="nav-link" href="actualiteForm.php">Add Actualité</a>
+                                    <a class="nav-link" href="actualiteView.php">View Actualité</a>
+                                </nav>
+                            </div>
+
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -200,9 +214,9 @@ if (isset($_GET['reference'])) {
                     </div>
                 </nav>
             </div>
- <div class="container-contact100">
-        <div class="wrap-contact100">
-      <form class="contact100-form validate-form" action="" method="post">
+          <div class="container-contact100">
+            <div class="wrap-contact100">
+                 <form class="contact100-form validate-form" action="" method="post">
                 <span class="contact100-form-title">
 
                   Promotions

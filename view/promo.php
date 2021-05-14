@@ -164,6 +164,19 @@ if (isset($_POST['pr']) && isset($_POST['dateDebut']) && isset($_POST['dateFin']
                             <a class="nav-link" href="vendeurs.php">vendeur</a>
                         </nav>
                     </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Evenement&Actualité
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="evenementForm.php">Add Evenement</a>
+                                    <a class="nav-link" href="evenementView.php">View Evenement</a>
+                                    <a class="nav-link" href="actualiteForm.php">Add Actualité</a>
+                                    <a class="nav-link" href="actualiteView.php">View Actualité</a>
+                                </nav>
+                            </div>
 
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
@@ -249,11 +262,11 @@ while ($array[] = $query->fetch_object());
 
                 <div class="wrap-input100 bg1 rs1-wrap-input100">
                     <label class="label-input100">Date debut promotion</label>
-                    <input class="input100" type="date"  name="dateDebut" >
+                    <input class="input100" type="date"  name="dateDebut" min="<?php echo date('Y-m-d'); ?>" >
                 </div>
                 <div class="wrap-input100 bg1 rs1-wrap-input100">
                     <span class="label-input100">Date fin promotion</span>
-                    <input class="input100" type="date"  name="dateFin"  >
+                    <input class="input100" type="date"  name="dateFin"  min="<?php echo date('Y-m-d'); ?>">
                 </div>
 <div class="wrap-input100 bg1 rs1-wrap-input100">
                     <span class="label-input100">pourcentage</span>
