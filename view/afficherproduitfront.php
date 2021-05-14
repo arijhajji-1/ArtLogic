@@ -88,7 +88,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
                     <img  src="..\i\logo.png" class="w-300 h-300 radius_full" alt="" />
             <div class="col-lg-6" >
                 <a href="index.html" class="link color-main mx-15">Home</a>
-                <a href="#" class="link color-main mx-15">Profile</a>
+                <a href="afficheUser.php" class="link color-main mx-15">Profile</a>
                 <a href="#" class="link color-main mx-15">Blog</a>
                 <a href="about.html" class="link color-main mx-15">About</a>
                 <a href="#" class="link color-main mx-15">Shop</a>
