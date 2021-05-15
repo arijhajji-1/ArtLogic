@@ -8,7 +8,7 @@ $id_user= $_SESSION['id_user'];
 $produitC = new produitC();
  
 $Produit = $produitC->afficherproduit();
-echo "hello world";
+
 
 if (isset($_POST['submit']))
 {
