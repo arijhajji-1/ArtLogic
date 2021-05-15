@@ -150,7 +150,7 @@ while ($array[] = $query->fetch_object());
     foreach ($Produit as $produit)
     {
     ?>
-    <div class="container px-xl-0">
+    <div class="container px-xl-0" align="center">
         <form action="" method = "POST" >
           <div class="shop-item">
                     <div class="row">
@@ -180,8 +180,7 @@ while ($array[] = $query->fetch_object());
                         <br><br>
                         <span class="shop-item-date"> Quantité: <?= $produit['Quantite'] ?>  </span>
                         <br><br>
-                        <a type="button" class="btn sm action-2 f-16" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">view</a>
-                        <a type="button" class="btn sm action-2 f-16" href = "modifierproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Ajouter Panier</a> 
+                        <a type="button" class="btn sm action-2 f-16" href = "#">Ajouter Panier</a> 
                          
             <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fafficherproduitfront.php&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         
@@ -221,11 +220,7 @@ while ($array[] = $query->fetch_object());
        (document, 'script', 'facebook-jssdk'));
        </script>
         
-        <!-- Your share button code -->
-<div class="fb-share-button" 
-data-href="http://afficherproduitfront.php" 
-data-layout="button_count">
-</div>
+   
     
     
 

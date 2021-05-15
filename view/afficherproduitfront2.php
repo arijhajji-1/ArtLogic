@@ -110,30 +110,42 @@ while ($array[] = $query->fetch_object());
 
   
   <?php
-					foreach ($produit as $list) {
-				?>
-				<div class="shop-item">
-					<div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="box-title"><strong><?= $list['NomP'] ?> </strong> </h4>
-                            </div>
-                            <div class="row">
-					<div class="shop-item-details">
-					 <img src="../i/<?= $list['image'] ?>"height="200" width="200">
-						<span class="shop-item-des"><?= $list['Description1'] ?>  </span>
-						<br><br>
-						<span class="amount-old" class="shop-item-price">Prix: <?= $list['Prix'] ?> TND </span>
-						<br><br>
-						<span class="shop-item-price">nouveau Prix: <?= $list['nouveauPrix'] ?> TND </span>
-						<br><br>
-						<span class="shop-item-date"> Date d'ajout: <?= $list['DateA'] ?>  </span>
-						<br><br>
-						<span class="shop-item-des">Genre :<?= $list['Genre'] ?>  </span>
-						<br><br>
-						<span class="shop-item-date"> Quantité: <?= $list['Quantite'] ?>  </span>
-						<br><br>
+		foreach ($produit as $list)
+		{
+		?>
+		<div class="container px-xl-0" align="center">
+			<form action="" method = "POST" >
+			  <div class="shop-item">
+						<div class="row">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="box-title"><strong><?= $list['NomP'] ?> </strong> </h4>
+								</div>
+								<div class="row">
+						<div class="shop-item-details">
+						 <img src="../i/<?= $list['image'] ?>"height="200" width="200">
+							<span class="shop-item-des"><?= $list['Description1'] ?>  </span>
+							<br><br>
+							<?php if($list['nouveauPrix']==0) { ?>
+							<span class="" class="shop-item-price">Prix: <?= $list['Prix'] ?> TND </span>
+							<br><br>
+	
+							<?php } else { ?>
+								<span class="amount-old" class="shop-item-price">Prix: <?= $list['Prix'] ?> TND </span>
+							<br><br>
+							<span class="shop-item-price">nouveau Prix: <?= $list['nouveauPrix'] ?> TND </span>
+							<br><br>  
+						   <?php }?>
+							<span class="shop-item-date"> Date d'ajout: <?= $list['DateA'] ?>  </span>
+							<br><br>
+							<span class="shop-item-des">Genre :<?= $list['Genre'] ?>  </span>
+							<br><br>
+							<span class="shop-item-date"> Quantité: <?= $list['Quantite'] ?>  </span>
+							<br><br>
+							<a type="button" class="btn sm action-2 f-16" href = "#">Ajouter Panier</a> 
+							 
+				<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fafficherproduitfront.php&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 						
 		
 </div> <!-- /.row -->
