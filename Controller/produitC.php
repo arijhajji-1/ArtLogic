@@ -189,7 +189,20 @@
             }
         }
 
-		
+		function recupererProduit($Id_produit){
+	$sql="SELECT * from produit where Id_produit= $Id_produit";
+	$db = connection::getConnexion();
+	try{
+		$sth = $db->prepare($sql);
+		$sth->execute();
+		$liste = $sth->fetch();
+
+		return $liste;
+	}
+	catch (Exception $e){
+		die('Erreur: '.$e->getMessage());
+	}
+}
 		
 	}
 
