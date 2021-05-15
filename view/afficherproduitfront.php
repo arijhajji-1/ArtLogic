@@ -10,6 +10,7 @@ $produitC = new produitC();
 $Produit = $produitC->afficherproduit();
 
 
+
 if (isset($_POST['submit']))
 {
 
