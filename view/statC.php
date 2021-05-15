@@ -37,6 +37,6 @@ $con = mysqli_connect("localhost","root","","web");
   </head>
   <body>
     <div id="barchart_values" style="width: 900px; height: 550px;"></div>
-    <button type="submit" class="btn btn-success" style="width: 200px;" onclick="location.href='listeCommandes.php'">la liste des commands</button>
+    <button type="submit" class="btn btn-success" style="width: 200px;" onclick="location.href='Bcommande.php'">la liste des commands</button>
   </body>
 </html>
