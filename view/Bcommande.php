@@ -1,10 +1,21 @@
 <?php
+include_once '../Controller/produitC.php';
+include_once '../Model/produit.php'; 
+include "../Controller/CommandeC.php";
+$listeCommande= (new CommandeC())->afficherCommande('id_user');
+if(isset($_GET['search'])){
+    $listeCommande= (new CommandeC())->rechercherCommande($_GET['search']);
 
-require_once '../Controller/reclamationc1.php';
-require_once '../Model/reclamation1.php';
-$reclamationc = new reclamationc();
-$reclamation = $reclamationc->afficherreclamation();
+}
+
+
+
+ 
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,16 +26,11 @@ $reclamation = $reclamationc->afficherreclamation();
         <meta name="author" content="" />
         <title>Artlogic Admin</title>
         <link href="../css/styles.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-       
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
             <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
-
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -34,6 +40,8 @@ $reclamation = $reclamationc->afficherreclamation();
     <link rel="stylesheet" type="text/css" href="../css/main.css">
 <!--===============================================================================================-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+
     </head>
    <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -82,10 +90,9 @@ $reclamation = $reclamationc->afficherreclamation();
                                     <a class="nav-link" href="layout-static.html">Livraison</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
                                 </nav>
-                            </div>
+                            </div> 
 
-                            
-                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -96,8 +103,9 @@ $reclamation = $reclamationc->afficherreclamation();
                                   <a class="nav-link" href="affichercategorie1.php">catégories</a>
                               </nav>
                           </div>
+
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
+                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -119,8 +127,7 @@ $reclamation = $reclamationc->afficherreclamation();
                                     <a class="nav-link" href="listreclamation.html">Messages</a>
                                 </nav>
                             </div>
-
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                Commande
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -131,20 +138,19 @@ $reclamation = $reclamationc->afficherreclamation();
                                   
                                 </nav>
                             </div>
-
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                User
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        User
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="administrateur.php">administrateur</a>
                             <a class="nav-link" href="clients.php">client</a>
                             <a class="nav-link" href="vendeurs.php">vendeur</a>
                         </nav>
                     </div>
- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Evenement&Actualité
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -157,9 +163,9 @@ $reclamation = $reclamationc->afficherreclamation();
                                     <a class="nav-link" href="actualiteView.php">View Actualité</a>
                                 </nav>
                             </div>
-                            
-                           
 
+
+                           
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     
@@ -194,40 +200,72 @@ $reclamation = $reclamationc->afficherreclamation();
                 </nav>
             </div>
  <div class="container-contact100">
-                   <div class="wrap-contact100">
-      <!--<form class="contact100-form validate-form" >-->
+        <div class="">
+      <form class="contact100-form validate-form" action="" method="POST">
                 <span class="contact100-form-title">
 
-                  Retour
-                </span>
+               Liste des Produits
+                </span> 
+                <form method="get">
+    <label>
+        <input type="text" placeholder="Taper ici .... " name="search" class="form-control" />
+    </label>
+   
+    <button class="btn btn-info">Rechercher</button>
+</form>
+<button type="submit" class="btn btn-info" style="width: 600;" onclick="location.href='statC.php'">statistique</button>
 
- 
-<div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon">Search</span>
-                    <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
-                </div>
-            </div>
-<br />
-            <div id="result"></div>
-      
-        <div style="clear:both"></div>
-        <br />
-        
-        <br />
-        
-        <br />
-        <br />
-        <br />
+<table class="table" >
+    <thead class="thead-dark">
+    <tr>
+        <th>Id commande</th>
+        <th>Id client</th>
+        <th>Prix totale</th>
+        <th>Mode de payement</th>
+        <th>Produits</th>
+        <th>Description</th>
+        <th>supprimer</th>
+        <th>facture</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?PHP
+    foreach($listeCommande as $row){
+        ?>
+        <tr>
+            <td><?PHP echo $row['id_commande']; ?></td>
+            <td><?PHP echo $row['id_utilisateur']; ?></td>
+            <td><?PHP echo $row['prix_total']; ?></td>
+            <td><?PHP echo $row['mode_de_payement']; ?></td>
+            <td><?PHP echo $row['produits']; ?></td>
+            <td><?PHP echo $row['description_commande']; ?></td>
+            <td><form method="POST" action="supprimerCommande.php">
+                    <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
+                    <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
+                </form>
+                <td><form method="POST" action="genererPDF.php">
+	  <button class="btn btn-info">Enregistrer   facture</button>
+	<input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
+	</form>
+	</td>
+            </td>
+           
+        </tr>
+<?php
+        }
+        ?>
+
+          
+          
+        </table>
+      </div>
 
 
-</div>
-       
     </div>
 
   </div>
     
-
+    
 
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -249,36 +287,15 @@ $reclamation = $reclamationc->afficherreclamation();
                 </footer>
             </div>
         </div>
-     
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/datatables-demo.js"></script>
     </body>
-</html>
-    
-<script>
-$(document).ready(function(){
-    load_data();
-    function load_data(query)
-    {
-        $.ajax({
-            url:"rech.php",
-            method:"post",
-            data:{query:query},
-            success:function(data)
-            {
-                $('#result').html(data);
-            }
-        });
-    }
-    
-    $('#search_text').keyup(function(){
-        var search = $(this).val();
-        if(search != '')
-        {
-            load_data(search);
-        }
-        else
-        {
-            load_data();            
-        }
-    });
-});
-</script>
+</html> 
+

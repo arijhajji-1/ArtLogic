@@ -138,7 +138,7 @@ header("Location: retour.php");
                             </a>
                             <div class="collapse" id="collapseLayouts9" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="retour.php">Commande</a>
+                                    <a class="nav-link" href="Bcommande.php">Commande</a>
                                   
                                 </nav>
                             </div>
