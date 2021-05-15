@@ -73,7 +73,7 @@
 
                <div class="entry-thumb">
                   <a href="single-standard.html" class="thumb-link">
-				  <img src="../i/<?PHP echo $image ?>" alt="Texte Alternatif" width="500" height="500">             
+				  <img src="../i/<?PHP echo $image ?>" alt="Texte Alternatif" width="300" height="300">             
                   </a>
                </div>
 
@@ -131,27 +131,7 @@
 	</div>
 </footer>
 <!-- forms alerts -->
-<div class="alert alert-success alert-dismissible alert-form-success" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Thanks for your message!
-</div>
-<div class="alert alert-warning alert-dismissible alert-form-check-fields" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Please, fill in required fields.
-</div>
-<div class="alert alert-danger alert-dismissible alert-form-error" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	An error occurred while sending data :(
-</div>
-<!-- popup with video -->
-<div class="overlay"></div>
 
-<div class="video_popup">
-	<a class="close">
-		<img srcset="../i/close_white@2x.png 2x" src="../i/close_white.png" alt="" />
-	</a>
-	<div class="d-flex align-items-center justify-content-center w-full h-full iframe_container"></div>
-</div>
 
 <!-- Bootstrap 4.3.1 JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

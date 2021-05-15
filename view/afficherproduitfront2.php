@@ -1,6 +1,6 @@
 <?php
-include_once '../controller/produitC.php';
-include_once '../model/produit.php'; 
+include_once '../Controller/produitC.php';
+include_once '../Model/produit.php'; 
 
 
 $produitC = new produitC(); 
@@ -24,7 +24,7 @@ $produit=$produitC->getprodByGenre($Genre);
 		<meta charset="utf-8" >
 		<title>ArtLogic</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="icon" href="i/logo.png" type="i/logo.png">
+				<link rel="icon" href="../i/logo.png" type="i/logo.png">
 		<!-- Google Fonts -->
 				<link href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,600,500,700,800,900|Karla:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
 				<!-- Bootstrap 4.3.1 CSS -->
@@ -38,7 +38,7 @@ $produit=$produitC->getprodByGenre($Genre);
 		<!-- FontAwesome CSS -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<!-- Startup 3 CSS (Styles for all blocks) -->
-					<link href="css/style.css" rel="stylesheet" />
+					<link href="../css/style.css" rel="stylesheet" />
 				<!-- jQuery 3.3.1 -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -53,20 +53,20 @@ $produit=$produitC->getprodByGenre($Genre);
 	<div class="container px-xl-0">
 		<div class="row justify-content-center align-items-center f-16">
 			<div class="mt-20 d-flex align-items-center author_info">
-					<img  src="i\logo.png" class="w-300 h-300 radius_full" alt="" />
+					<img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" />
 			<div class="col-lg-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-				<a href="index.html" class="link color-main mx-15">Home</a>
+				<a href="index.php" class="link color-main mx-15">Home</a>
 				<a href="#" class="link color-main mx-15">Profile</a>
 				<a href="#" class="link color-main mx-15">Blog</a>
 				<a href="about.html" class="link color-main mx-15">About</a>
-				<a href="#" class="link color-main mx-15">Shop</a>
-				<a href="reclamation.html" class="link color-main mx-15">Reclamation</a>
-
+				<a href="afficherproduitfront" class="link color-main mx-15">Shop</a>
+				<a href="reclamations.php" class="link color-main mx-15">Reclamation</a>
+ <a href="#" class="link color-main mx-15">panier</a>
 				<a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
 			</div>
 			<div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-				<a href="#" class="mr-20 link color-main">Sign In</a>
-				<a href="#" class="btn sm action-2 f-16">Sign Up</a>
+				<a href="login.php" class="mr-20 link color-main">Sign In</a>
+				<a href="AfficherUser.php" class="btn sm action-2 f-16">Sign Up</a>
 			</div>
 		</div>
 	</div>
@@ -121,7 +121,7 @@ while ($array[] = $query->fetch_object());
                             </div>
                             <div class="row">
 					<div class="shop-item-details">
-					 <img src="../image/<?= $list['image'] ?>"height="200" width="200">
+					 <img src="../i/<?= $list['image'] ?>"height="200" width="200">
 						<span class="shop-item-des"><?= $list['Description1'] ?>  </span>
 						<br><br>
 						<span class="amount-old" class="shop-item-price">Prix: <?= $list['Prix'] ?> TND </span>
@@ -175,7 +175,7 @@ while ($array[] = $query->fetch_object());
 				<a href="#" class="mx-15 link color-main">Terms</a>
 			</div>
 			<div class="mt-20 d-flex align-items-center author_info">
-					<img  src="i\logo.png" class="w-300 h-300 radius_full" alt="" />
+					<img  src="..\i\logo.png" class="w-300 h-300 radius_full" alt="" />
 			</div>
 			<div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
 				<a href="#" class="mr-15 link color-main">Contacts</a>
@@ -194,19 +194,6 @@ while ($array[] = $query->fetch_object());
 		</div>
 	</div>
 </footer>
-<!-- forms alerts -->
-<div class="alert alert-success alert-dismissible alert-form-success" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Thanks for your message!
-</div>
-<div class="alert alert-warning alert-dismissible alert-form-check-fields" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Please, fill in required fields.
-</div>
-<div class="alert alert-danger alert-dismissible alert-form-error" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	An error occurred while sending data 🙁
-</div>
 
 
 
@@ -221,9 +208,9 @@ while ($array[] = $query->fetch_object());
 <!-- AOS 2.3.1 jQuery plugin JS (Animations) -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
-<script src="js/jquery.maskedinput.min.js"></script>
+<script src="../js/jquery.maskedinput.min.js"></script>
 <!-- Startup 3 JS (Custom js for all blocks) -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

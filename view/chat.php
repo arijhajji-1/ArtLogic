@@ -70,6 +70,7 @@ header('location:chat.php');
 				<a href="#" class="link color-main mx-15">About</a>
 <a href="reclamations.php" class="link color-main mx-15">Reclamation</a>
 				<a href="galerie.php" class="link color-main mx-15">Shop</a>
+				 <a href="#" class="link color-main mx-15">panier</a>
 				<a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
 			</div>
 			<div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">

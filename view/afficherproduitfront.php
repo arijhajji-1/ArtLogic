@@ -55,7 +55,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
        <meta property="og:title"         content="ArtLogic" />
        <meta property="og:description"   content="welcome to our website" />
        <meta property="og:image"         content="i/logo.png" />
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
                 <link rel="icon" href="../i/logo.png" type="i/logo.png">
         <!-- Google Fonts -->
                 <link href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,600,500,700,800,900|Karla:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
@@ -87,13 +87,15 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
             <div class="mt-20 d-flex align-items-center author_info">
                     <img  src="..\i\logo.png" class="w-300 h-300 radius_full" alt="" />
             <div class="col-lg-6" >
-                <a href="index.html" class="link color-main mx-15">Home</a>
+                <a href="index.php" class="link color-main mx-15">Home</a>
                 <a href="afficheUser.php" class="link color-main mx-15">Profile</a>
                 <a href="#" class="link color-main mx-15">Blog</a>
                 <a href="about.html" class="link color-main mx-15">About</a>
                 <a href="#" class="link color-main mx-15">Shop</a>
                 <a href="reclamations.php" class="link color-main mx-15">Reclamation</a>
+                                    <a href="chat.php" class="link color-main mx-15">messagerie</a>
 
+ <a href="#" class="link color-main mx-15">Panier</a>
                 <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
             </div>
             <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
@@ -159,7 +161,7 @@ while ($array[] = $query->fetch_object());
                             </div>
                             <div class="row">
                     <div class="shop-item-details">
-                     <img src="../image/<?= $produit['image'] ?>"height="200" width="200">
+                     <img src="../i/<?= $produit['image'] ?>"height="200" width="200">
                         <span class="shop-item-des"><?= $produit['Description1'] ?>  </span>
                         <br><br>
                         <?php if($produit['nouveauPrix']==0) { ?>

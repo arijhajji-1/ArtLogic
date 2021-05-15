@@ -1,19 +1,19 @@
 <?php
-require_once '../controllers/reclamationc.php';
-require_once '../model/reclamation.php';
+require_once '../Controller/reclamationc1.php';
+require_once '../Model/reclamation1.php';
 $reclamationc = new reclamationc();
 if (isset($_POST['modifier'])){
  
-    echo $_POST['etat'];
+    
 if ( isset($_POST['etat'])) {
 
    
     $id_reclamation=$_GET['id_reclamation'];
-    echo $id_reclamation;
+   
 
     $reclamationc->modifier($_POST['etat'],$id_reclamation);
     //echo $_POST['id_reclamation'] ;
- //header("Location: modifieretat.php");
+header("Location: retour.php");
 }
 }
 ?>
@@ -31,38 +31,16 @@ if ( isset($_POST['etat'])) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
             <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/noui/nouislider.min.css">
+
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../css/util.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
 <!--===============================================================================================-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../fonts/icomoon/style.css">
-
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    
-    <!-- Style -->
-    <link rel="stylesheet" href="../css/style.css">
     </head>
    <body class="sb-nav-fixed">
  
@@ -70,7 +48,7 @@ if ( isset($_POST['etat'])) {
 
     ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <img src="../logo.png" alt="" height="150" width="150" href="index.html" >
+            <img src="../i/logo.png" alt="" height="150" width="150" href="index.html" >
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -117,7 +95,7 @@ if ( isset($_POST['etat'])) {
                                 </nav>
                             </div>
 
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -129,7 +107,7 @@ if ( isset($_POST['etat'])) {
                               </nav>
                           </div>
                             
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -153,20 +131,31 @@ if ( isset($_POST['etat'])) {
                             </div>
 
                            
-
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                User
+                               Commande
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts9" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="retour.php">Commande</a>
+                                  
+                                </nav>
+                            </div>
+                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        User
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="administrateur.php">administrateur</a>
                             <a class="nav-link" href="clients.php">client</a>
                             <a class="nav-link" href="vendeurs.php">vendeur</a>
                         </nav>
                     </div>
- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Evenement&Actualité
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -179,7 +168,7 @@ if ( isset($_POST['etat'])) {
                                     <a class="nav-link" href="actualiteView.php">View Actualité</a>
                                 </nav>
                             </div>
-                            
+
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     

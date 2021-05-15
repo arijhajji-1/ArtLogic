@@ -96,7 +96,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
             <div class="mt-20 d-flex align-items-center author_info">
                 <a href="index.html" class="link color-main mx-15"><img  src="..\i\logo.png" class="w-300 h-300 radius_full" alt="" /></a>
                 <div class="col-lg-6">
-                    <a href="index.html" class="link color-main mx-15">Home</a>
+                    <a href="index.php" class="link color-main mx-15">Home</a>
                     <a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
                     <a href="#" class="link color-main mx-15">Blog</a>
                     <a href="#" class="link color-main mx-15">About</a>

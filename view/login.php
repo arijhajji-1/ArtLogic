@@ -81,9 +81,9 @@ if (isset($_POST['email'])){
                 <div class="col-lg-6" >
                     <a href="index.html" class="link color-main mx-15">Home</a>
                     <a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
-                    <a href="#" class="link color-main mx-15">Blog</a>
+                    <a href="actualiteFront.php" class="link color-main mx-15">News</a>
                     <a href="#" class="link color-main mx-15">About</a>
-                    <a href="galerie.php" class="link color-main mx-15">Shop</a>
+                    <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
                     <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">

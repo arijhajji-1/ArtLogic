@@ -59,6 +59,7 @@ $wishliste = $wishlisteC->afficherWP($id);
                     <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
                     <a href="reclamations.php" class="link color-main mx-15">Reclamation</a>
                     <a href="chat.php" class="link color-main mx-15">Messagerie</a>
+                     <a href="#" class="link color-main mx-15">panier</a>
                     <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
                 </div>
             </div>
