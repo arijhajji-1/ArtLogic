@@ -9,7 +9,7 @@ $produitC = new produitC();
  
 $Produit = $produitC->afficherproduit();
 
-
+echo "fourat haloua";
 
 if (isset($_POST['submit']))
 {
