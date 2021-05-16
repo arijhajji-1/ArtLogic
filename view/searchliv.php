@@ -1,21 +1,9 @@
 <?php
-include_once '../controller/categorieC.php';
-include_once '../model/categorie.php'; 
-
-$categorieC = new categorieC(); 
-$categorie=$categorieC->affichercategorie(); 
 
 
-if (isset($_GET['Id_categorie'])) {
-  $categorieC->supprimercategorie($_GET['Id_categorie']);
-  header('Location:affichercategorie1.php');
-}
-
-
-
-
-
-
+include "../Controller/livreurC.php";
+$livreur1C=new livreurC();
+$listelivreurs=$livreur1C->afficherlivreurs();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +13,18 @@ if (isset($_GET['Id_categorie'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Afficher categorie</title>
+        <title>Artlogic Admin</title>
         <link href="../css/styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+       
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
             <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
-<!--===============================================================================================-->   <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -40,8 +34,6 @@ if (isset($_GET['Id_categorie'])) {
     <link rel="stylesheet" type="text/css" href="../css/main.css">
 <!--===============================================================================================-->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
-
     </head>
    <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -87,12 +79,13 @@ if (isset($_GET['Id_categorie'])) {
                             </a>
                             <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="afficherlivraisons.php">Livraison</a>
+                                    <a class="nav-link" href="afficherlivraisons.php">Livraison</a>
                                     <a class="nav-link" href="afficherlivreur.php">Livreur</a>
                                 </nav>
-                            </div> 
+                            </div>
 
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            
+                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -103,9 +96,8 @@ if (isset($_GET['Id_categorie'])) {
                                   <a class="nav-link" href="affichercategorie1.php">catégories</a>
                               </nav>
                           </div>
-
                             
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -127,30 +119,32 @@ if (isset($_GET['Id_categorie'])) {
                                     <a class="nav-link" href="listreclamation.html">Messages</a>
                                 </nav>
                             </div>
-<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
+
+                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                Commande
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts9" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="retour.php">Commande</a>
+                                    <a class="nav-link" href="Bcommande.php">Commande</a>
                                   
                                 </nav>
                             </div>
+
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        User
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                User
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="administrateur.php">administrateur</a>
                             <a class="nav-link" href="clients.php">client</a>
                             <a class="nav-link" href="vendeurs.php">vendeur</a>
                         </nav>
                     </div>
-                       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+ <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Evenement&Actualité
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -163,8 +157,8 @@ if (isset($_GET['Id_categorie'])) {
                                     <a class="nav-link" href="actualiteView.php">View Actualité</a>
                                 </nav>
                             </div>
-
-                          
+                            
+                           
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -200,59 +194,40 @@ if (isset($_GET['Id_categorie'])) {
                 </nav>
             </div>
  <div class="container-contact100">
-        <div class="wrap-contact100">
-      <form class="contact100-form validate-form" action="" method="POST">
+                   <div class="wrap-contact100">
+      <!--<form class="contact100-form validate-form" >-->
                 <span class="contact100-form-title">
 
-               Liste des categories
+                  Recherche des livreurs
                 </span>
-<table>
-    <tr>
-        <td>  <a type="submit" class="contact100-form-btn" href = "ajoutercategorie1.php">Ajouter</a> </td>
-    </tr>
-</table>
-        <table class="table custom-table">
-          <thead>
-            <tr>  
 
-              
-              
-              <th scope="col">Id</th>
-              <th scope="col">Nom</th>
-              <th scope="col">Description</th>
-                            <th> </th>
+ 
+<div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">Search</span>
+                    <input type="text" name="search_text" id="search_text" placeholder="zone/numero/nom" class="form-control" />
+                </div>
+            </div>
+<br />
+            <div id="result"></div>
+      
+        <div style="clear:both"></div>
+        <br />
+        
+        <br />
+        
+        <br />
+        <br />
+        <br />
 
-            </tr>
-            <?php
-foreach ($categorie as $categorie) {
-?> 
-<tr>
-                                   <td> <?php echo $categorie['Id_categorie'] ?> </td>
-                                   <td> <?php echo $categorie['NomC'] ?> </td>
-                                   <td> <?php echo $categorie['DescriptionC'] ?> </td>
-                                
-             <td><a type="button" class="contact100-form-btn" href = "affichercategorie1.php?Id_categorie=<?= $categorie['Id_categorie'] ?>">Supprimer</a></td>  
-             <td><a type="button" class="contact100-form-btn" href = "modifiercategorie.php?Id_categorie=<?= $categorie['Id_categorie'] ?>">modifier</a></td>                            
 
-                               
-
+</div>
        
-</tr> 
-<?php
-        }
-        ?>
-
-          
-          
-        </table>
-      </div>
-
-
     </div>
 
   </div>
     
-    
+
 
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -274,14 +249,36 @@ foreach ($categorie as $categorie) {
                 </footer>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="../assets/demo/chart-area-demo.js"></script>
-        <script src="../assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="../assets/demo/datatables-demo.js"></script>
+     
     </body>
 </html>
+    
+<script>
+$(document).ready(function(){
+    load_data();
+    function load_data(query)
+    {
+        $.ajax({
+            url:"rechliv.php",
+            method:"post",
+            data:{query:query},
+            success:function(data)
+            {
+                $('#result').html(data);
+            }
+        });
+    }
+    
+    $('#search_text').keyup(function(){
+        var search = $(this).val();
+        if(search != '')
+        {
+            load_data(search);
+        }
+        else
+        {
+            load_data();            
+        }
+    });
+});
+</script>

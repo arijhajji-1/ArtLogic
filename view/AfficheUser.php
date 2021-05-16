@@ -83,7 +83,7 @@ if(isset($_POST['sign_out']))
                     <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
                     <a href="reclamations.php" class="link color-main mx-15">reclamation</a>
                     <a href="chat.php" class="link color-main mx-15">messagerie</a>
-                   <a href="#" class="link color-main mx-15">panier</a>
+                   <a href="panier.php" class="link color-main mx-15">panier</a>
                 </div>
                 <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                     <a href="login.php" class="mr-20 link color-main">Sign In</a>
@@ -180,6 +180,7 @@ if(isset($_POST['sign_out']))
                                 <a href="modifierUsers.php" class="btn btn-primary">Edit Profile</a>
                                 <a href="AfficheWishList.php" class="btn btn-primary">Wish List</a>
                                  <a href="listreclamation.php" class="btn btn-primary">list reclamation</a>
+                                 <a href="afficherlivraisonfront.php" class="btn btn-primary">liste des livraisons</a>
                             </div>
                         </div>
                     </div>

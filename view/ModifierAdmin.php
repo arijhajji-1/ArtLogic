@@ -82,8 +82,8 @@ $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseud
                     </a>
                     <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Livraison</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">Livreur</a>
+                        <a class="nav-link" href="afficherlivraisons.php">Livraison</a>
+                                    <a class="nav-link" href="afficherlivreur.php">Livreur</a>
                         </nav>
                     </div>
 
