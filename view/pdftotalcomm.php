@@ -3,13 +3,13 @@ include_once "../Controller/panierC.php";
 include_once "../Controller/commandeC.php";
 include_once "../pdf/fpdf/fpdf.php";
 
- 
+session_start();
 
 
 $panier1C=new panierC();
 $commande1C= new commandeC();
 
-$listeCommande= (new CommandeC())->afficherttCommande();
+$listeCommande= (new CommandeC())->afficherCommande($_SESSION['id_user']);
 class PDF extends FPDF
 { protected $B = 0;
 protected $I = 0;

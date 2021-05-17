@@ -1,6 +1,6 @@
 <?php
 //include "produitC.php";
-include "produit.php";
+include_once '../Model/produit.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,7 @@ include "produit.php";
 	<div class="limiter">
             
     <div class="content-wrapper">
-                            <script type="text/javascript" src="controlsaisi.js"></script>
+                            <script type="text/javascript" src="../js/controlsaisi.js"></script>
         
             <form method="POST" action="ajoutlivraison.php" name="f" onsubmit="return test();">
                    <h2> <center> Ajouter une livraison </center> </h2>
@@ -42,7 +42,7 @@ include "produit.php";
                                         <div class="container" >
                                             <span class="label-input100">Nom produit</span>
                                             <?php
-                        require_once('config.php');
+                        require_once('../configc.php');
                         $mysqli = new mysqli('localhost', 'root', '' ,'web');
                         if($mysqli->connect_error){
                             die('Connect-Error (' . $mysqli->connect_error . ') '

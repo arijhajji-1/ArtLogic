@@ -44,6 +44,24 @@ class CommandeC
     }
 
 
+
+
+    function afficherttCommande(){
+        $sql="SElECT * From commande ";
+        $db = config::getConnexion();
+        try{
+            $liste=$db->query($sql);
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: afficherCommande'.$e->getMessage());
+        }
+    }
+
+
+
+
+
     function supprimerCommande($id_commande){
         $sql="DELETE FROM commande where id_commande= :id_commande ";
         $db = config::getConnexion();

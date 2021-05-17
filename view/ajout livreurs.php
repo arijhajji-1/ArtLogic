@@ -1,4 +1,4 @@
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,7 +25,7 @@
 	<div class="limiter">
             
         <div class="content-wrapper">
-            <script type="text/javascript" src="controlsaisi.js"></script>
+            <script type="text/javascript" src="../js/controlsaisi.js"></script>
                 <form method="POST" action="ajoutlivreur.php" name="f" onsubmit="return test();">
 
    <h2> <center> AJOUTER UN LIVREUR </center> </h2>

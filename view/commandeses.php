@@ -1,16 +1,24 @@
 <?php
+include_once '../Controller/produitC.php';
+include_once '../Model/produit.php'; 
+include "../Controller/CommandeC.php";
 
-include "../Controller/produitC.php";
-include "../Controller/panierC.php";
 session_start();
+$listeCommande= (new CommandeC())->afficherCommande($_SESSION['id_user']);
+if(isset($_GET['search'])){
+    $listeCommande= (new CommandeC())->rechercherCommande($_GET['search']);
 
-$panierC=new panierC();
-$panier = $panierC->afficherPanier($_SESSION['id_user']);
+}
+
+
+
+ 
 
 ?>
- 
-<!DOCTYPE html>
-<html lang="fr">
+
+
+
+
 
 <head>
   
@@ -69,6 +77,8 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
                                 <a href="reclamations.php" class="link color-main mx-15">Reclamation</a>
 
                 <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
+                <a href="cart_items.php" class="link color-main mx-15">Panier</a>
+                <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
             </div>
             <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
                 <a href="login.php" class="mr-20 link color-main">Sign In</a>
@@ -77,73 +87,108 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
         </div>
     </div>
 </nav> 
-<div class="container" >
-    <div class="card mt-4 p-4" style="height: auto">
-        <h1 style="color: #17a2b8;text-align: center"> Voici votre panier:</h1>
-    <div class="mt-5">
-        <?php
-        foreach ($panier as $p ){
-              
-            ?>
-            <div class="card mb-2" style="padding: 20px 150px 20px 150px; width: 500px;  box-shadow: 10px 10px 10px 10px grey;">
-            <h1 style="text-align: center"><?php echo $p['NomP']; ?></h1>
 
 
-                <span style="text-align: center"> <?php echo $p['prix_total'] ?> DT</span>
-                <span style="text-align: center"> <?php echo $p[2]; ?> in cart</span>
-                <div class="inline">
-                <a href="add_produit.php?Id_produit=<?php echo $p['Id_produit']; ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
-                </a>
-                    <?php if($p[2]!= 1) {
-
-                    ?>
-                    <a href="minus_produit.php?Id_produit=<?php echo $p['Id_produit']; ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
-                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                    </svg></a>
-                    <?php } ?>
-                    <a href="removefrompanier.php?id_prod=<?php echo $p['Id_produit']; ?>" style="width: 250px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg>
-                    </a>
-                </div>
 
 
-                </div>
-            <?php
-        }
-        ?>
-    </div>
-    <div>
-     <td><form method="POST" action="commandeses.php">
-	  <button class="btn btn-info">afficher vos commandes</button>
-      </div>
+                <span class="contact100-form-title">
+
+               Liste des Produits
+                </span> 
+                <form method="get">
+    <label>
+        <input type="text" placeholder="Taper ici .... " name="search" class="form-control" />
+    </label>
+    <button class="btn btn-info">Rechercher</button>
+   
+</form>
+<td><form method="POST" action="pdftotalcomm.php">
+	  <button class="btn btn-info">Enregistrer   facture</button>
 	</form>
 	</td>
-<hr>
-    <form method="post" action="passerCommande.php">
-        <h6 style="color: #17a2b8;text-align: center"> Cliquer sur Passer commande, pour passer votre commande</h6>
-<div class="form-group" style="padding:0px 90px 0px 90px;">
-        <label>Mode de payement:</label>
+<table class="table" >
+    <thead class="thead-dark">
+    <tr>
+        <th>Id commande</th>
+        <th>Id client</th>
+        <th>Prix totale</th>
+        <th>Mode de payement</th>
+        <th>Produits</th>
+        <th>Description</th>
+        <th>supprimer</th>
+        <th>facture</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <?PHP
+    foreach($listeCommande as $row){
+        ?>
+        <tr>
+            <td><?PHP echo $row['id_commande']; ?></td>
+            <td><?PHP echo $row['id_utilisateur']; ?></td>
+            <td><?PHP echo $row['prix_total']; ?></td>
+            <td><?PHP echo $row['mode_de_payement']; ?></td>
+            <td><?PHP echo $row['produits']; ?></td>
+            <td><?PHP echo $row['description_commande']; ?></td>
+            <td><form method="POST" action="supprimerCommandeses.php">
+                    <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
+                    <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
+                </form>
+            
+            </td>
+           
+        </tr>
+<?php
+        }
+        ?>
 
-            <select name="mode_payement" class="form-control">
-
-            <option>Avec carte bancaire</option>
-            <option>Mandat</option>
-            <option>Cash au Livraison</option>
-        </select>
-    <br>
-    <button type="submit" class="btn btn-info">Passer Commande</button>
+          
+          
+        </table>
+      </div>
 
 
-   
+    </div>
+
+  </div>
+    
+    
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/datatables-demo.js"></script>
 
 
-<footer class="footer_1 bg-light pt-75 pb-65 text-center">
+
+   <!--pied de page-->
+   <footer class="footer_1 bg-light pt-75 pb-65 text-center">
     <div class="container px-xl-0">
         <div class="row justify-content-between align-items-center lh-40 links">
             <div class="col-lg-4 col-sm-6 text-sm-right text-lg-left order-1 order-lg-0" >
@@ -172,5 +217,9 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
     </div>
 </footer>
 
-</body>
-</html>
+
+
+
+    </body>
+</html> 
+

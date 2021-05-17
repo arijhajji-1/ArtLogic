@@ -2,7 +2,9 @@
 include_once '../Controller/produitC.php';
 include_once '../Model/produit.php'; 
 include "../Controller/CommandeC.php";
-$listeCommande= (new CommandeC())->afficherCommande('id_user');
+
+
+$listeCommande= (new CommandeC())->afficherttCommande();
 if(isset($_GET['search'])){
     $listeCommande= (new CommandeC())->rechercherCommande($_GET['search']);
 
