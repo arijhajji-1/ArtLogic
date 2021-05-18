@@ -56,6 +56,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Startup 3 CSS (Styles for all blocks) -->
     <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/profile2.css" rel="stylesheet" />
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -83,7 +84,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
             </div>
         </div>
 </nav>
-<section class="form_1 pt-120 pb-120">
+<section class="container back">
 
     <div class="container px-xl-0">
         <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
@@ -115,7 +116,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
             <div class="mb-20 input_holder" >
                 <select name="sexe" id="sexe_user"
                         class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
-                    <option value="$user['sexe_user']"><?php if ($user['sexe_user'] == "male") {
+                    <option value="<?php $user['sexe_user'] ?>"><?php if ($user['sexe_user'] == "male") {
                             echo "Male";
                         } else echo "Female"; ?></option>
                     <option value="male">Male</option>
@@ -161,7 +162,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
             </div>
 
             <div >
-                <input type="submit" value="Update" name="submit" class="mt-25 btn action-1 w-full">
+                <input type="submit" value="Update" name="submit" class="button">
             </div>
         </form>
         <?php

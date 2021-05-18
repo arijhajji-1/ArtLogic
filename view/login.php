@@ -64,7 +64,7 @@ if (isset($_POST['email'])){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Startup 3 CSS (Styles for all blocks) -->
     <link href="../css/style.css" rel="stylesheet" />
-   
+    <link href="../css/profile2.css" rel="stylesheet" />
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -92,26 +92,34 @@ if (isset($_POST['email'])){
             </div>
         </div>
 </nav>
-<div id="container" class="form_1 pt-120 pb-120">
+<div id="container">
+    <section class="container back">
 
-<form action="login.php"  method = "post" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
-    <h2 class="mb-40 small text-center" d>Sign in</h2>
+        <div class="container px-xl-0">
+            <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
 
-    <input type="email" placeholder="Email" name="email"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
-<br>
-<br>
-    <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
+                <h2 class="mb-40 small text-center" >Sign In</h2>
+                <div class="mb-20 input_holder" >
+                    <input type="email" placeholder="Email" name="email"
+                           class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                </div>
+                <div class="mb-20 input_holder" >
+                    <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password"
+                           class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                </div>
+                <div >
+                    <input type="submit" value="Login" name="submit" class="button">
+                </div>
+                <br>
+                <input type="image" name="submit" id="submit" src="../i/google.png" height="50" width="330"   onclick ="window.location ='<?php echo $login_url; ?>'">
 
-    <input type="submit" name="submitButton" id="submitButton" value="LOGIN" class="mt-25 btn action-1 w-full"  >
-    <br>
-    <br>
-    <input type="image" name="submit" id="submit" src="../i/google.png" height="50" width="330"   onclick ="window.location ='<?php echo $login_url; ?>'">
+            </form>
 
+        </div>
+    </section>
 
-</form>
 </div>
 <!-- Footer 1 -->
-
 <footer class="footer_1 bg-light pt-75 pb-65 text-center">
     <div class="container px-xl-0">
         <div class="row justify-content-between align-items-center lh-40 links">

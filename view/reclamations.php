@@ -45,6 +45,7 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<!-- Startup 3 CSS (Styles for all blocks) -->
 					<link href="../css/style.css" rel="stylesheet" />
+        <link href="../css/profile2.css" rel="stylesheet" />
 					    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
 				<!-- jQuery 3.3.1 -->
@@ -89,27 +90,23 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 
 <!-- Form 1 -->
 
-<section class="form_2 pt-120 pb-120">
-	<div class="container px-xl-10">
-		<form action="" method="POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
+<section>
+	<div class="container px-xl-0">
+		<form action="" method="POST" class="bg-light mx-auto mw-430 radius10 pt-50 px-70 pb-50">
 			<h2 class="mb-40 small text-center">Réclamation</h2>
 			<div>
 			<input type="hidden" name="id_client" value="" />
-		</div>
+		     </div>
 			<div class="mb-20 input_holder" >
 				<input type="text" name="type_reclamation" placeholder="objet" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required />
 			</div>
-			
-			
-			
-
-<div class="mb-50 input_holder" >
-				<input type="text" name="description_reclamation" placeholder="write here" class="input border-gray focus-action-1 color-heading placeholder-heading w-300 h-300" required />
+             <div class="mb-20 input_holder" >
+				<input type="text" name="description_reclamation" placeholder="write here" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required />
 			</div>
 			<div >
-				<input type="submit" value ="Envoyer" name="submit" onclick="" class="mt-25 btn action-1 w-full">
+				<input type="submit" value ="Envoyer" name="submit" onclick="" class="button">
 			</div>
-			
+
 		</form>
 	</div>
 </section>
