@@ -10,6 +10,8 @@ $Genre=$_GET['Genre'];
 $produit=$produitC->getprodByGenre($Genre); 
 
 
+echo "hello world";
+
 
 ?>
 <!DOCTYPE html>
