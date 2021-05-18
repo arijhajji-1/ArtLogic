@@ -111,7 +111,7 @@ $reclamation = $reclamationc->afficherreclamation();
                             <div class="collapse" id="collapseLayouts7" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="retour.php">Retour</a>
-                                    <a class="nav-link" href="listreclamation.html">Messages</a>
+                                    <a class="nav-link" href="">Messages</a>
                                 </nav>
                             </div>
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
