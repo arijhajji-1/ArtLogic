@@ -1,6 +1,7 @@
 <?php
 //include "produitC.php";
 include_once '../Model/produit.php'; 
+echo "sej";
 ?>
 <!DOCTYPE html>
 <html lang="en">
