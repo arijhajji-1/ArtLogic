@@ -311,7 +311,7 @@ while ($array[] = $query->fetch_object());
                 <div class="section-header">
                     <i class="fa fa-book"></i>
                     <h2>listes des produits</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  labore et dolore magna aliqua.</p>
+                    <p>we have the best product in the country </p>
                 </div>
                 
 				<?php
