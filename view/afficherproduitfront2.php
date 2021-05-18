@@ -11,6 +11,7 @@ $produit=$produitC->getprodByGenre($Genre);
 
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +101,7 @@ while ($array[] = $query->fetch_object());
    		 
      <?php foreach ( $array as $option ) :$opt=$option->NomC?>
 		
-		<a href="afficherproduitfront2.php?Genre=",$opt class="nav-link"><?php echo $option->NomC; ?></a> <br>
+	 <a href="afficherproduitfront2.php?Genre=<?= $option->NomC ?>"  class="nav-link"><?php echo $option->NomC; ?></a> <br>
      <?php endforeach; ?>       
 	 </li> 
 	 

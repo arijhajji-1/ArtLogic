@@ -143,7 +143,7 @@ while ($array[] = $query->fetch_object());
   </nav>
 
 <section class="container">
-    <h2>Liste des Produits</h2>
+    <h2 align="center">Liste des Produits</h2>
             <br><br>
             <div class="shop-items">
     <?php
