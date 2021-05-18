@@ -69,7 +69,7 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 				<a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
 				<a href="#" class="link color-main mx-15">Blog</a>
 				<a href="#" class="link color-main mx-15">About</a>
-				<a href="chat.php" class="link color-main mx-15">messagerie</a>
+				<a href="chat.php" class="link color-main mx-15">Messagerie</a>
 
 				<a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
 				<a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
