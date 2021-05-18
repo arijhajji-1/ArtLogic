@@ -82,6 +82,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Startup 3 CSS (Styles for all blocks) -->
     <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/profile2.css" rel="stylesheet" />
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -109,7 +110,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
             </div>
         </div>
 </nav>
-<section class="form_1 pt-120 pb-120">
+<section class="container back">
 
     <div class="container px-xl-0">
         <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
@@ -164,8 +165,9 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
                     <input type="password" name="mot_de_passe" minlength="8" placeholder="Your password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
                 </div>
             <div  class="g-recaptcha" data-sitekey="6LfH5MYaAAAAAORmnuU0u-zLxZGW0npcAS_HnGzJ"></div>
+            <br>
                         <div>
-                <input type="submit" value="Create an Account" name = "submit"  class="mt-25 btn action-1 w-full"   >
+                <input type="submit" value="Create an Account" name = "submit"  class="button"   >
             </div>
         </form>
     </div>

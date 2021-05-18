@@ -8,7 +8,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/view/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
@@ -22,6 +23,27 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/view/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/view/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/view/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/view/vendor/composer" />
+      <path value="$PROJECT_DIR$/view/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/view/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/view/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/view/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/view/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/view/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/view/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/view/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/view/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/view/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/view/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/view/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/view/vendor/google/apiclient-services" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1siU9zt1ezji0N5Q14t2E1IW1Oj" />
   <component name="PropertiesComponent">
@@ -52,15 +74,22 @@
       <option name="presentableId" value="Default" />
       <updated>1621354755770</updated>
       <workItem from="1621354757188" duration="110000" />
+      <workItem from="1621354966148" duration="4566000" />
+      <workItem from="1621363879971" duration="12292000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
