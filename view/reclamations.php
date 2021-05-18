@@ -64,7 +64,7 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 		<div class="row justify-content-center align-items-center f-16">
 			<div class="mt-20 d-flex align-items-center author_info">
 				<a href="index.html" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
-				<div class="col-lg-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+				<div class="col-lg-6" >
 				<a href="index.html" class="link color-main mx-15">Home</a>
 				<a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
 				<a href="#" class="link color-main mx-15">Blog</a>
@@ -74,7 +74,7 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 				<a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
 				<a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
 			</div>
-			<div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+			<div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
 				<a href="login.php" class="mr-20 link color-main">Sign In</a>
 				<a href="AjouterUser.php" class="btn sm action-2 f-16">Sign Up</a>
 			</div>
@@ -119,7 +119,7 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 <footer class="footer_1 bg-light pt-75 pb-65 text-center">
 	<div class="container px-xl-0">
 		<div class="row justify-content-between align-items-center lh-40 links">
-			<div class="col-lg-4 col-sm-6 text-sm-right text-lg-left order-1 order-lg-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+			<div class="col-lg-4 col-sm-6 text-sm-right text-lg-left order-1 order-lg-0" >
 				<a href="about.html" class="mr-15 link color-main">About</a>
 				<a href="#" class="mx-15 link color-main">Policy</a>
 				<a href="#" class="mx-15 link color-main">Terms</a>
@@ -127,7 +127,7 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 			<div class="mt-20 d-flex align-items-center author_info">
 					<img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" />
 			</div>
-			<div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+			<div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0" >
 				<a href="#" class="mr-15 link color-main">Contacts</a>
 				<a href="#" class="mx-15 link color-main"><i class="fab fa-twitter"></i></a>
 				<a href="#" class="mx-15 link color-main"><i class="fab fa-facebook-square"></i></a>
@@ -135,7 +135,7 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<div class="mt-10 col-xl-4 col-lg-5 col-md-6 col-sm-8" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+			<div class="mt-10 col-xl-4 col-lg-5 col-md-6 col-sm-8" >
 				<div class="color-heading text-adaptive">
 					Be sure to take a look at our <a href="#" class="link color-heading">Terms of Use</a> <br />
 					and <a href="#" class="link color-heading">Privacy Policy</a>
@@ -153,15 +153,14 @@ if (isset($_SESSION['id_user']) &&isset($_POST['description_reclamation']) && is
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
 <!-- Google maps JS API -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U"></script>
-<!-- Slick 1.8.1 jQuery plugin JS (Sliders) -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
 <!-- AOS 2.3.1 jQuery plugin JS (Animations) -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
-<script src="../js/jquery.maskedinput.min.js"></script>
+
 <!-- Startup 3 JS (Custom js for all blocks) -->
-<script src="../js/script.js"></script>
+
 
 </body>
 </html>
