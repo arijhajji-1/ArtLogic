@@ -137,15 +137,11 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
             <option>Cash au Livraison</option>
         </select>
     <br>
-<<<<<<< HEAD
     <input type="hidden" value="<?PHP echo $p['Id_produit']; ?>" name="Id_produit">
 	                
                     <input type="hidden" value="<?PHP echo $p['Genre']; ?>" name="Genre">
 	                </form>
                      <button type="submit" class="btn btn-info">Passer Commande</button>
-=======
-    <button type="submit" class="btn btn-dark">Passer Commande</button>
->>>>>>> b8670a381c4ae9ed8416bdc0239912f0d589df6a
 
 
    
