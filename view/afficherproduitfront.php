@@ -3,6 +3,8 @@ require_once "../Controller/produitC.php";
 require_once '../Model/produit.php';
 require_once "../Controller/wishlisteC.php";
 require_once '../Model/wishliste.php';
+
+
 session_start();
 $id_user= $_SESSION['id_user'];
 $produitC = new produitC();
@@ -31,6 +33,8 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
     catch (Exception $e){
         die('Erreur: '.$e->getMessage());
     }
+
+  
 
 
 
@@ -295,7 +299,7 @@ while ($array[] = $query->fetch_object());
      <li class="nav-item">
          
      <?php foreach ( $array as $option ) :$opt=$option->NomC?>
-
+     
  <a href="afficherproduitfront2.php?Genre=<?= $option->NomC ?>"  class="nav-link"><?php echo $option->NomC; ?></a> <br> 
 
      <?php endforeach; ?>       
@@ -316,6 +320,7 @@ while ($array[] = $query->fetch_object());
                 
 				<?php
 					foreach ($Produit as $Produit) {
+                        
 				?>
 
 				<form action="" method = "POST" >
@@ -379,6 +384,9 @@ while ($array[] = $query->fetch_object());
 			<?php
 					}
 			?>
+
+
+
 
             </div>
 
