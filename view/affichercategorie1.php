@@ -90,9 +90,8 @@ if (isset($_GET['Id_categorie'])) {
                                 <a class="nav-link" href="afficherlivraisons.php">Livraison</a>
                                     <a class="nav-link" href="afficherlivreur.php">Livreur</a>
                                 </nav>
-                            </div> 
-
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            </div>
+                               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -103,9 +102,8 @@ if (isset($_GET['Id_categorie'])) {
                                   <a class="nav-link" href="affichercategorie1.php">catégories</a>
                               </nav>
                           </div>
-
                             
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -127,6 +125,8 @@ if (isset($_GET['Id_categorie'])) {
                                     <a class="nav-link" href="listreclamation.html">Messages</a>
                                 </nav>
                             </div>
+
+                           
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                Commande
@@ -134,11 +134,11 @@ if (isset($_GET['Id_categorie'])) {
                             </a>
                             <div class="collapse" id="collapseLayouts9" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="retour.php">Commande</a>
+                                    <a class="nav-link" href="Bcommande.php">Commande</a>
                                   
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                         User
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -150,7 +150,8 @@ if (isset($_GET['Id_categorie'])) {
                             <a class="nav-link" href="vendeurs.php">vendeur</a>
                         </nav>
                     </div>
-                       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Evenement&Actualité
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -164,7 +165,6 @@ if (isset($_GET['Id_categorie'])) {
                                 </nav>
                             </div>
 
-                          
 
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -199,6 +199,8 @@ if (isset($_GET['Id_categorie'])) {
                     </div>
                 </nav>
             </div>
+
+
  <div class="container-contact100">
         <div class="wrap-contact100">
       <form class="contact100-form validate-form" action="" method="POST">
@@ -206,11 +208,7 @@ if (isset($_GET['Id_categorie'])) {
 
                Liste des categories
                 </span>
-<table>
-    <tr>
-        <td>  <a type="submit" class="contact100-form-btn" href = "ajoutercategorie1.php">Ajouter</a> </td>
-    </tr>
-</table>
+
         <table class="table custom-table">
           <thead>
             <tr>  
@@ -254,10 +252,10 @@ foreach ($categorie as $categorie) {
     
     
 
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">
