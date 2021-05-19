@@ -7,7 +7,7 @@ session_start();
 $pseudo=$_SESSION['pseudo_user'];
 $id=$_SESSION['id_user'];
 
-if(isset($_SESSION['id_user'])&&isset($_SESSION['pseudo_user'])&&isset($_POST['msg'])&&!empty($_POST['msg']))
+if(isset($_SESSION['pseudo_user'])&&isset($_SESSION['id_user'])&&isset($_POST['msg'])&&!empty($_POST['msg']))
 {
 
 	$msg=htmlspecialchars($_POST['msg']);
@@ -33,7 +33,7 @@ header('location:chat.php');
 				<!-- Bootstrap 4.3.1 CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-		    <link href="css/styles.css" rel="stylesheet">
+		    <link href="../css/styles.css" rel="stylesheet">
 		<!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 		<!-- Fancybox 3 jQuery plugin CSS (Open images and video in popup) -->

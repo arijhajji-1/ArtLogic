@@ -16,6 +16,7 @@
 		<!-- Google Fonts -->
 				<link href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,600,500,700,800,900|Karla:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
 				<!-- Bootstrap 4.3.1 CSS -->
+				<link href="../css/styler.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -31,12 +32,19 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		 <!-- Required meta tags -->
-		
+		 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+  <link href="../assets/bootstrap.min.css" rel="stylesheet">
+
 
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
 
@@ -47,6 +55,7 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styler.css">
 
 				<!-- jQuery 3.3.1 -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -78,46 +87,16 @@
 
 <!-- Feature 2 -->
 
-<section class="feature_2 bg-light pt-105 pb-45 text-center">
-	<div class="container px-xl-0">
-		<div class="row justify-content-center">
-			<div class="col-xl-8 col-lg-10">
-				<h2 class="small" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">Welcome</h2>
-				<div class="mt-35 mb-65 f-22 color-heading text-adaptive description" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-					
-				</div>
-			</div>
-			<div class="col-xl-10">
-				<div class="row justify-content-center">
-					<div class="mb-50 col-md-4 col-sm-8" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-						<div class="mb-20 f-18 medium title">Artists <br />Art</div>
-						<div class="color-heading text-adaptive">
-							
-						</div>
-						<a href="#" class="mt-30 btn sm w-40 border-transparent-main"><i class="fas fa-angle-right"></i></a>
-					</div>
-					<div class="mb-50 col-md-4 col-sm-8" data-aos-duration="600" data-aos="fade-down" data-aos-delay="900">
-						<div class="mb-20 f-18 medium title">News</div>
-						<div class="color-heading text-adaptive">
-							
-						</div>
-						<a href="#" class="mt-30 btn sm w-40 border-transparent-main"><i class="fas fa-angle-right"></i></a>
-					</div>
-					<div class="mb-50 col-md-4 col-sm-8" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1200">
-						<div class="mb-20 f-18 medium title">Shop</div>
-						<div class="color-heading text-adaptive">
-							
-						</div>
-						<a href="#" class="mt-30 btn sm w-40 border-transparent-main"><i class="fas fa-angle-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+ <section id="hero" class="d-flex flex-column justify-content-center align-items-center text-center">
+    <div class="container text-center text-md-left" data-aos="fade-up">
+      <h1>Welcome to <span>ArtLogic</span></h1>
+      <h2>Nice To See you here</h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section>
 <!-- Content 2 -->
 
-<section class="content_2 bg-light pt-105 pb-95">
+<section class="content_2 bg-light pt-105 pb-95 ">
 	<div class="container px-xl-0 text-center">
 		<div class="row justify-content-center">
 			<div class="col-xl-8 col-lg-10" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
@@ -146,44 +125,43 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
 				<a href="#" class="mt-50 link color-main">
-					<img srcset="../i/showcase_2_img_1@2x.jpg 2x" src="../i/showcase_2_img_1.jpg" class="radius10 img-fluid" alt="" />
-					<div class="mt-20 mb-15 f-22 title">In the Sky</div>
-					<div class="color-heading f-14 semibold text-uppercase sp-20">Nicole Milton</div>
+					<img srcset="../i/NejibZneidi.jpg 2x" src="../i/NejibZneidi.jpg" class="radius10 img-fluid" alt="" />
+					<div class="color-heading f-14 semibold text-uppercase sp-20">Nejib Zneidi</div>
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
 				<a href="#" class="mt-50 link color-main">
-					<img srcset="../i/showcase_2_img_2@2x.jpg 2x" src="../i/showcase_2_img_2.jpg" class="radius10 img-fluid" alt="" />
-					<div class="mt-20 mb-15 f-22 title">Grand Canyon</div>
-					<div class="color-heading f-14 semibold text-uppercase sp-20">Nicole Milton</div>
+					<img srcset="../i/mouradChaaba.jpg 2x" src="../i/mouradChaaba.jpg" class="radius10 img-fluid" alt="" />
+					
+					<div class="color-heading f-14 semibold text-uppercase sp-20">Mourad Chaaba</div>
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
 				<a href="#" class="mt-50 link color-main">
-					<img srcset="../i/showcase_2_img_3@2x.jpg 2x" src="../i/showcase_2_img_3.jpg" class="radius10 img-fluid" alt="" />
-					<div class="mt-20 mb-15 f-22 title">Man from the South</div>
-					<div class="color-heading f-14 semibold text-uppercase sp-20">Nicole Milton</div>
+					<img srcset="../i/AbdelaziziGorgi.jpg " src="../i/AbdelaziziGorgi.jpg" class="radius10 img-fluid" alt="" />
+			
+					<div class="color-heading f-14 semibold text-uppercase sp-20">Abdlaziz Gorgi</div>
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
 				<a href="#" class="mt-50 link color-main">
-					<img srcset="../i/showcase_2_img_4@2x.jpg 2x" src="../i/showcase_2_img_4.jpg" class="radius10 img-fluid" alt="" />
-					<div class="mt-20 mb-15 f-22 title">It's just a Cigarette</div>
-					<div class="color-heading f-14 semibold text-uppercase sp-20">Nicole Milton</div>
+					<img srcset="../i/AliGuermassi.jpg 2x" src="../i/AliGuermassi.jpg" class="radius10 img-fluid" alt="" />
+				
+					<div class="color-heading f-14 semibold text-uppercase sp-20">Ali Guermassi</div>
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
 				<a href="#" class="mt-50 link color-main">
-					<img srcset="../i/showcase_2_img_5@2x.jpg 2x" src="../i/showcase_2_img_5.jpg" class="radius10 img-fluid" alt="" />
-					<div class="mt-20 mb-15 f-22 title">Mountains</div>
-					<div class="color-heading f-14 semibold text-uppercase sp-20">Nicole Milton</div>
+					<img srcset="../i/Nasreddine .jpg 2x" src="../i/Nasreddine .jpg" class="radius10 img-fluid" alt="" />
+				
+					<div class="color-heading f-14 semibold text-uppercase sp-20">Nasreddine EL Assaly</div>
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
 				<a href="#" class="mt-50 link color-main">
-					<img srcset="../i/showcase_2_img_6@2x.jpg 2x" src="../i/showcase_2_img_6.jpg" class="radius10 img-fluid" alt="" />
-					<div class="mt-20 mb-15 f-22 title">Trip to Dream</div>
-					<div class="color-heading f-14 semibold text-uppercase sp-20">Nicole Milton</div>
+					<img srcset="../i/Aliznaidi.jpg 2x" src="../i/Aliznaidi.jpg" class="radius10 img-fluid" alt="" />
+					
+					<div class="color-heading f-14 semibold text-uppercase sp-20">Ali Znaidi</div>
 				</a>
 			</div>
 		</div>
@@ -290,27 +268,6 @@
 	</div>
 </footer>
 <!-- forms alerts -->
-<div class="alert alert-success alert-dismissible alert-form-success" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Thanks for your message!
-</div>
-<div class="alert alert-warning alert-dismissible alert-form-check-fields" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Please, fill in required fields.
-</div>
-<div class="alert alert-danger alert-dismissible alert-form-error" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	An error occurred while sending data :(
-</div>
-<!-- popup with video -->
-<div class="overlay"></div>
-
-<div class="video_popup">
-	<a class="close">
-		<img srcset="../i/close_white@2x.png 2x" src="../i/close_white.png" alt="" />
-	</a>
-	<div class="d-flex align-items-center justify-content-center w-full h-full iframe_container"></div>
-</div>
 
 <!-- Bootstrap 4.3.1 JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
