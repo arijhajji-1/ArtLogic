@@ -1,12 +1,13 @@
 <?php
-
+include_once "../configc.php";
 include "../Controller/CommandeC.php";
 include "../Model/Commande.php";
+include "../Model/livraison.php";
 include "../Controller/panierC.php";
 include "../Controller/produitC.php";
 include "../Controller/livraisonC.php";
-
-session_start();
+ session_start();
+$livraison = new livraisonC();
 $produit = new ProduitC();
 $panier = new panierC();
 $touslesitems= $panier->afficherPanier($_SESSION['id_user']);
@@ -20,8 +21,10 @@ $str = rtrim($str, ", ");
 $commande = new commande($_SESSION['id_user'],$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= $_SESSION[id_user]");
 (new CommandeC())->ajouterCommande($commande);
 
-//$livraison = new livraison('Id_produit','NomC',$_SESSION['id_user'],$_SESSION['adresse_user']);
-//(new livraisonC())->ajouterlivraison($livraison);       
+
+$livraison = new livraison($_POST['Id_produit'],$_POST['Genre'],$_SESSION['id_user'],$_SESSION['adresse_user']);
+(new livraisonC())->ajouterlivraison($livraison);
+
 
 
 $panier->deleteAllcommandes($_SESSION['id_user']);
