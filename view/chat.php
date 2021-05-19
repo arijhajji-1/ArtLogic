@@ -7,7 +7,7 @@ session_start();
 $pseudo=$_SESSION['pseudo_user'];
 $id=$_SESSION['id_user'];
 
-if(isset($_SESSION['pseudo_user'])&&isset($_SESSION['id_user'])&&isset($_POST['msg'])&&!empty($_POST['msg']))
+if(isset($_SESSION['id_user'])&&isset($_SESSION['pseudo_user'])&&isset($_POST['msg'])&&!empty($_POST['msg']))
 {
 
 	$msg=htmlspecialchars($_POST['msg']);

@@ -252,7 +252,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
             <div class="col-lg-6" >
                 <a href="index.php" class="link color-main mx-15">Home</a>
                 <a href="afficheUser.php" class="link color-main mx-15">Profile</a>
-                <a href="actualiteFront" class="link color-main mx-15">News</a>
+                <a href="actualiteFront.php" class="link color-main mx-15">News</a>
                 <a href="about.html" class="link color-main mx-15">About</a>
                 <a href="#" class="link color-main mx-15">Shop</a>
                 <a href="reclamations.php" class="link color-main mx-15">Reclamation</a>
@@ -311,7 +311,7 @@ while ($array[] = $query->fetch_object());
                 <div class="section-header">
                     <i class="fa fa-book"></i>
                     <h2>listes des produits</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  labore et dolore magna aliqua.</p>
+                    <p>we have the best product in the country </p>
                 </div>
                 
 				<?php

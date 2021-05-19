@@ -5,6 +5,7 @@ require_once('../view/settings.php');
 if (isset($_POST['email'])){
     $email_client=$_POST['email'];
     $mot_passe=$_POST['password'];
+
     $sql="SELECT * FROM users WHERE Email_user='" . $email_client . "' && mot_de_passe = '". $mot_passe."' ";
     $db = getConnexion();
     try {
@@ -16,11 +17,12 @@ if (isset($_POST['email'])){
             session_start();
             $user = $query->fetch();
             if($user['verification']==1) {
-               $_SESSION['email'] = $_POST['email'];
+                $_SESSION['email'] = $_POST['email'];
                 $_SESSION['mot_de_passe'] = $_POST['password'];
                 $_SESSION['id_user'] = $user['id_user'];
                 $_SESSION['pseudo_user'] = $user['pseudo_user'];
-               
+                $_SESSION['image'] = $user['image'];
+                $_SESSION['role'] = $user['Role_user'];
                 if ($user['Role_user'] == 2) {
                     header('Location:administrateur.php');
                 } else {
