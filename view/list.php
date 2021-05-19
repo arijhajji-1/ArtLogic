@@ -213,7 +213,12 @@ if (isset($_GET['reference'])) {
                   Promotions
                 </span>
 
-
+ <p> <form method="POST" action="">
+                <input type="submit" name="submit" value="trierA" class="contact100-form-btn" >
+                <input type="submit" name="submit2" value="trierD" class="contact100-form-btn">
+                <a type="button" class="contact100-form-btn" href = "recherchepromotion.php">rechercher</a> 
+                
+               </form>
             
 
         <table class="table custom-table">
@@ -260,12 +265,6 @@ foreach ($promotion as $promotion) {
         }
         ?>
         </table>
-          <form method="POST" action="">
-                <input type="submit" name="submit" value="trierA" class="contact100-form-btn" >
-                <input type="submit" name="submit2" value="trierD" class="contact100-form-btn">
-                <a type="button" class="contact100-form-btn" href = "recherchepromotion.php">rechercher</a> 
-                
-               </form>
       </div>
               </form>
 

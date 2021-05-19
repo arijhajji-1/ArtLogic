@@ -188,9 +188,7 @@ $reclamation = $reclamationc->afficherreclamation();
             </div>
  <div class="container-contact100">
                    <div class="wrap-contact100">
-       
-                 <form class="contact100-form validate-form" action="" method="post">
-              
+      <!--<form class="contact100-form validate-form" >-->
                 <span class="contact100-form-title">
 
                   Reclamation
@@ -228,6 +226,7 @@ foreach ($reclamation as $reclamation) {
                                     <td>  <?=  $reclamation['date_reclamation'] ?> </td>
                                      <td>  <?=  $reclamation['description_reclamation'] ?> </td>
                                       <td>  <?=  $reclamation['etat'] ?> </td>
+                       
    
                                <td><a type="submit" class="contact100-form-btn" href = "modifieretat.php?id_reclamation=<?= $reclamation['id_reclamation'] ?>">Modifier</a></td> 
                              
@@ -246,17 +245,17 @@ foreach ($reclamation as $reclamation) {
 
 
 </div>
-       </form>
+       
     </div>
 
   </div>
     
     
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">

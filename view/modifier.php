@@ -1,7 +1,7 @@
   <?php
 
-require_once '../Controller/promotionc.php';
-require_once '../Model/promotion.php';
+require_once '../controllers/promotionc.php';
+require_once '../model/promotion.php';
 $promotionc =  new promotionc();
 
     if (isset($_POST['pr']) && isset($_POST['dateDebut']) && isset($_POST['dateFin'])&& isset($_POST['pourcentage'])) {
@@ -85,7 +85,7 @@ $promotionc =  new promotionc();
                                     <a class="nav-link" href="afficherlivreur.php">Livreur</a>
                                 </nav>
                             </div>
-                               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
                               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                               Produits
                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -97,7 +97,7 @@ $promotionc =  new promotionc();
                               </nav>
                           </div>
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
+                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts8">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Promotions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -120,8 +120,7 @@ $promotionc =  new promotionc();
                                 </nav>
                             </div>
 
-                           
-<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
+                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts9">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                Commande
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -132,20 +131,20 @@ $promotionc =  new promotionc();
                                   
                                 </nav>
                             </div>
-                           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        User
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                User
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="administrateur.php">administrateur</a>
                             <a class="nav-link" href="clients.php">client</a>
                             <a class="nav-link" href="vendeurs.php">vendeur</a>
                         </nav>
                     </div>
-
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+ <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Evenement&Actualité
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -158,7 +157,7 @@ $promotionc =  new promotionc();
                                     <a class="nav-link" href="actualiteView.php">View Actualité</a>
                                 </nav>
                             </div>
-
+                            
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     
@@ -211,11 +210,12 @@ $promotionc =  new promotionc();
             <tr>  
 
               
-               <th scope="col">Produit</th>
+              
+              <th scope="col">produit</th>
               <th scope="col">Date debut</th>
               <th scope="col">Date fin</th>
                             <th scope="col">Pourcentage</th>
-                          
+                            <th scope="col">****</th>
 
             </tr>
          
@@ -224,11 +224,11 @@ $promotionc =  new promotionc();
             <tr>
                 
                 
-                                  <td>  <input type="text" name="pr" value="<?= $result['pr'] ?>"> </td>
+                                  <td> <input type="text" name="pr" value="<?= $result['pr'] ?>"> </td>
                                 <td>  <input type="text" name="dateDebut" value="<?= $result['dateDebut'] ?>"> </td>
                                  <td>  <input type="text" name="dateFin" value="<?= $result['dateFin'] ?>"> </td>
                                     <td>  <input type="text" name="pourcentage" value="<?= $result['pourcentage'] ?>"> </td> 
-                                   <tr> <td><input type="submit" name="modifier" value="Modifier" ></td> </tr>
+                                    <td><input type="submit" name="modifier" value="Modifier" ></td> 
                                 
                       
                                

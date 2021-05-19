@@ -5,13 +5,13 @@
 	class produitC {
 		
 		function ajouterproduit($produit){
-			$sql="INSERT INTO produit (NomP, DateA, Description1, Genre, Couleur,Taille,poids,Prix,Quantite,image,id_userA) 
-			VALUES (:NomP, :DateA, :Description1, :Genre, :Couleur, :Taille, :poids, :Prix,:Quantite,:image,:id_userA)";
+			$sql="INSERT INTO produit (Id_produit, NomP, DateA, Description1, Genre, Couleur,Taille,poids,Prix,Quantite,image) 
+			VALUES (:Id_produit, :NomP, :DateA, :Description1, :Genre, :Couleur, :Taille, :poids, :Prix,:Quantite,:image)";
 			$db = connection::getConnexion();
 			try{
 				$query = $db->prepare($sql);
 				$query->execute([
-				//	'Id_produit' => $produit->getId_produit(),
+					'Id_produit' => $produit->getId_produit(),
 					'NomP' => $produit->getNomP(),
 					'DateA' => $produit->getDateA(),
 					'Description1' => $produit->getDescription1(),
@@ -22,7 +22,6 @@
                     'Prix'=> $produit->getPrix(),
                     'Quantite'=> $produit->getQuantite(),
 					'image'=> $produit->getimage(),
-					'id_userA'=> $produit->getid_userA(),
 				]);			
 			}
 			catch (Exception $e){
