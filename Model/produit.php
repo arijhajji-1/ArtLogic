@@ -12,8 +12,9 @@ class produit
     private float $Prix;
     private int $Quantite; 
     private string $image;
+    private ?int $id_userA = null;
    
-    public function __construct($NomP,$DateA,$Description1,$Genre,$Couleur,$Taille,$poids,$Prix,$Quantite,$image)
+    public function __construct($NomP,$DateA,$Description1,$Genre,$Couleur,$Taille,$poids,$Prix,$Quantite,$image,$id_userA)
     {  
       //  $this->Id_produit = $Id_produit;
         $this->NomP = $NomP;
@@ -26,6 +27,7 @@ class produit
         $this->Prix = $Prix;
         $this->Quantite = $Quantite; 
         $this->image = $image;
+        $this->id_userA = $id_userA;
        
     }
     public function getId_produit () {
@@ -61,6 +63,10 @@ class produit
     public function getimage () {
         return $this->image;
     }
+    public function getid_userA () {
+        return $this->id_userA;
+    }
+
 
     public function setID_produit ($Id_produit){
         $this->Id_produit = $Id_produit;
@@ -95,6 +101,9 @@ class produit
     } 
     public function setimage ($image){
         $this->image = $image;
+    }
+    public function setid_userA ($id_userA){
+        $this->id_userA = $id_userA;
     }
     
 }

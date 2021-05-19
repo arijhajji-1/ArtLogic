@@ -1,6 +1,8 @@
 <?php
 include_once '../Controller/produitC.php';
 include_once '../Model/produit.php'; 
+
+
 $produitC = new produitC(); 
 $produit=$produitC->afficherproduit(); 
 
@@ -218,7 +220,7 @@ if (isset($_GET['Id_produit'])) {
         <div class="">
       <form class="contact100-form validate-form" action="" method="POST">
                 <span class="contact100-form-title">
-
+             <br><br>
                Liste des Produits
                 </span> 
                 
@@ -232,7 +234,7 @@ if (isset($_GET['Id_produit'])) {
               <td>  <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "Searchp.php">search</a> </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "stat.php">stat</a> </td>
-             <td>  <a type="submit" class="contact100-form-btn" href = "ajouterproduit1.php">Ajouter</a> </td>
+           
              </tr>
            </table>
                 
@@ -278,7 +280,7 @@ foreach ($produit as $produit) {
                                 <td>  <?php  echo $produit['poids'] ?> </td>
                                 <td>  <?php  echo $produit['Prix'] ?> </td> 
                                 <td>  <?php  echo $produit['Quantite'] ?> </td> 
-                                <td> <img src="../image/<?= $produit['image'] ?>"height="50" width="50"</td> 
+                                <td> <img src="../i/<?= $produit['image'] ?>"height="50" width="50"</td> 
                                  <td>  <?php  echo $produit['nouveauPrix'] ?> </td> 
 
              <td><a type="button" class="contact100-form-btn" href = "afficherproduit1.php?Id_produit=<?= $produit['Id_produit'] ?>">Supprimer</a></td>  
@@ -305,10 +307,10 @@ foreach ($produit as $produit) {
     
     
 
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">

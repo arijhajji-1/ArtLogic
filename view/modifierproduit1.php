@@ -217,7 +217,7 @@ $produitC =  new produitC();
                Liste des Produits
                 </span>
 
-        <table class="table custom-table">
+        <table class="table custom-table"> 
         <!--  <thead> -->
             <tr>  
 
@@ -227,7 +227,7 @@ $produitC =  new produitC();
                          <th scope="col">date</th> 
                           <th scope="col">description</th> 
                             <th scope="col">genre</th>   
-                           <th scope="col">Couleur</th>  
+                           <th scope="col">Couleur</th> 
                            <th scope="col">Taille</th>  
                            <th scope="col">poids</th>  
                             <th scope="col">Prix</th>   

@@ -8,6 +8,8 @@ include_once '../Model/produit.php';
 
 
 session_start();
+$id=$_SESSION['id_user'];
+
 if(!empty($_POST['NomP']) && !empty($_POST['DateA']) && !empty($_POST['Description1']) && !empty($_POST['Genre']) && !empty($_POST['Couleur']) && !empty($_POST['Taille']) && !empty($_POST['poids']) && !empty($_POST['Prix']) && !empty($_POST['Quantite']) && !empty($_POST['image'])){
 
 $NomP = $_POST['NomP'];    
@@ -27,7 +29,7 @@ $image= $_POST['image'];
 
 
 $produitC = new produitC();
-$produit=new produit ($NomP, $DateA, $Description1, $Genre, $Couleur,$Taille,$poids,$Prix,$Quantite,$image);
+$produit=new produit ($NomP, $DateA, $Description1, $Genre, $Couleur,$Taille,$poids,$Prix,$Quantite,$image,$id);
 try{
     $produitC->ajouterproduit($produit);
 }catch(Exception $e){
@@ -112,8 +114,8 @@ try{
                           </a>
                           <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                               <nav class="sb-sidenav-menu-nested nav">
-                              <a class="nav-link" href="afficherproduit1.php">Produits</a>
-                                  <a class="nav-link" href="affichercategorie1.php">catégories</a>
+                              <a class="nav-link" href="afficherproduit2.php">Produits</a>
+                              
                               </nav>
                           </div>
 
@@ -274,10 +276,10 @@ while ($array[] = $query->fetch_object());
     
     
 
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">
