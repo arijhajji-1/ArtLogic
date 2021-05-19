@@ -4,6 +4,8 @@ include "../Controller/CommandeC.php";
 include "../Model/Commande.php";
 include "../Controller/panierC.php";
 include "../Controller/produitC.php";
+include "../Controller/livraisonC.php";
+
 session_start();
 $produit = new ProduitC();
 $panier = new panierC();
@@ -17,6 +19,10 @@ $str=$str.$x['NomP'].',';
 $str = rtrim($str, ", ");
 $commande = new commande($_SESSION['id_user'],$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= $_SESSION[id_user]");
 (new CommandeC())->ajouterCommande($commande);
+
+//$livraison = new livraison('Id_produit','NomC',$_SESSION['id_user'],$_SESSION['adresse_user']);
+//(new livraisonC())->ajouterlivraison($livraison);       
+
 
 $panier->deleteAllcommandes($_SESSION['id_user']);
 echo '<script>

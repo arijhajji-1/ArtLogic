@@ -113,7 +113,7 @@ try{
                           <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                               <nav class="sb-sidenav-menu-nested nav">
                               <a class="nav-link" href="afficherproduit1.php">Produits</a>
-                                  <a class="nav-link" href="affichercategorie1.php">catégories</a>
+                              
                               </nav>
                           </div>
 
@@ -274,10 +274,10 @@ while ($array[] = $query->fetch_object());
     
     
 
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">

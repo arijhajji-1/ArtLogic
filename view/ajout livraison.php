@@ -1,7 +1,9 @@
 <?php
 //include "produitC.php";
 include_once '../Model/produit.php'; 
-echo "sej";
+include_once '../Model/categorie.php'; 
+include_once '../Model/User.php'; 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,25 +69,59 @@ echo "sej";
         
                                 <tr>
                                     <td>
-                                          <label class="control-label">saisir le Nom de categorie</label>
+                                    <div class="container" >
+                                            <span class="label-input100">NomCategorie</span>
+                                            <?php
+                        require_once('../configc.php');
+                        $mysqli = new mysqli('localhost', 'root', '' ,'web');
+                        if($mysqli->connect_error){
+                            die('Connect-Error (' . $mysqli->connect_error . ') '
+                                . $mysqli->connect_error);
+                        }
+                        $query = $mysqli->query( "SELECT * FROM categorie");
+                        while ($arrayd[] = $query->fetch_object()); 
+                            # code...
+                         array_pop ( $arrayd );
+                        ?>
+                         
+                                             <div class="form-group">
+                        <select  name="Nomcat" class="form-control">
+                             <?php foreach ( $arrayd as $option ) :?>
+                                  <option value="<?php echo $option->NomC ; ?>"><?php echo $option->NomC; ?> </option>
+                             <?php endforeach; ?>
+                        </select>
+                            </div>
                                     </td>
-                                    <td>
-                                          <input type="text" class="form-control" id="Nomcat" name="Nomcat"/>
-                                    </td>
+                                   
                                 </tr>
         
                                 <tr>
-                                    <td>
-                                         <label>selectionner lIDclient </label>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" id="IDclient" name="IDclient"/>
-                                   </td>
+                                <div class="container" >
+                                            <span class="label-input100">Id client</span>
+                                            <?php
+                        require_once('../configc.php');
+                        $mysqlii = new mysqli('localhost', 'root', '' ,'web');
+                        if($mysqlii->connect_error){
+                            die('Connect-Error (' . $mysqlii->connect_error . ') '
+                                . $mysqlii->connect_error);
+                        }
+                        $queryy = $mysqlii->query( "SELECT * FROM users");
+                        while ($arrays[] = $queryy->fetch_object()); 
+                            # code...
+                         array_pop ( $arrays );
+                        ?>
+                         
+                                             <div class="form-group">
+                        <select  name="IDclient" class="form-control">
+                             <?php foreach ( $arrays as $options ) :?>
+                                  <option value="<?php echo $options->id_user; ?>"><?php echo $options->nom_user; ?> </option>
+                             <?php endforeach; ?>
+                        </select>
                                 </tr>
         
                                  <tr>
                                     <td>
-                                          <label>saisir le numero </label>
+                                          <label>saisir l'adresse du Client </label>
                                     </td>
                                     <td>
                                         <input type="text" class="form-control" id="NUMclient" name="NUMclient"/>

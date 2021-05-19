@@ -22,5 +22,6 @@ function getConnexion () {
         echo "Connection failed: ". $e->getMessage();
     }
 }
+
 ?>
 
