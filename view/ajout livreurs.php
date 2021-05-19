@@ -101,10 +101,7 @@
 background-color: rgb(20, 40, 95);
 color: white;
 ">
-                          <input type="submit" name="Afficher les livreurs" value="Afficher les livreurs " class="form-control" style=" width: 100%;
-                          background-color: rgb(46, 21, 88);
-                          color: white;
-                         ">
+                 
                              
                     </td>
                 </tr>                       
