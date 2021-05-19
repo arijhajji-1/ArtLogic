@@ -2,7 +2,7 @@
 include_once '../Controller/produitC.php';
 include_once '../Model/produit.php'; 
 
-
+session_start();
 $produitC = new produitC(); 
 $produit=$produitC->afficherproduit(); 
 
@@ -267,6 +267,7 @@ if (isset($_GET['Id_produit'])) {
             </tr>
             <?php
 foreach ($produit as $produit) {
+    if($_SESSION['id_user']==$produit['id_userA']){
 ?> 
 <tr>
                                    <td> <?php echo $produit['Id_produit'] ?> </td>
@@ -293,6 +294,7 @@ foreach ($produit as $produit) {
 
 <?php
         }
+    }
         ?>
 
           
