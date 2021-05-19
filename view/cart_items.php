@@ -120,13 +120,13 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
     </div>
     <div>
      <td><form method="POST" action="commandeses.php">
-	  <button class="btn btn-info">afficher vos commandes</button>
+	  <button class="btn btn-dark">afficher vos commandes</button>
       </div>
 	</form>
 	</td>
 <hr>
     <form method="post" action="passerCommande.php">
-        <h6 style="color: #17a2b8;text-align: center"> Cliquer sur Passer commande, pour passer votre commande</h6>
+        <h6 style="text-align: center"> Cliquer sur Passer commande, pour passer votre commande</h6>
 <div class="form-group" style="padding:0px 90px 0px 90px;">
         <label>Mode de payement:</label>
 
@@ -137,11 +137,15 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
             <option>Cash au Livraison</option>
         </select>
     <br>
+<<<<<<< HEAD
     <input type="hidden" value="<?PHP echo $p['Id_produit']; ?>" name="Id_produit">
 	                
                     <input type="hidden" value="<?PHP echo $p['Genre']; ?>" name="Genre">
 	                </form>
                      <button type="submit" class="btn btn-info">Passer Commande</button>
+=======
+    <button type="submit" class="btn btn-dark">Passer Commande</button>
+>>>>>>> b8670a381c4ae9ed8416bdc0239912f0d589df6a
 
 
    
