@@ -22,7 +22,7 @@ $commande = new commande($_SESSION['id_user'],$str,$prix_globale,$_POST['mode_pa
 (new CommandeC())->ajouterCommande($commande);
 
 
-$livraison = new livraison($_POST['Id_produit'],$_POST['Genre'],$_SESSION['id_user'],$_SESSION['adresse_user']);
+$livraison = new livraison($_POST['Id_produit'],$_POST['Genre'],$_SESSION['id_user'],$_SESSION['numero_telephone_user']);
 (new livraisonC())->ajouterlivraison($livraison);
 
 

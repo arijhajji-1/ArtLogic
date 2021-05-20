@@ -88,7 +88,7 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
             <div class="card mb-2" style="padding: 20px 150px 20px 150px; width: 500px;  box-shadow: 10px 10px 10px 10px grey;">
             <h1 style="text-align: center"><?php echo $p['NomP']; ?></h1>
 
-
+           
                 <span style="text-align: center"> <?php echo $p['prix_total'] ?> DT</span>
                 <span style="text-align: center"> <?php echo $p[2]; ?> in cart</span>
                 <div class="inline">
@@ -96,6 +96,7 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                 </svg>
                 </a>
+         
                     <?php if($p[2]!= 1) {
 
                     ?>
@@ -104,6 +105,7 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                     </svg></a>
                     <?php } ?>
+      
                     <a href="removefrompanier.php?id_prod=<?php echo $p['Id_produit']; ?>" style="width: 250px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -137,14 +139,14 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
             <option>Cash au Livraison</option>
         </select>
     <br>
+   
     <input type="hidden" value="<?PHP echo $p['Id_produit']; ?>" name="Id_produit">
-	                
-                    <input type="hidden" value="<?PHP echo $p['Genre']; ?>" name="Genre">
+	 <input type="hidden" value="<?PHP echo $p['Genre']; ?>" name="Genre">
 	                </form>
                      <button type="submit" class="btn btn-info">Passer Commande</button>
 
 
-   
+              
 
 
 <footer class="footer_1 bg-light pt-75 pb-65 text-center">
