@@ -3,7 +3,6 @@ include "../Model/panier.php";
 include "../Controller/panierC.php";
 include "../Controller/ProduitC.php";
 session_start();
-
 if ( isset($_GET['Id_produit']) and isset($_GET['prix_total']))
 {
     $Quantite=1;

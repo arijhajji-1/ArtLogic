@@ -124,7 +124,7 @@ class UserC
                 'UPDATE users SET nom_user = :Nom,prenom_user = :Prenom,Email_user = :Email,pseudo_user = :Pseudo,mot_de_passe = :Mot_de_passe,sexe_user = :Sexe,date_de_naissance_user = :Date_de_naissance,adresse_user = :Adresse,matricule_fiscale_user = :Matricule_fiscale,numero_telephone_user = :Telephone,type_produit = :Type_produit, image= :image WHERE id_user = :id'
             );
             $query->execute([
-                'Nom' => $User->getNom(),
+                'Nom'=> $User->getNom(),
                 'Prenom' => $User->getPrenom(),
                 'Email' => $User->getEmail(),
                 'Pseudo' => $User->getPseudo(),
@@ -136,7 +136,7 @@ class UserC
                 'Telephone' => $User->getTelephone(),
                 'Type_produit' => $User->getType_produit(),
                 'id' => $id,
-                'image'=>$User->getImage(),
+                'image'=>$User->getImage()
             ]);
             echo $query->rowCount() . " records UPDATED successfully";
         } catch (PDOException $e) {

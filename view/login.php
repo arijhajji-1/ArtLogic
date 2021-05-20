@@ -25,7 +25,7 @@ if (isset($_POST['email'])){
                 $_SESSION['role'] = $user['Role_user'];
                 $_SESSION['numero_telephone_user'] = $user['numero_telephone_user'];
                 if ($user['Role_user'] == 2) {
-                    header('Location:administrateur.php');
+                    header('Location:animation.html');
                 } else {
                     header('Location:AfficheUser.php');
                 }
