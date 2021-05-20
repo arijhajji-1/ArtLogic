@@ -10,6 +10,7 @@ require_once '../config.php';
 
 
 $promotionc =  new promotionc();
+
 if (isset($_POST['pr']) && isset($_POST['dateDebut']) && isset($_POST['dateFin'])&& isset($_POST['pourcentage'])) {
     $promotion = new promotion($_POST['pr'], $_POST['dateDebut'], $_POST['dateFin'], $_POST['pourcentage']);
 

@@ -5,10 +5,19 @@ require_once '../Model/promotion.php';
 include_once '../Controller/produitC.php';
 include_once '../Model/produit.php'; 
 $promotionc = new promotionc();
-
-
 $promotion = $promotionc->afficherpromotion();
+$produitC=new produitC();
+$date=date('Y-m-d');
+foreach ( $promotion as $pr) {
+$timestamp1 = strtotime($date);
+$timestamp2 = strtotime($pr['dateFin']);
 
+    if ($timestamp1 > $timestamp2)
+    {
+        $produit = $produitC->modifierNouveauPrix($pr['pr']);
+        $promotion = $promotionc->supprimerpromotion($pr['reference']);
+    }
+    }
 if(isset($_POST['submit']))
 {
     $promotion=$promotionc->trierpromotion();
@@ -231,7 +240,7 @@ if (isset($_GET['reference'])) {
             </tr>
           </thead>
          <?php
-foreach ($promotion as $promotion) {
+foreach ($promotion as $Promotion) {
 
 
            ?>
@@ -240,12 +249,12 @@ foreach ($promotion as $promotion) {
             <tr>
                 
                 
-                                   <td> <?= $promotion['reference'] ?> </td> 
-                                  <td>  <?=  $promotion['pr'] ?> </td>
-                                <td>  <?=  $promotion['dateDebut'] ?> </td>
-                                 <td>  <?=  $promotion['dateFin'] ?> </td>
-                                    <td>  <?=  $promotion['pourcentage'] ?> </td> <td><a type="button" class="contact100-form-btn" href = "list.php?reference=<?= $promotion['reference'] ?>">Supprimer</a></td> 
-                                    <td><a type="button" class="contact100-form-btn" href = "modifier.php?reference=<?= $promotion['reference'] ?>">Modifier</a></td> 
+                                   <td> <?= $Promotion['reference'] ?> </td>
+                                  <td>  <?=  $Promotion['pr'] ?> </td>
+                                <td>  <?=  $Promotion['dateDebut'] ?> </td>
+                                 <td>  <?=  $Promotion['dateFin'] ?> </td>
+                                    <td>  <?=  $Promotion['pourcentage'] ?> </td> <td><a type="button" class="contact100-form-btn" href = "list.php?reference=<?= $Promotion['reference'] ?>">Supprimer</a></td>
+                                    <td><a type="button" class="contact100-form-btn" href = "modifier.php?reference=<?= $Promotion['reference'] ?>">Modifier</a></td>
                                 
                       
                                

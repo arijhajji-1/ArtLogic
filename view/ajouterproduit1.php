@@ -8,8 +8,9 @@ include_once '../Model/produit.php';
 
 
 session_start();
-$id=$_SESSION['id_user'];
-
+if(!empty($_SESSION)) {
+    $id = $_SESSION['id_user'];
+}
 if(!empty($_POST['NomP']) && !empty($_POST['DateA']) && !empty($_POST['Description1']) && !empty($_POST['Genre']) && !empty($_POST['Couleur']) && !empty($_POST['Taille']) && !empty($_POST['poids']) && !empty($_POST['Prix']) && !empty($_POST['Quantite']) && !empty($_POST['image'])){
 
 $NomP = $_POST['NomP'];    

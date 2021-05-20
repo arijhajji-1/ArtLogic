@@ -1,9 +1,26 @@
 <?php
 include_once '../Controller/produitC.php';
-include_once '../Model/produit.php'; 
+include_once '../Model/produit.php';
 
+require_once '../Controller/promotionc.php';
+require_once '../Model/promotion.php';
 
-$produitC = new produitC(); 
+$promotionc = new promotionc();
+$promotion= $promotionc->afficherpromotion();
+$produitC = new produitC();
+
+$date=date('Y-m-d');
+foreach ( $promotion as $pr) {
+    $timestamp1 = strtotime($date);
+    $timestamp2 = strtotime($pr['dateFin']);
+
+    if ($timestamp1 > $timestamp2)
+    {
+        $produit = $produitC->modifierNouveauPrix($pr['pr']);
+        $promotion = $promotionc->supprimerpromotion($pr['reference']);
+    }
+}
+
 $produit=$produitC->afficherproduit(); 
 
 if(isset($_POST['submit']))
@@ -41,6 +58,7 @@ if (isset($_GET['Id_produit'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+
         <title>Artlogic Admin</title>
         <link href="../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />

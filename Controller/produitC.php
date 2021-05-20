@@ -204,7 +204,23 @@
 		die('Erreur: '.$e->getMessage());
 	}
 }
-		
-	}
+
+        function modifierNouveauPrix($Id_produit){
+            try {
+                $db = connection::getConnexion();
+                $query = $db->prepare(
+                    'UPDATE produit SET nouveauPrix = "0"
+					WHERE Id_produit = :Id_produit'
+                );
+                $query->execute([
+                    'Id_produit' => $Id_produit
+                ]);
+                echo $query->rowCount() . " records UPDATED successfully <br>";
+            } catch (PDOException $e) {
+                $e->getMessage();
+            }
+        }
+
+    }
 
 ?>
