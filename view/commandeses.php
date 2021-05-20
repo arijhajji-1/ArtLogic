@@ -154,11 +154,11 @@ else if(!empty($_SESSION)) {
     <label>
         <input type="text" placeholder="Taper ici .... " name="search" class="form-control" />
     </label>
-    <button class="btn btn-info">Rechercher</button>
+    <button class="btn btn-dark">Rechercher</button>
    
 </form>
 <td><form method="POST" action="pdftotalcomm.php">
-	  <button class="btn btn-info">Enregistrer   facture</button>
+	  <button class="btn btn-dark">Enregistrer   facture</button>
 	</form>
 	</td>
 <table class="table" >
@@ -171,7 +171,7 @@ else if(!empty($_SESSION)) {
         <th>Produits</th>
         <th>Description</th>
         <th>supprimer</th>
-        <th>facture</th>
+        
     </tr>
     </thead>
     <tbody>
@@ -187,7 +187,7 @@ else if(!empty($_SESSION)) {
             <td><?PHP echo $row['produits']; ?></td>
             <td><?PHP echo $row['description_commande']; ?></td>
             <td><form method="POST" action="supprimerCommandeses.php">
-                    <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
+                    <input type="submit" name="supprimer" value="supprimer" class="btn btn-dark">
                     <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
                 </form>
             
