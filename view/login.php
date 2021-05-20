@@ -73,54 +73,48 @@ if (isset($_POST['email'])){
 </head>
 
 <body>
+
 <!-- Navigation 1 -->
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-<nav class="navigation_1 bg-light pt-30 pb-30 text-center">
-    <div class="container px-xl-0">
-        <div class="row justify-content-center align-items-center f-16">
-            <div class="mt-20 d-flex align-items-center author_info">
-                <a href="index.html" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
-                <div class="col-lg-6" >
-                    <a href="index.html" class="link color-main mx-15">Home</a>
-                    <a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
-                    <a href="actualiteFront.php" class="link color-main mx-15">News</a>
-                    <a href="#" class="link color-main mx-15">About</a>
-                    <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
-                    <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
-                </div>
-                <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
-                    <a href="login.php" class="mr-20 link color-main">Sign In</a>
+
+    <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
+        <div class="container px-xl-0">
+            <div class="row justify-content-center align-items-center f-16">
+                <div class="mt-20 d-flex align-items-center author_info">
+                    <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
+                    <div class="col-lg-6" >
+                        <a href="index.php" class="link color-main mx-15">Home</a>
+                        <a href="actualiteFront.php" class="link color-main mx-15">News</a>
+                        <a href="about.php" class="link color-main mx-15">About</a>
+                        <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
+                    </div>
+
+
                 </div>
             </div>
-        </div>
-</nav>
-<div id="container">
-    <section class="container back">
+    </nav>
 
-        <div class="container px-xl-0">
-            <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
 
-                <h2 class="mb-40 small text-center" >Sign In</h2>
-                <div class="mb-20 input_holder" >
-                    <input type="email" placeholder="Email" name="email"
-                           class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
-                <div class="mb-20 input_holder" >
-                    <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password"
-                           class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
-                </div>
-                <div >
-                    <input type="submit" value="Login" name="submit" class="button">
-                </div>
-                <br>
-                <input type="image" name="submit" id="submit" src="../i/google.png" height="50" width="330"   onclick ="window.location ='<?php echo $login_url; ?>'">
+<section class="container back">
+<div id="container" class="container px-xl-0">
 
-            </form>
+    <form action="login.php"  method = "post" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
+        <h2 class="mb-40 small text-center" d>Sign in</h2>
 
-        </div>
-    </section>
+        <input type="email" placeholder="Email" name="email"  class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
+        <br>
+        <br>
+        <input type="password" placeholder="Entrer le mot de passe"  minlength="8" name="password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" required >
+        <br>
+        <br>
+        <input type="submit" name="submitButton" id="submitButton" value="LOGIN"  class="button" >
+        <br>
+        <br>
+        <input type="image" name="submit" id="submit" src="../i/google.png" height="50" width="330"   onclick ="window.location ='<?php echo $login_url; ?>'">
 
+    </form>
 </div>
+</section>
 <!-- Footer 1 -->
 <footer class="footer_1 bg-light pt-75 pb-65 text-center">
     <div class="container px-xl-0">

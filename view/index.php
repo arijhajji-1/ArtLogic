@@ -4,6 +4,7 @@
 include "../Controller/evenementC.php";
 $evenementC=new evenementC();
 $listeevenement=$evenementC->afficherEvenement();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,31 +59,89 @@ $listeevenement=$evenementC->afficherEvenement();
 
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/session.css">
 </head>
 <body>
 <!-- Navigation 1 -->
 
-<nav class="navigation_1 bg-light pt-30 pb-30 text-center">
-    <div class="container px-xl-0">
-        <div class="row justify-content-center align-items-center f-16">
-            <div class="mt-20 d-flex align-items-center author_info">
-                <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
-                <div class="col-lg-6" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-                    <a href="index.php" class="link color-main mx-15">Home</a>
-                    <a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
-                    <a href="actualiteFront.php" class="link color-main mx-15">News</a>
-                    <a href="#" class="link color-main mx-15">About</a>
+<?php
+if(empty($_SESSION))
+{
+    ?>
+    <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
+        <div class="container px-xl-0">
+            <div class="row justify-content-center align-items-center f-16">
+                <div class="mt-20 d-flex align-items-center author_info">
+                    <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
+                    <div class="col-lg-6" >
+                        <a href="index.php" class="link color-main mx-15">Home</a>
+                        <a href="actualiteFront.php" class="link color-main mx-15">News</a>
+                        <a href="about.php" class="link color-main mx-15">About</a>
+                        <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
+                    </div>
+                    <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
+                        <a href="login.php" class="mr-20 link color-main">Sign In</a>
+                        <a href="AjouterUser.php" class="btn sm action-2 f-16">Sign Up</a>
+                    </div>
 
-                    <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
-                    <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
-                </div>
-                <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-                    <a href="login.php" class="mr-20 link color-main">Sign In</a>
-                    <a href="AjouterUser.php" class="btn sm action-2 f-16">Sign Up</a>
                 </div>
             </div>
-        </div>
-</nav>
+    </nav>
+    <?php
+}
+else if(!empty($_SESSION)) {
+    ?>
+    <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
+        <div class="container px-xl-0">
+            <div class="row justify-content-center align-items-center f-16">
+                <div class="mt-20 d-flex align-items-center author_info">
+                    <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
+                    <div class="col-lg-6" >
+                        <a href="index.php" class="link color-main mx-15">Home</a>
+                        <a href="actualiteFront.php" class="link color-main mx-15">News</a>
+                        <a href="about.php" class="link color-main mx-15">About</a>
+                        <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
+                        <a href="cart_items.php" class="link color-main mx-15"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown" >
+                            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="../i/<?php echo $_SESSION['image']; ?>" class="avatar" alt="Avatar"> <?php echo $_SESSION['pseudo_user']; ?><b class="caret"></b></a>
+                            <div class="dropdown-menu">
+                                <a href="AfficheUser.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+                                <a href="listreclamation.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
+                                <a href="AfficheWishList.php" class="dropdown-item"><i class="fa fa-heart"></i> Wishlist</a></a>
+                                <?php
+                                if($_SESSION['role']==1) {
+                                    ?>
+                                    <a href="ajouterproduit1.php" class="dropdown-item"><i class="fas fa-plus-circle"></i> Ajouter produit</a></a>
+                                    <?php
+                                }
+                                else if($_SESSION['role']==2) {
+                                    ?>
+                                    <a href="animation.html" class="dropdown-item"><i class="fas fa-user"></i>Admin</a></a>
+
+                                    <?php
+                                }
+                                ?>
+                                <div class="dropdown-divider"></div>
+                                <a href="logout.php" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <?php
+}
+?>
 
 <!-- Feature 2 -->
 

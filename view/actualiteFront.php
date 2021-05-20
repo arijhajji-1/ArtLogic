@@ -117,7 +117,7 @@ else if($_SESSION['email']!='') {
                             }
                             else if($_SESSION['role']==2) {
                                 ?>
-                                <a href="clients.php" class="dropdown-item"><i class="fas fa-user"></i>Admin</a></a>
+                                <a href="animation.html" class="dropdown-item"><i class="fas fa-user"></i>Admin</a></a>
 
                                 <?php
                             }

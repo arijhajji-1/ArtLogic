@@ -14,6 +14,9 @@
       <executable />
     </execution>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ArtLogic2" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -79,6 +82,9 @@
       <workItem from="1621363879971" duration="12292000" />
       <workItem from="1621379869623" duration="85000" />
       <workItem from="1621412122375" duration="11792000" />
+      <workItem from="1621460137872" duration="117000" />
+      <workItem from="1621460354838" duration="2746000" />
+      <workItem from="1621463231182" duration="6254000" />
     </task>
     <servers />
   </component>

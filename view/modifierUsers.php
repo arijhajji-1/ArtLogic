@@ -3,8 +3,10 @@ require_once '../Controller/UserC.php';
 require_once '../Model/User.php';
 
 session_start();
-$email= $_SESSION['email'];
-$pass= $_SESSION['mot_de_passe'];
+if(!empty($_SESSION)) {
+    $email = $_SESSION['email'];
+    $pass = $_SESSION['mot_de_passe'];
+}
 $UserC = new UserC();
 $User = $UserC->getUser($email);
 if(isset($_POST['sign_out']))
@@ -65,25 +67,25 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) &&
 <body>
 <!-- Navigation 1 -->
 
-<nav class="navigation_1 bg-light pt-30 pb-30 text-center">
-    <div class="container px-xl-0">
-        <div class="row justify-content-center align-items-center f-16">
-            <div class="mt-20 d-flex align-items-center author_info">
-                <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
-                <div class="col-lg-6" >
-                    <a href="index.html" class="link color-main mx-15">Home</a>
-                    <a href="AfficheUser.php" class="link color-main mx-15">Profile</a>
-                    <a href="#" class="link color-main mx-15">Blog</a>
-                    <a href="#" class="link color-main mx-15">About</a>
-                    <a href="galerie.php" class="link color-main mx-15">Shop</a>
-                    <a href="#" class="link color-main mx-15"><i class="fas fa-search"></i></a>
-                </div>
-                <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
-                    <a href="login.php" class="mr-20 link color-main">Sign In</a>
+
+    <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
+        <div class="container px-xl-0">
+            <div class="row justify-content-center align-items-center f-16">
+                <div class="mt-20 d-flex align-items-center author_info">
+                    <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
+                    <div class="col-lg-6" >
+                        <a href="index.php" class="link color-main mx-15">Home</a>
+                        <a href="actualiteFront.php" class="link color-main mx-15">News</a>
+                        <a href="about.php" class="link color-main mx-15">About</a>
+                        <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
+                    </div>
+
+</div>
                 </div>
             </div>
-        </div>
-</nav>
+    </nav>
+
+
 <section class="container back">
 
     <div class="container px-xl-0">
