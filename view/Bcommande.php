@@ -202,7 +202,7 @@ if(isset($_GET['search'])){
             </div>
  <div class="container-contact100">
         <div class="">
-      <form class="contact100-form validate-form" action="" method="POST">
+      <form class="contact100-form validate-form" action="" method="get">
                 <span class="contact100-form-title">
 
                Liste des Produits
