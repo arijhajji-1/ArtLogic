@@ -165,6 +165,10 @@ else if(!empty($_SESSION)) {
         <th>Produits</th>
         <th>Description</th>
         <th>supprimer</th>
+<<<<<<< HEAD
+=======
+        
+>>>>>>> fc102c796982e4a31683b29afc2f27815a8f74fb
     </tr>
     </thead>
     <tbody>
@@ -180,7 +184,7 @@ else if(!empty($_SESSION)) {
             <td><?PHP echo $row['produits']; ?></td>
             <td><?PHP echo $row['description_commande']; ?></td>
             <td><form method="POST" action="supprimerCommandeses.php">
-                    <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
+                    <input type="submit" name="supprimer" value="supprimer" class="btn btn-dark">
                     <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
                 </form>
             

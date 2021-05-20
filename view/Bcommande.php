@@ -202,7 +202,7 @@ if(isset($_GET['search'])){
             </div>
  <div class="container-contact100">
         <div class="">
-      <form class="contact100-form validate-form" action="" method="POST">
+      <form class="contact100-form validate-form" action="" method="get">
                 <span class="contact100-form-title">
 
                Liste des Produits
@@ -212,10 +212,15 @@ if(isset($_GET['search'])){
         <input type="text" placeholder="Taper ici .... " name="search" class="form-control" />
     </label>
    
-    <button class="btn btn-info">Rechercher</button>
+    <button class="btn btn-dark">Rechercher</button>
 </form>
-<button type="submit" class="btn btn-info" style="width: 600;" onclick="location.href='statC.php'">statistique</button>
+<button type="submit" class="btn btn-dark" style="width: 600;" onclick="location.href='statC.php'">statistique</button>
 
+<td><form method="POST" action="genererPDF.php">
+	  <button class="btn btn-dark">Enregistrer   facture</button>
+	<input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
+	</form>
+	</td>
 <table class="table" >
     <thead class="thead-dark">
     <tr>
@@ -226,7 +231,6 @@ if(isset($_GET['search'])){
         <th>Produits</th>
         <th>Description</th>
         <th>supprimer</th>
-        <th>facture</th>
     </tr>
     </thead>
     <tbody>
@@ -244,11 +248,7 @@ if(isset($_GET['search'])){
                     <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
                     <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
                 </form>
-                <td><form method="POST" action="genererPDF.php">
-	  <button class="btn btn-info">Enregistrer   facture</button>
-	<input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
-	</form>
-	</td>
+              
             </td>
            
         </tr>
