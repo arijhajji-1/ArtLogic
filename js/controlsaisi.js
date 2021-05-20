@@ -1,34 +1,30 @@
  function test() 
 { 
 
-  var cin = document.getElementById('cin').value;
-  var nom = document.getElementById('nom').value;
-  var prenom = document.getElementById('prenom').value;
-  var mail = document.getElementById('mail').value;
+  var Matricule = document.getElementById('Matricule').value;
+  var Nomlivreur = document.getElementById('Nomlivreur').value;
+  var Numlivreur = document.getElementById('Numlivreur').value;
+  var zone = document.getElementById('zone').value;
  
 
-  alert(typeof nom);
-  if (nom =="" || prenom =="")
+  
+  if (Matricule =="" || Nomlivreur =="")
   {
     alert("Le champ de saisi ne doit pas être vide !");
     return false;
   } 
-  else if (nom.length > 15 || prenom.length > 15)
+  else if (Matricule.length > 15 || Nomlivreur.length > 15)
     {
       alert("Le champ de saisi doit contenir au maximum 15 caractères !");
        return false;
     }
-  else if (cin.length != 8 || isNaN(cin))
-  {
-    alert("Le ID du livreur doit contenir 8 chiffres !");
-    return false;
-  }
-  else if (!(isNaN(nom)) || !isNaN(prenom))
+ 
+  else if (!(isNaN(Numlivreur))
    {
       alert("Le champ de saisi ne doit pas être numériques !");
        return false;
    }
-   else if (mail.length != 8 || isNaN(mail))
+   else if (Numlivreur.length != 8 || isNaN(Numlivreur))
    {
      alert("Le NUM du livreur doit contenir 8 chiffres !");
      return false;
@@ -38,25 +34,20 @@
 
 function test2()
 {
-  var id_livraison = document.getElementById('id_livraison').value;
-  var num_commande = document.getElementById('num_commande').value;
+ 
+  var Numclient = document.getElementById('Numclient').value;
 
-  if (id_livraison =="" || num_commande =="")
+  if ( Numclient =="")
   {
     alert("Le champ de saisi ne doit pas être vide !");
     return false;
   } 
 
-  else if (isNaN(num_commande))
+  else if (isNaN(Numclient))
   {
     alert("Le champ de saisi doit être numériques !");
     return false;
   }
 
-  else if (id_livraison.length != 8 || isNaN(id_livraison))
-  {
-    alert("L'identifiant de la livraison doit contenir 8 chiffres !");
-    return false;
-  }
   return true;
 }

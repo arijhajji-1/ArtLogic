@@ -208,11 +208,12 @@ if (isset($_GET['Id_categorie'])) {
                Liste des categories
                 </span>
 
+                
         <table class="table custom-table">
           <thead>
             <tr>  
 
-              
+                 
               
               <th scope="col">Id</th>
               <th scope="col">Nom</th>
@@ -242,6 +243,9 @@ foreach ($categorie as $categorie) {
           
           
         </table>
+        <br><br>
+        <td><a type="submit" class="contact100-form-btn" href = "ajoutercategorie1.php">Ajouter Categorie</a></td> 
+                  
       </div>
 
 

@@ -37,7 +37,7 @@
                          <label class="control-label">saisir le Nomlivreur</label>
                     </td>
                     <td>
-                         <input type="text" class="form-control" id="Nomlivreur" name="Nomlivreur"/>
+                         <input type="text" class="form-control" id="Nomlivreur" name="Nomlivreur" required/>
                     </td>
                 </tr>
 
@@ -46,7 +46,7 @@
                           <label class="control-label">saisir la matricule</label>
                     </td>
                     <td>
-                          <input type="text" class="form-control" id="Matricule" name="Matricule"/>
+                          <input type="text" class="form-control" id="Matricule" name="Matricule" required/>
                     </td>
                 </tr>
 
@@ -89,7 +89,7 @@
                           <label>saisir le numero </label>
                     </td>
                     <td>
-                          <input type="text"  class="form-control" id="Numlivreur" name="Numlivreur"/>
+                          <input type="text"  class="form-control" id="Numlivreur" name="Numlivreur" required/>
                     </td>
                 </tr>
 

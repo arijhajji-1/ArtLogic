@@ -121,10 +121,10 @@ include_once '../Model/User.php';
         
                                  <tr>
                                     <td>
-                                          <label>saisir l'adresse du Client </label>
+                                          <label>saisir le numero  du Client </label>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" id="NUMclient" name="NUMclient"/>
+                                        <input type="text" class="form-control" id="NUMclient" name="NUMclient" required>
                                     </td>
                                 </tr>
         

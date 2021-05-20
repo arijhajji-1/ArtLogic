@@ -117,5 +117,20 @@ class panierC
     }
 
 
+
+function recupererPaniers($id_user){
+
+    $sql="SELECT * from panier where (id_user='$id_user') ";
+    $db = config::getConnexion();
+    try{
+        $liste=$db->query($sql);
+        return $liste->fetch();
+    }
+    catch (Exception $e){
+        die('Erreur recupere panier: '.$e->getMessage());
+    }
 }
+
+}
+
 ?>
