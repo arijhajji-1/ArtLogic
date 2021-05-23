@@ -63,7 +63,7 @@
 	<body>
 <!-- Navigation 1 -->
 <?php
-if($_SESSION['email']=='')
+if(empty($_SESSION))
 {
 ?>
 <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
@@ -87,7 +87,7 @@ if($_SESSION['email']=='')
 </nav>
  <?php
 }
-else if($_SESSION['email']!='') {
+else if(!empty($_SESSION)) {
     ?>
     <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
         <div class="container px-xl-0">
@@ -107,8 +107,9 @@ else if($_SESSION['email']!='') {
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="../i/<?php echo $_SESSION['image']; ?>" class="avatar" alt="Avatar"> <?php echo $_SESSION['pseudo_user']; ?><b class="caret"></b></a>
                         <div class="dropdown-menu">
                             <a href="AfficheUser.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-                            <a href="listreclamation.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
+                            <a href="reclamations.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
                             <a href="AfficheWishList.php" class="dropdown-item"><i class="fa fa-heart"></i> Wishlist</a></a>
+                            <a href="chat.php" class="dropdown-item"><i class="fas fa-comment-dots"></i> Chat</a></a>
                             <?php
                             if($_SESSION['role']==1) {
                                 ?>
