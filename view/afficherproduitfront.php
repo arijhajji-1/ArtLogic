@@ -248,7 +248,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<<<<<<< HEAD
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -260,10 +260,10 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
     
 
 
-=======
+
 
     <link rel="stylesheet" href="../css/session.css">
->>>>>>> c90285590b31905c59230c872043816f6c99ecbf
+
 </head>
 
 <body>
