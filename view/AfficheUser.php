@@ -125,8 +125,9 @@ else if(!empty($_SESSION)) {
                             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="../i/<?php echo $_SESSION['image']; ?>" class="avatar" alt="Avatar"> <?php echo $_SESSION['pseudo_user']; ?><b class="caret"></b></a>
                             <div class="dropdown-menu">
                                 <a href="AfficheUser.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-                                <a href="listreclamation.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
+                                <a href="reclamations.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
                                 <a href="AfficheWishList.php" class="dropdown-item"><i class="fa fa-heart"></i> Wishlist</a></a>
+                                <a href="chat.php" class="dropdown-item"><i class="fas fa-comment-dots"></i> Chat</a></a>
                                 <?php
                                 if($_SESSION['role']==1) {
                                     ?>
@@ -199,7 +200,7 @@ else if(!empty($_SESSION)) {
                     <a href="modifierUsers.php" class="profile-edit-btn">Edit Profile</a>
                     <br>
                     <br>
-                    <a href="AfficheWishList.php" class="profile-edit-btn">Wish List</a>
+                    <a href="commandeses.php" class="profile-edit-btn">Mes commandes</a>
                     <br>
                     <br>
                     <a href="listreclamation.php" class="profile-edit-btn">List Reclamation</a>

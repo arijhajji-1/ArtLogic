@@ -6,6 +6,7 @@ require_once '../Model/wishliste.php';
 
 
 session_start();
+
 if(!empty($_SESSION))
 {$id_user= $_SESSION['id_user'];}
 $produitC = new produitC();
@@ -247,6 +248,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -258,6 +260,10 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
     
 
 
+=======
+
+    <link rel="stylesheet" href="../css/session.css">
+>>>>>>> c90285590b31905c59230c872043816f6c99ecbf
 </head>
 
 <body>
@@ -307,7 +313,7 @@ else if(!empty($_SESSION)) {
                             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="../i/<?php echo $_SESSION['image']; ?>" class="avatar" alt="Avatar"> <?php echo $_SESSION['pseudo_user']; ?><b class="caret"></b></a>
                             <div class="dropdown-menu">
                                 <a href="AfficheUser.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-                                <a href="listreclamation.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
+                                <a href="reclamations.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
                                 <a href="AfficheWishList.php" class="dropdown-item"><i class="fa fa-heart"></i> Wishlist</a></a>
                                 <a href="chat.php" class="dropdown-item"><i class="fas fa-comment-dots"></i> Chat</a></a>
                                 <?php

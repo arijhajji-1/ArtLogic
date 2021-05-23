@@ -66,10 +66,6 @@ if(isset($_GET['search'])){
 
 
 
-<?php
-if(empty($_SESSION))
-{
-    ?>
     <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
         <div class="container px-xl-0">
             <div class="row justify-content-center align-items-center f-16">
@@ -81,63 +77,10 @@ if(empty($_SESSION))
                         <a href="about.php" class="link color-main mx-15">About</a>
                         <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
                     </div>
-                    <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
-                        <a href="login.php" class="mr-20 link color-main">Sign In</a>
-                        <a href="AjouterUser.php" class="btn sm action-2 f-16">Sign Up</a>
-                    </div>
-
                 </div>
             </div>
     </nav>
-    <?php
-}
-else if(!empty($_SESSION)) {
-    ?>
-    <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
-        <div class="container px-xl-0">
-            <div class="row justify-content-center align-items-center f-16">
-                <div class="mt-20 d-flex align-items-center author_info">
-                    <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
-                    <div class="col-lg-6" >
-                        <a href="index.php" class="link color-main mx-15">Home</a>
-                        <a href="actualiteFront.php" class="link color-main mx-15">News</a>
-                        <a href="about.php" class="link color-main mx-15">About</a>
-                        <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
-                        <a href="cart_items.php" class="link color-main mx-15"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="chat.php" class="dropdown-item"><i class="fas fa-comment-dots"></i> Chat</a></a>
-                    </div>
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <div class="navbar-nav ml-auto">
-                        <div class="nav-item dropdown" >
-                            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="../i/<?php echo $_SESSION['image']; ?>" class="avatar" alt="Avatar"> <?php echo $_SESSION['pseudo_user']; ?><b class="caret"></b></a>
-                            <div class="dropdown-menu">
-                                <a href="AfficheUser.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-                                <a href="listreclamation.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
-                                <a href="AfficheWishList.php" class="dropdown-item"><i class="fa fa-heart"></i> Wishlist</a></a>
-                                <?php
-                                if($_SESSION['role']==1) {
-                                    ?>
-                                    <a href="ajouterproduit1.php" class="dropdown-item"><i class="fas fa-plus-circle"></i> Ajouter produit</a></a>
-                                    <?php
-                                }
-                                else if($_SESSION['role']==2) {
-                                    ?>
-                                    <a href="animation.html" class="dropdown-item"><i class="fas fa-user"></i>Admin</a></a>
 
-                                    <?php
-                                }
-                                ?>
-                                <div class="dropdown-divider"></div>
-                                <a href="logout.php" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </nav>
-    <?php
-}
-?>
 
 
                 <span class="contact100-form-title">
@@ -164,7 +107,11 @@ else if(!empty($_SESSION)) {
         <th>Mode de payement</th>
         <th>Produits</th>
         <th>Description</th>
+<<<<<<< HEAD
         <th>supprimer</th>
+=======
+
+>>>>>>> c90285590b31905c59230c872043816f6c99ecbf
 
     </tr>
     </thead>
@@ -180,10 +127,7 @@ else if(!empty($_SESSION)) {
             <td><?PHP echo $row['mode_de_payement']; ?></td>
             <td><?PHP echo $row['produits']; ?></td>
             <td><?PHP echo $row['description_commande']; ?></td>
-            <td><form method="POST" action="supprimerCommandeses.php">
-                    <input type="submit" name="supprimer" value="supprimer" class="btn btn-dark">
-                    <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
-                </form>
+
             
             </td>
            
