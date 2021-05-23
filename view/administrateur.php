@@ -261,7 +261,7 @@ Administrateur
                                                 <td>
                                                     <form method="POST" action="">
                                                         <input type="submit" name="supprimer" value="Bloquer"
-                                                               class="btn btn-success" ">
+                                                                class="contact100-form-btn" ">
                                                         <input type="hidden" value="<?PHP echo $liste['id_user']; ?>"
                                                                name="ID">
                                                     </form>
@@ -272,7 +272,7 @@ Administrateur
                                                     ?>
                                                     <td>
                                                         <form method="POST" action="">
-                                                            <a type="button" class="btn btn-success"
+                                                            <a type="button"  class="contact100-form-btn"
                                                                href="ModifierAdmin.php">Modifier </a>
                                                         </form>
                                                     </td>
