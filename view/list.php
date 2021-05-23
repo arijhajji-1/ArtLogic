@@ -270,10 +270,11 @@ foreach ($promotion as $Promotion) {
         ?>
         </table>
           <form method="POST" action="">
-                <input type="submit" name="submit" value="trierA" class="contact100-form-btn" >
-                <input type="submit" name="submit2" value="trierD" class="contact100-form-btn">
-                <a type="button" class="contact100-form-btn" href = "recherchepromotion.php">rechercher</a> 
-                
+            <table>
+               <tr><td> <input type="submit" name="submit" value="trierA" class="contact100-form-btn" ></td>
+               <td> <input type="submit" name="submit2" value="trierD" class="contact100-form-btn"></td>
+                <td><a type="button" class="contact100-form-btn" href = "recherchepromotion.php">rechercher</a></td> </tr>
+                </table>
                </form>
       </div>
               </form>

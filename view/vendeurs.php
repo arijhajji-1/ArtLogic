@@ -178,7 +178,7 @@ if(isset($_POST['trie1']))
                         </div>
                         <p> <form method="POST" action="">
 
-                            <select name="trie" id="trie" class="btn btn-success" >
+                            <select name="trie" id="trie" class="form-control" >
                                 <option value="Nom">Nom</option>
                                 <option value="Prenom">Prenom</option>
                                 <option value="Pseudo">Pseudo</option>
@@ -186,7 +186,7 @@ if(isset($_POST['trie1']))
                                 <option value="Date de creation">Date de creation</option>
 
                             </select>
-                            <input type="submit" name="trie1" value="trier" class="btn btn-success" >
+                            <input type="submit" name="trie1" value="trier" class="contact100-form-btn"  >
                         </form> </p>
                         <div class="row">
                             <div class="col-md-12">
@@ -235,7 +235,7 @@ if(isset($_POST['trie1']))
                                                         <td> <?php echo $liste['type_produit'] ?> </td>
                                                         <td>
                                                             <form method="POST" action="">
-                                                                <input type="submit" name="supprimer" value="Bloquer" class="btn btn-success" ">
+                                                                <input type="submit" name="supprimer" value="Bloquer" class="contact100-form-btn"  ">
                                                                 <input type="hidden" value="<?PHP echo $liste['id_user']; ?>" name="ID">
                                                             </form>
                                                         </td>

@@ -74,17 +74,17 @@ if (isset($_GET['Id_produit'])) {
                 </div>
             </form>
             <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
+              <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <a class="dropdown-item" href="index.php">Home</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="logout.php">Logout</a>
                     </div>
                 </li>
             </ul>
+           
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -153,7 +153,8 @@ if (isset($_GET['Id_produit'])) {
                 </nav>
             </div>
  <div class="container-contact100">
-        <div class="">
+                   <div class="wrap-contact100">
+       
       <form class="contact100-form validate-form" action="" method="POST">
                 <span class="contact100-form-title">
              <br><br>
@@ -165,8 +166,8 @@ if (isset($_GET['Id_produit'])) {
              <p> <form method="POST" action="">
              <table>
                <tr> 
-              <td>  <input type="submit" name="submit" value="trier" class="contact100-form-btn" > </td>
-               <td> <input type="submit" name="submit2" value="trierD"  class="contact100-form-btn"> </td>
+              <td>  <a type="submit" name="submit" value="trier" class="contact100-form-btn" > TrierAs </a></td>
+               <td> <a type="submit" name="submit2" value="trierD"  class="contact100-form-btn"> TrierDes </a></td>
               <td>  <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "Searchp.php">search</a> </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "stat.php">stat</a> </td>
@@ -181,7 +182,7 @@ if (isset($_GET['Id_produit'])) {
               
                 
         <table class="table custom-table">
-          <thead>
+          <thead class="thead-dark">
             <tr>  
 
               

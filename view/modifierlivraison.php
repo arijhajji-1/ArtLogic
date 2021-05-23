@@ -12,12 +12,13 @@ include "../Controller/livraisonC.php";
         
         <!-- My Css Class-->
 
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link href="../css/assyl.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" /> 
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-	   
+     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>  
+                
     </head>
 
     <body class="sb-nav-fixed">
@@ -25,8 +26,8 @@ include "../Controller/livraisonC.php";
     <?php include_once 'header.php'; ?>
      <!-- Contient -->
     <body>
-	<div class="limiter">
-                   <div class="content-wrapper">
+	<div class="container-contact100">
+        <div class="wrap-contact100">
 <?PHP
 
 if (isset($_GET['IDlivraison'])){
@@ -39,14 +40,13 @@ if (isset($_GET['IDlivraison'])){
 		$IDclient=$row['IDclient'];
     $NUMclient=$row['NUMclient'];}}
 ?>
-<div class="col-md-6">
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2> <center> MODIFIER UN livraison </center> </h2>
-       <br>
-    </div>
-    <div class="panel-body">
-        <form action="mod-livraison.php" method="POST">
+
+ 
+    <span class="contact100-form-title">
+       Modifier une livraison 
+    </span>
+  
+        <form action="mod-livraison.php" class="contact100-form validate-form" method="POST">
                   <center>
                     <table>
 
@@ -97,14 +97,15 @@ if (isset($_GET['IDlivraison'])){
                         <tr>
                             <td></td>
                             <td>
-                                <input type="submit" name="modifier" value="modifier" class="boutton">
+                                <input type="submit" name="modifier" value="modifier" class="contact100-form-btn">
                                 <input type="hidden" name="IDlivraison_ini" value="<?PHP echo $_GET['IDlivraison'];?>">
                             </td>
                         </tr>
                     </table>
                     </center>
                 </form>
-
+</div>
+</div>
  <!-- footer -->
  <?php include_once 'footer.php'; ?>       
     </body>

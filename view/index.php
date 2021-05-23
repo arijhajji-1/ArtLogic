@@ -149,7 +149,7 @@ else if(!empty($_SESSION)) {
     <div class="container text-center text-md-left" data-aos="fade-up">
         <h1>Welcome to <span>ArtLogic</span></h1>
         <h2>Nice To See you here</h2>
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="about.php" class="btn-get-started scrollto">Get Started</a>
     </div>
 </section>
 <!-- Content 2 -->

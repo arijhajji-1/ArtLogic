@@ -167,21 +167,9 @@ $promotionc =  new promotionc();
                                             <a class="nav-link" href="register.html">Register</a>
                                             <a class="nav-link" href="password.html">Forgot Password</a>
                                         </nav>
-                                  
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Panier
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Statistique
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                DataViewer
-                            </a>
+                           
+                           
+                          
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -206,27 +194,16 @@ $promotionc =  new promotionc();
                 </span>
 
         <table class="table custom-table">
-         
-            <tr>  
-
-              
-               <th scope="col">Produit</th>
-              <th scope="col">Date debut</th>
-              <th scope="col">Date fin</th>
-                            <th scope="col">Pourcentage</th>
-                          
-
-            </tr>
-         
+      
       
             
             <tr>
                 
                 
-                                  <td>  <input type="text" name="pr" value="<?= $result['pr'] ?>"> </td>
-                                <td>  <input type="text" name="dateDebut" value="<?= $result['dateDebut'] ?>"> </td>
-                                 <td>  <input type="text" name="dateFin" value="<?= $result['dateFin'] ?>"> </td>
-                                    <td>  <input type="text" name="pourcentage" value="<?= $result['pourcentage'] ?>"> </td> 
+                                 <th scope="col">Produit</th> <td>  <input type="text" name="pr" value="<?= $result['pr'] ?>"> </td></tr>
+                               <tr><th scope="col">Date debut</th><td>  <input type="text" name="dateDebut" value="<?= $result['dateDebut'] ?>"> </td></tr>
+                                 <tr><th scope="col">Date fin</th><td>  <input type="text" name="dateFin" value="<?= $result['dateFin'] ?>"> </td></tr>
+                                    <tr>   <th scope="col">Pourcentage</th><td>  <input type="text" name="pourcentage" value="<?= $result['pourcentage'] ?>"> </td> </tr>
                                    <tr> <td><input type="submit" name="modifier" value="Modifier" ></td> </tr>
                                 
                       

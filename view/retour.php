@@ -241,9 +241,11 @@ foreach ($reclamation as $reclamation) {
         }
         ?>
  </table>
-       <td><a type="submit" class="contact100-form-btn" href = "pdf.php">PDF</a></td> 
+ <table>
+     <tr>  <td><a type="submit" class="contact100-form-btn" href = "pdf.php">PDF</a></td> 
        <td><a type="submit" class="contact100-form-btn" href = "Search.php">search</a></td> 
-
+   </tr>
+</table>
 
 </div>
        </form>

@@ -155,53 +155,56 @@ try{
                     </div>
                 </nav>
             </div>
- <div class="container-contact100">
+ <div class="container-fluid">
+                        <h1 class="mt-4">produit</h1>
+                       
+                     
+                      
+                    
+                        <div class="container-contact100">
         <div class="wrap-contact100">
-      <form class="contact100-form validate-form" action="" method="POST">
+
+            <form class="contact100-form validate-form" method="post" action="">
                 <span class="contact100-form-title">
 
-                  Ajouter Produits
-                </span> 
+                    Ajouter un produit
+                </span>
+
                 <!--contenu sous forme de boite-->  
-<section class="showcase_2 bg-light pt-105 pb-90 text-center">
-<div class="testbox">
-    <form action="" method="POST">
-      <div class="banner">
-        
-      </div>
+
 
      
-      <div class="item">
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
         <label for="NomP">NomP :</label>
         <input id="NomP" type="text" name="NomP"/>
       </div>
 
-      <div class="item">
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
         <label for="bdate">Date d'ajout produit :<span></span></label>
         <input id="bdate" type="date" name="DateA" required/>
         <i class="fas fa-calendar-alt"></i>
       </div>
-      <div class="item">
-        <div class="name-item">
-          <div>
+    
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
             <label for="Description">Description :<span></span></label>
             <input id="Description" type="text" name="Description1" required/>
           </div>
-          <div>
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
             <label for="prix">Prix :</label>
             <input id="prix" type="number" name="Prix" />
           </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="name-item">
-          <div class="" style="">
+        
+     
+      
+       
+       
         <!--    <label for="Genre">genre :</label>
 <select name="Genre" id="Genre">
   <option value="tapis">tapis</option>
   <option value="vetement">vetement</option>
 </select> --> 
-
+<div class="container">
+   <label>Genre</label>
 <?php
 require_once('../connection.php');
 $mysqli = new mysqli('localhost', 'root', '' ,'web');
@@ -214,56 +217,57 @@ while ($array[] = $query->fetch_object());
     # code...
  array_pop ( $array );
 ?>                            
- <div class="row">
-                   <div class="col-25">  
+<div class="form-group">
+                  
+
                    
-                             <label>Genre</label>
-                    </div>
-                     <div class="col-75">
 <select name="Genre">
      <?php foreach ( $array as $option ) :?>
           <option value="<?php echo $option->NomC; ?>"><?php echo $option->NomC; ?> </option>
      <?php endforeach; ?>       
 </select>
-    </div>
+  
                 </div>
+              </div>
+
            <!-- <input id="Genre" type="text" name="Genre" />-->
-          </div>
-          <div>
+          
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
             <label for="couleur">couleur :</label>
-            <input id="couleur" type="text" name="Couleur" />
+            <input  class="input100" id="couleur" type="text" name="Couleur" />
           </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="name-item">
-          <div>
+    
+   
+ 
+        
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
             <label for="taille">Taille :</label>
-            <input id="taille" type="text" name="Taille" />
+            <input class="input100" id="taille" type="text" name="Taille" />
           </div>
-          <div>
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
             <label for="poids">poids :</label>
-            <input id="poids" type="text" name="poids" />
+            <input class="input100" id="poids" type="text" name="poids" />
           </div>
-        </div>
-      </div>
+   
      
-	  <div class="item">
+	  <div class="wrap-input100 bg1 rs1-wrap-input100">
         <label for="Quantite">Quantite :</label>
-        <input id="Quantite" type="number" name="Quantite"/>
+        <input class="input100" id="Quantite" type="number" name="Quantite"/>
       </div>
 
-      <div class="item">
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
         <label for="image">Upload Picture :</label>
-        <input id="image" name="image" type="file"/>
+        <input class="input100" id="image" name="image" type="file"/>
       </div>
      
-      <div class="btn-block">
-        <button type="submit"   href="/">Ajouter</button>
+      <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn" type="submit"   href="/">Ajouter</button>
       </div>
+    </div>
     </form>
+     </div>
   </div> 
-</section>
+</div>
 
 
        

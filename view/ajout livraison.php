@@ -16,10 +16,12 @@ include_once '../Model/User.php';
         <!-- My Css Class-->
 
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link href="../css/assyl.css" rel="stylesheet" />
+    
     <link href="../css/styles.css" rel="stylesheet" /> 
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-	   
+	    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>  
     </head>
 
@@ -27,15 +29,20 @@ include_once '../Model/User.php';
     <!-- header -->
     <?php include_once 'header.php'; ?>
      <!-- Contient -->
-    <body>
-	<div class="limiter">
-            
-    <div class="content-wrapper">
-                            <script type="text/javascript" src="../js/controlsaisi.js"></script>
+   
+	<div class="container-contact100">
+        <div class="wrap-contact100">
+ <script type="text/javascript" src="../js/controlsaisi.js"></script>
+            <form class="contact100-form validate-form" method="post" action="ajoutlivraison.php" name="f" onsubmit="return test();">
+                <span class="contact100-form-title">
+
+                    Ajouter une livraison
+                </span>
+
+                           
         
-            <form method="POST" action="ajoutlivraison.php" name="f" onsubmit="return test();">
-                   <h2> <center> Ajouter une livraison </center> </h2>
-                    <center>
+          
+                
                             <table class="table">
                                 
                                 
@@ -124,23 +131,27 @@ include_once '../Model/User.php';
                                           <label>saisir le numero  du Client </label>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" id="NUMclient" name="NUMclient" required>
+
+                                        <input type="text" class="input100"  id="NUMclient" name="NUMclient" required>
                                     </td>
                                 </tr>
         
                                 <tr>
-                                    <td></td>
+                              
                                     <td>
                                         </br>
-                                         <input type="submit" name="ajouter" value="Ajouter" class="form-control" style=" width: 100%;
-          background-color: rgb(20, 40, 95);
-          color: white;
-         ">
-                                             
+                                        
+             
+                      
+                                         <button type="submit" name="ajouter" value="submit"  class="contact100-form-btn" > Ajouter </button>
+                                           
+                                     
+                                        
+                                         
                                     </td>
                                 </tr>                       
                         </table>
-                        </center>
+                       </div>
                       </form>
             </div>
 		   

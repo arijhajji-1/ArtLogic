@@ -246,6 +246,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -255,6 +256,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/session.css">
     
+
 
 </head>
 
@@ -307,8 +309,10 @@ else if(!empty($_SESSION)) {
                                 <a href="AfficheUser.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
                                 <a href="listreclamation.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
                                 <a href="AfficheWishList.php" class="dropdown-item"><i class="fa fa-heart"></i> Wishlist</a></a>
+                                <a href="chat.php" class="dropdown-item"><i class="fas fa-comment-dots"></i> Chat</a></a>
                                 <?php
                                 if($_SESSION['role']==1) {
+
                                     ?>
                                     <a href="ajouterproduit1.php" class="dropdown-item"><i class="fas fa-plus-circle"></i> Ajouter produit</a></a>
                                     <?php
@@ -420,13 +424,17 @@ while ($array[] = $query->fetch_object());
 							<span class="amount-old" class="price">Prix: <?= $Produit['Prix'] ?> TND </span>
 						<br><br>
 						<span class="price">nouveau Prix: <?= $Produit['nouveauPrix'] ?> TND </span>
-						<br><br>  
+						<br><br>
+
 					   <?php }?>
                             </div>
 
                             <div class="add-to-cart">
-                                <a type="button" class="default-btn" href="add_panier.php?Id_produit=<?php echo $Produit["Id_produit"]; ?>&&prix_total=<?php echo $Produit["Prix"]; ?>" >Ajouter au panier</a>
+
+                                <a type="button" class="default-btn" href="add_panier.php?Id_produit=<?php echo $Produit["Id_produit"]; ?>&& prix_total=<?php echo $Produit["Prix"]; ?>" >Ajouter au panier</a>
+                                <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fproduit.php&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                             </div>
+
                         </div>
                     </div>
                     

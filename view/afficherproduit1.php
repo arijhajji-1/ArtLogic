@@ -234,7 +234,7 @@ if (isset($_GET['Id_produit'])) {
                 </nav>
             </div>
  <div class="container-contact100">
-        <div class="">
+       
       <form class="contact100-form validate-form" action="" method="POST">
                 <span class="contact100-form-title">
              <br><br>
@@ -246,9 +246,9 @@ if (isset($_GET['Id_produit'])) {
              <p> <form method="POST" action="">
              <table>
                <tr> 
-              <td>  <input type="submit" name="submit" value="trier" class="contact100-form-btn" > </td>
-               <td> <input type="submit" name="submit2" value="trierD"  class="contact100-form-btn"> </td>
-              <td>  <a type="button" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  </td>
+             <td>  <a type="submit" name="submit" value="trier" class="contact100-form-btn" > TrierAs </a></td>
+               <td> <a type="submit" name="submit2" value="trierD"  class="contact100-form-btn"> TrierDes </a></td>
+              <td>  <a type="submit" class="contact100-form-btn" href = "exportpdf.php">PDF</a>  </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "Searchp.php">search</a> </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "stat.php">stat</a> </td>
            
@@ -262,7 +262,7 @@ if (isset($_GET['Id_produit'])) {
               
                 
         <table class="table custom-table">
-          <thead>
+          <thead class="thead-dark">
             <tr>  
 
               
@@ -279,7 +279,8 @@ if (isset($_GET['Id_produit'])) {
                             <th scope="col">Quantite</th> 
                             <th scope="col">image</th> 
                             <th scope="col">promotion</th> 
-                            <th> </th>
+                            <th scope="col"> </th>
+                            <th scope="col"></th>
 
             </tr>
             <?php
@@ -318,7 +319,7 @@ foreach ($produit as $produit) {
       </div>
 
 
-    </div>
+   
 
   </div>
     

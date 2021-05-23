@@ -191,11 +191,12 @@ if(isset($_POST['trie1']))
             <div class="container-fluid">
                 <div class="card mb-4">
                     <div class="card-header">
+
                         <i class="fas fa-table mr-1"></i>
                           Clients
                     </div>
                     <p> <form method="POST" action="">
-  <select name="trie" id="trie" class="btn btn-success" >
+  <select name="trie" id="trie" class="form-control" >
                             <option value="Nom">Nom</option>
                             <option value="Prenom">Prenom</option>
                             <option value="Pseudo">Pseudo</option>
@@ -203,16 +204,18 @@ if(isset($_POST['trie1']))
                             <option value="Date de creation">Date de creation</option>
 
                         </select>
-                        <input type="submit" name="trie1" value="trier" class="btn btn-success" >
+                        <input type="submit" name="trie1" value="trier"  class="contact100-form-btn" >
 
                     </form> </p>
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Advanced Tables -->
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Liste des clients
-                                </div>
+                                <span class="contact100-form-title">
+
+                    Listes des clients
+                </span>
+
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -249,7 +252,7 @@ if(isset($_POST['trie1']))
                                                     <td> <?php echo $liste['numero_telephone_user'] ?> </td>
                                                     <td>
                                                         <form method="POST" action="">
-                                                            <input type="submit" name="supprimer" value="Bloquer" class="btn btn-success" ">
+                                                            <input type="submit" name="supprimer" value="Bloquer" class="contact100-form-btn"  ">
                                                             <input type="hidden" value="<?PHP echo $liste['id_user']; ?>" name="ID">
                                                         </form>
                                                     </td>

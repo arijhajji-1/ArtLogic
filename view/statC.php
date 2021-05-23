@@ -218,8 +218,10 @@ $con = mysqli_connect("localhost","root","","web");
 
   
     <div id="barchart_values" style="width: 900px; height: 550px;"></div>
-    <button type="submit" class="btn btn-success" style="width: 200px;" onclick="location.href='Bcommande.php'">la liste des commands</button>
-  
+                <div class="container-contact100-form-btn">
+
+    <button type="submit" class="contact100-form-btn"  onclick="location.href='Bcommande.php'">la liste des commands</button>
+  </div>
   
   
 

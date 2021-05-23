@@ -38,7 +38,7 @@ try{
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>ajouter categorie</title>
+      <title>Artlogic Admin</title>
         <link href="../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -220,35 +220,31 @@ try{
                   Ajouter catégorie
                 </span> 
                 <!--contenu sous forme de boite-->  
-<section class="showcase_2 bg-light pt-105 pb-90 text-center">
-<div class="testbox">
+
+
     <form action="" method="POST">
-      <div class="banner">
-        
-      </div>
+     
 
      
 
-      <div class="item">
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
         <label for="NomC">Nom du catégorie :<span></span></label>
-        <input id="NomC" type="text" name="NomC" required/>
+        <input  class="input100"id="NomC" type="text" name="NomC" required/>
       </div>
-      <div class="item">
-        <div class="name-item">
-          <div>
+    
+          <div class="wrap-input100 bg1 rs1-wrap-input100">
             <label for="DescriptionC">Description :<span></span></label>
-            <input id="DescriptionC" type="text" name="DescriptionC" required/>
+            <input class="input100" id="DescriptionC" type="text" name="DescriptionC" required/>
           </div>
           
-        </div>
-      </div>
       
-      <div class="btn-block">
-        <button type="submit"   href="/">Ajouter</button>
+      
+      <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn" type="submit"   href="/">Ajouter</button>
       </div>
     </form>
   </div> 
-</section>
+
 
 
        
@@ -257,7 +253,7 @@ try{
 
     </div>
 
-  </div>
+  
     
     
 

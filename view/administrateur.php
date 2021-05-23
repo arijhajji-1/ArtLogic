@@ -31,10 +31,21 @@ if(isset($_POST['trie1']))
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>ArtLogic Admin</title>
-    <link href="../css/styles.css" rel="stylesheet" />
-    
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+     <link href="../css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+            <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+<!--===============================================================================================-->   <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../css/util.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+<!--===============================================================================================-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -178,20 +189,7 @@ if(isset($_POST['trie1']))
                         </nav>
                     </div>
 
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                        Panier
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="sb-sidenav-menu-heading">Addons</div>
-                    <a class="nav-link" href="charts.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Statistique
-                    </a>
-                    <a class="nav-link" href="tables.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        DataViewer
-                    </a>
+                  
                 </div>
             </div>
             <div class="sb-sidenav-footer">
@@ -209,7 +207,7 @@ if(isset($_POST['trie1']))
 Administrateur
                     </div>
                     <p> <form method="POST" action="">
-                        <select name="trie" id="trie" class="btn btn-success" >
+                        <select name="trie" id="trie"  class="form-control" >
                             <option value="Nom">Nom</option>
                             <option value="Prenom">Prenom</option>
                             <option value="Pseudo">Pseudo</option>
@@ -297,7 +295,7 @@ Administrateur
                 </div>
 
                 <div class="table-responsive">
-                    <a type="button" class="btn btn-success" href = "AjouterAdmin.php">Ajouter Administrateur</a>                </div>
+                    <a type="button" class="contact100-form-btn" href = "AjouterAdmin.php">Ajouter Administrateur</a>                </div>
         </main>
 
         <footer class="py-4 bg-light mt-auto">

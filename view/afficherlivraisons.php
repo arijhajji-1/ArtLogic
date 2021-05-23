@@ -1,5 +1,17 @@
 <?php include "../Controller/livraisonC.php";
-?>
+if(isset($_GET['tri']) and $_GET['tri']=='1')
+        {
+
+        $livraison1C=new livraisonC();
+        $listelivraisons=$livraison1C->trieListelivraisons();
+        }
+        else
+        { 
+
+            $livraison1C=new livraisonC();
+            $listelivraisons=$livraison1C->afficherlivraisons();
+        }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,37 +36,25 @@
     <?php include_once 'header.php'; ?>
      <!-- Contient -->
     <body>
-	<div class="limiter">
-            
-    <div class="content-wrapper">
- 
-        <?PHP
-        if(isset($_GET['tri']) and $_GET['tri']=='1')
-        {
+	<div class="container-contact100">
+                   <div class="wrap-contact100">
+       
+                 <form class="contact100-form validate-form" action="" method="post">
+              
+                <span class="contact100-form-title">
 
-        $livraison1C=new livraisonC();
-        $listelivraisons=$livraison1C->trieListelivraisons();
-        }
-        else
-        { 
-
-            $livraison1C=new livraisonC();
-            $listelivraisons=$livraison1C->afficherlivraisons();
-        }
-        ?>
-
-		<div class="col-md-6">
-    <div class="panel panel-default">
-		 <div class="panel-heading">
-       <h2> <center> LES LIVRAISONS </center> </h2>
-       <td>  <a type="submit" class="contact100-form-btn" href = "ajout livraison.php">Ajouter</a> </td>
+                  Listes des Livraisons
+                </span>
+<table>
+       <tr><td>  <a type="submit" class="contact100-form-btn" href = "ajout livraison.php">Ajouter</a> </td>
        <td> <a type="submit" class="contact100-form-btn" href = "pdfliv.php">PDF</a> </td>
-       <br>
-    </div>
+       
+       </tr>
+   </table>
 <div class="table-responsive">
-    <center>
-    <table class="customers" >
-        <thead>
+   
+   <table class="table custom-table">
+          <thead class="thead-dark">
             <tr>
                 <th>IDlivraison</th>
                 <th>IDproduit </th>
@@ -96,7 +96,8 @@ foreach($listelivraisons as $row){
     }
     ?>
     </table>
-    </center>
+</div>
+</form>
 </div>
             <!-- footer -->
             <?php include_once 'footer.php'; ?>       

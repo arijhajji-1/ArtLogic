@@ -22,7 +22,7 @@ if(isset($_POST['submit2']))
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<title>Liste Evenement</title>
+	 <title>Artlogic Admin</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -50,13 +50,19 @@ if(isset($_POST['submit2']))
 		<hr>
         <br>
 		
-         <h1>Liste Des Evenements</h1>
+       <span class="contact100-form-title">
+
+                Liste des evenements
+                </span> 
 		 <br>
 		<form method="POST" action="">
-<button type="submit" id="triDate" name="submit" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par date </button> 
-<button type="submit" id="triDuree" name="submit1" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par Duree </button>
-<button type="submit" id="triDuree" name="submit2" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> Stat par Duree </button>
-
+			<table>
+				<tr>
+<td><button type="submit" id="triDate" name="submit" class="contact100-form-btn"> trier par date </button></td> 
+<td><button type="submit" id="triDuree" name="submit1" class="contact100-form-btn"> trier par Duree </button></td>
+<td><button type="submit" id="triDuree" name="submit2" class="contact100-form-btn"> Stat par Duree </button></td>
+</tr>
+</table>
         </form> 
                  
 		<table   >
@@ -105,7 +111,7 @@ if(isset($_POST['submit2']))
 		</table>   
 		<br>
 		<form class="form-inline" method="post" action="../libs/generate_pdf.php">
-<button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>Generate PDF</button> 
+<button type="submit" id="pdf" name="generate_pdf" class="contact100-form-btn">Generate PDF</button> 
         </form> 
 		   
             <!-- footer -->

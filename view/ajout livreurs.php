@@ -24,11 +24,16 @@
     <body>
 	<div class="limiter">
             
-        <div class="content-wrapper">
+         <div class="container-contact100">
+        <div class="wrap-contact100">
             <script type="text/javascript" src="../js/controlsaisi.js"></script>
+            
                 <form method="POST" action="ajoutlivreur.php" name="f" onsubmit="return test();">
 
-   <h2> <center> AJOUTER UN LIVREUR </center> </h2>
+   <span class="contact100-form-title">
+
+                    Ajouter un livreur
+                </span>
     <center>
             <table class="table">
                
@@ -107,6 +112,7 @@ color: white;
                 </tr>                       
         </table>
         </center>
+    </div>
       </form>
 </div>
             <!-- footer -->

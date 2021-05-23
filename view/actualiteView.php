@@ -23,7 +23,7 @@ if(isset($_POST['submit2']))
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<title>Liste Actualite</title>
+	 <title>Artlogic Admin</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -49,12 +49,27 @@ if(isset($_POST['submit2']))
 				<div >
 		<hr>
         <br>
-		<h1>Liste Des Actualites</h1> 
+		 <span class="contact100-form-title">
+
+                 Liste des Actualites
+                </span> 
 		<form method="POST" action="">
-<button type="submit" id="trititre" name="submi" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> afficher les News  </button>
-<button type="submit" id="triDate" name="submit" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par date </button> 
-<button type="submit" id="trititre" name="submit1" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> trier par titre </button>
-<button type="submit" id="trititre" name="submit2" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i> afficher les News en meme temp Event </button>
+			<table>
+				<tr>
+<td><div class="container-contact100-form-btn">
+<button type="submit" id="trititre" name="submit" class="contact100-form-btn"> afficher les News  </button>
+</div></td>
+<td><div class="container-contact100-form-btn">
+<button type="submit" id="triDate" name="submit" class="contact100-form-btn"> trier par date </button> 
+</div></td>
+<td><div class="container-contact100-form-btn">
+<button type="submit" id="trititre" name="submit1" class="contact100-form-btn"> trier par titre </button>
+</div></td>
+<td><div class="container-contact100-form-btn">
+<button type="submit" id="trititre" name="submit2" class="contact100-form-btn"> afficher les News en meme temp Event </button>
+</div></td>
+</tr>
+</table>
         </form>   
 		<table   >
         
@@ -97,7 +112,9 @@ if(isset($_POST['submit2']))
 		</table> 
 		<br>
 		<form class="form-inline" method="post" action="../libs/generate_pdfActualite.php">
-<button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>Generate PDF</button> 
+			<table>
+<tr><td><button type="submit" id="pdf" name="generate_pdf" class="contact100-form-btn"></i>Generate PDF</button></td> </tr>
+</table>
         </form>         
             <!-- footer -->
             <?php include_once 'footer.php'; ?>       

@@ -61,9 +61,10 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>Artlogic Admins</title>
     <link href="../css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
@@ -156,7 +157,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
                             </a>
                             <div class="collapse" id="collapseLayouts9" aria-labelledby="headingOne1" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="retour.php">Commande</a>
+                                    <a class="nav-link" href="Bcommande.php">Commande</a>
                                   
                                 </nav>
                             </div>
@@ -221,54 +222,54 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
                             <form action="" method = "POST" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
                                 <h2>Sign Up Admin</h2>
                                 <br>
-                                <div class="mb-20 input_holder">
-                                    <input type="text" name="nom" placeholder="Your Last Name" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
+                                    <input type="text" name="nom" placeholder="Your Last Name" class="input100" />
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder" >
-                                    <input type="text" name="prenom" placeholder="Your First Name" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+                                <div class="wrap-input100 bg1 rs1-wrap-input100" >
+                                    <input type="text" name="prenom" placeholder="Your First Name" class="input100" />
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder" >
-                                    <input type="email" name="email" placeholder="Your Email" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                <div class="wrap-input100 bg1 rs1-wrap-input100" >
+                                    <input type="email" name="email" placeholder="Your Email"class="input100"/>
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder">
-                                    <input type="text" name="pseudo" placeholder="Your Pseudo" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
+                                    <input type="text" name="pseudo" placeholder="Your Pseudo" class="input100"/>
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder">
-                                    <input type="file" name="image" placeholder="Your photo" accept="image/png, image/jpeg" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
+                                    <input type="file" name="image" placeholder="Your photo" accept="image/png, image/jpeg" class="input100"/>
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder">
-                                    <select name="sexe" id="sexe_user" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" >
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
+                                    <select name="sexe" id="sexe_user" class="form-control" >
                                         <option value="">--Please choose your sex--</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder">
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
                                     <input type="date" id="start" name="date_de_naissance"
                                            value="2021-04-15"
-                                           min="1950-01-01" max="2003-04-22" class="input border-gray focus-action-1 color-heading placeholder-heading w-full">
+                                           min="1950-01-01" max="2003-04-22" class="input100">
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder">
-                                    <input type="tel" name="numero_telephone" placeholder="+123 45 678 910" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
+                                    <input type="tel" name="numero_telephone" placeholder="+123 45 678 910" class="input100"/>
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder">
-                                    <input type="text" name="adresse" placeholder="Your Address" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
+                                    <input type="text" name="adresse" placeholder="Your Address" class="input100"/>
                                 </div>
                                 <br>
-                                <div class="mb-20 input_holder">
-                                    <input type="password" name="mot_de_passe" placeholder="Your password" class="input border-gray focus-action-1 color-heading placeholder-heading w-full"/>
+                                <div class="wrap-input100 bg1 rs1-wrap-input100">
+                                    <input type="password" name="mot_de_passe" placeholder="Your password" class="input100"/>
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="submit" value="Ajouter Administrateur" name = "submit" class="btn btn-success"   >
+                                    <input type="submit" value="Ajouter Administrateur" name = "submit" class="contact100-form-btn"  >
                                 </div>
                             </form>
                                 </div>

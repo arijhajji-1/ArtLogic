@@ -44,15 +44,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Artlogic Admins</title>
         
         <!-- My Css Classes-->
-        <link href="../css/styles.css" rel="stylesheet" />
-        <link href="../css/assyl.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
+         <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="../css/assyl.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" /> 
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>  
                 
         <!-- java -->
         <script type="text/javascript" src="../js/actualite.js"></script>
@@ -63,7 +63,12 @@
             <!-- Contient -->
             <div id="layoutSidenav_content">
                 <div id="layoutSidenav_content">
-                    <div class="testbox">
+                    <div class="container-contact100">
+        <div class="wrap-contact100">
+           <span class="contact100-form-title">
+
+                 News Form
+                </span> 
                     <?php 
 			if (isset($_GET['IdActualite'])){
 				$Actualite = $actualiteC->recupererActualite($_GET['IdActualite']);
@@ -71,8 +76,7 @@
 		?>
                         <form action="" method="POST">
                           <br>
-                          <h1>News Form</h1>
-                          <p></p>
+                         
                           <h4>Titre Actualite</h4>
                           <div >
                             <input type="text" name="TitreActualite" id="TitreActualite" placeholder="exemple: Exposer inatendue"value = "<?php echo $Actualite['TitreActualite']; ?>" required/>
@@ -86,8 +90,8 @@
                           <textarea rows="5" id="DescriptionActualite" name="DescriptionActualite" required></textarea>
                           <h4>Select image to upload:</h4>
                           <input type="file" name="ImageActualite" id="ImageActualite">
-                          <div class="btn-block">
-                            <button type="submit" name="submit" value="submit"  onclick="return okEvent();" >Add</button>
+                          <div class="container-contact100-form-btn">
+                            <button type="submit" name="submit" value="submit" class="contact100-form-btn"  onclick="return okEvent();" >Add</button>
                           </div>
                           
                         </form>
@@ -95,6 +99,7 @@
 		}
 		?>
                       </div>
+                    </div>
             <!-- footer -->
             <?php include_once 'footer.php'; ?>   
     </body>

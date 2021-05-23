@@ -265,13 +265,13 @@ while ($array[] = $query->fetch_object());
                 
 
                 <div class="container-contact100-form-btn">
-                    <div class="contact100-form-btn" >
+                  
                         <span>
 
-                           <button type="submit" name="submit" value="submit"  >Submit</button>
-                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                           <button type="submit" name="submit" value="Ajouter" class="contact100-form-btn"  >Ajouter</button>
+                       
                         </span>
-                        </div>
+                     
                                             
                 </div>
                 

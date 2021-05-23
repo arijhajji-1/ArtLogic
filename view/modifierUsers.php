@@ -6,6 +6,7 @@ session_start();
 if(!empty($_SESSION)) {
     $email = $_SESSION['email'];
     $pass = $_SESSION['mot_de_passe'];
+    $id = $_SESSION['id_user'];
 }
 $UserC = new UserC();
 $User = $UserC->getUser($email);
@@ -19,7 +20,7 @@ if(isset($_POST['sign_out']))
     header('Location:index.html');
 }
 foreach ($User as $user) {
-    $id = $user['id_user'];
+
     $img=$user['image'];
 if(!empty($_POST['image']))
 {

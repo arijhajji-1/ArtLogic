@@ -25,9 +25,8 @@ include "../Controller/livreurC.php";
     <?php include_once 'header.php'; ?>
      <!-- Contient -->
     <body>
-	<div class="limiter">
-            
-		   <div class="centrer" >
+	 <div class="container-contact100">
+        <div class="wrap-contact100">
 <?PHP
 
 if (isset($_GET['IDlivreur'])){
@@ -40,13 +39,12 @@ if (isset($_GET['IDlivreur'])){
 		$Zone=$row['Zone'];
     $Numlivreur=$row['Numlivreur'];}}
 ?>
-<div class="col-md-6">
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2> <center> MODIFIER UN LIVREUR </center> </h2>
-       <br>
-    </div>
-    <div class="panel-body">
+  <span class="contact100-form-title">
+
+               Modifier un livreur
+                </span>
+
+
         <form action="mod-liv.php" method="POST">
                   <center>
                     <table>
@@ -75,7 +73,7 @@ if (isset($_GET['IDlivreur'])){
                                <label >Choisir un Zone</label>
                            </td>
                            <td>
-                               <select id="Zone" name="Zone" type="text" >
+                               <select id="Zone" name="Zone" type="text" class="form-control">
                                   <option><?PHP echo $Zone ?></option>
                                       <option>Ariana</option>
                                       <option>Béja</option>
@@ -124,7 +122,8 @@ if (isset($_GET['IDlivreur'])){
                     </table>
                     </center>
                 </form>
-
+</div>
+</div>
 
  <!-- footer -->
  <?php include_once 'footer.php'; ?>       

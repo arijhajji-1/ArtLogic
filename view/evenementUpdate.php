@@ -51,14 +51,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - Update Evenement </title>
+        <title>Artlogic Admins </title>
         <!-- My Css Class-->
-        <link href="../css/styles.css" rel="stylesheet" />
-        <link href="../css/assyl.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
+           <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="../css/assyl.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" /> 
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>  
                 
         <!-- java -->
         <script type="text/javascript" src="../js/events.js"></script>
@@ -71,17 +71,22 @@
                 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
                   </style>
+              
+                    <div id="layoutSidenav_content">
                 <div id="layoutSidenav_content">
-                    <div class="testbox">
-                    <?php 
+                        <div class="container-contact100">
+        <div class="wrap-contact100">
+           <span class="contact100-form-title">
+
+                 Events Form
+                </span>                     <?php 
 			if (isset($_GET['IdEvenement'])){
 				$Evenenement = $evenementC->recupererEvenement($_GET['IdEvenement']);
 				
 		?>
                         <form action="" method="POST">
                           <br>
-                          <h1>Events Form</h1>
-                          <p></p>
+                      
                           <h4>Titre Evenement</h4>
                           <div class="Evenement">
                             <input type="text" name="TitreEvenement" id="TitreEvenement" placeholder="exemple: Exposé Maison de jeune" value = "<?php echo $Evenenement['TitreEvenement']; ?>"required/>
@@ -95,8 +100,9 @@
                             <input type="date" name="DateEvenement" id="DateEvenement" required/>
                             <i class="fas fa-calendar-alt"></i>
                           </div>
+                           
                           <h4>Durée Evenement<span>*</span></h4>
-                          <select name="DureeEvenement" id="DureeEvenement" >
+                          <select name="DureeEvenement" id="DureeEvenement"  class="form-control">
                             <option class="disabled"  value="int" disabled selected >*Please Select*</option>
                             <option value="1">1 journée</option>
                             <option value="2">2 jours</option>
@@ -109,14 +115,16 @@
                             <option value="9">9 jours</option>
                             <option value="10">10 jours</option>
                           </select>
-                            <i class="fas fa-clock"></i>
+                           <i class="fas fa-clock"></i>
+                        
+                           
 
                           <h4>Description Evenement</h4>
                           <textarea rows="5" id="DescriptionEvenement" name="DescriptionEvenement" required></textarea>
                           <h4>Select image to upload:</h4>
                           <input type="file" name="ImageEvenement" id="ImageEvenement" min="<?php echo date('Y-m-d'); ?>">
-                          <div class="btn-block">
-                            <button type="submit" name="modifier" value="modifier" onclick="return okEvent();" >Update</button>
+                          <div class="container-contact100-form-btn">
+                            <button type="submit" name="modifier"  class="contact100-form-btn" value="modifier" onclick="return okEvent();" >Update</button>
                           </div>
                           
                         </form>

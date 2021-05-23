@@ -240,14 +240,7 @@ $wishliste = new wishliste($id_user,$_POST['ID']);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../css/session.css">
+
 			</head>
 	<body>
 <!-- Navigation 1 -->
@@ -266,6 +259,7 @@ if(empty($_SESSION))
                         <a href="actualiteFront.php" class="link color-main mx-15">News</a>
                         <a href="about.php" class="link color-main mx-15">About</a>
                         <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
+
                     </div>
                     <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
                         <a href="login.php" class="mr-20 link color-main">Sign In</a>
@@ -290,6 +284,7 @@ else if(!empty($_SESSION)) {
                         <a href="about.php" class="link color-main mx-15">About</a>
                         <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
                         <a href="cart_items.php" class="link color-main mx-15"><i class="fa fa-shopping-cart"></i></a>
+                        <a href="chat.php" class="dropdown-item"><i class="fas fa-comment-dots"></i> Chat</a></a>
                     </div>
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     <div class="navbar-nav ml-auto">

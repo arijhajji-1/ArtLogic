@@ -202,7 +202,7 @@ if(isset($_GET['search'])){
             </div>
  <div class="container-contact100">
         <div class="">
-      <form class="contact100-form validate-form" action="" method="POST">
+      <form class="contact100-form validate-form" action="" method="get">
                 <span class="contact100-form-title">
 
                Liste des Produits
@@ -218,7 +218,7 @@ if(isset($_GET['search'])){
 
 <td><form method="POST" action="genererPDF.php">
 	  <button class="btn btn-dark">Enregistrer   facture</button>
-	<input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
+	
 	</form>
 	</td>
 <table class="table" >
@@ -237,6 +237,7 @@ if(isset($_GET['search'])){
     <?PHP
     foreach($listeCommande as $row){
         ?>
+        <input type="hidden" value="<?PHP echo $row['id_commande']; ?>" name="id_commande">
         <tr>
             <td><?PHP echo $row['id_commande']; ?></td>
             <td><?PHP echo $row['id_utilisateur']; ?></td>

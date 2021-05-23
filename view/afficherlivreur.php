@@ -1,5 +1,20 @@
 <?php include "../Model/livreur.php";
 include "../Controller/livreurC.php";
+
+        if(isset($_GET['tri']) and $_GET['tri']=='1')
+        {
+
+        $livreur1C=new livreurC();
+        $listelivreurs=$livreur1C->trieListelivreurs();
+        }
+        else
+        { 
+
+            $livreur1C=new livreurC();
+            $listelivreurs=$livreur1C->afficherlivreurs();
+        }
+        
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,71 +39,58 @@ include "../Controller/livreurC.php";
     <?php include_once 'header.php'; ?>
      <!-- Contient -->
     <body>
-	<div class="limiter">
-            
-		   <div class="centrer" >
-   
-        <?PHP
-        if(isset($_GET['tri']) and $_GET['tri']=='1')
-        {
+	<div class="container-contact100">
+                   <div class="wrap-contact100">
+       
+                 <form class="contact100-form validate-form" action="trielivreur.php" method="post">
+              
+                <span class="contact100-form-title">
 
-        $livreur1C=new livreurC();
-        $listelivreurs=$livreur1C->trieListelivreurs();
-        }
-        else
-        { 
+                  Les livreurs disponibles
+                </span>
 
-            $livreur1C=new livreurC();
-            $listelivreurs=$livreur1C->afficherlivreurs();
-        }
-        ?>
-
-		<div class="col-md-6">
-    <div class="panel panel-default">
-		 <div class="panel-heading">
-       <h2> <center> LES LIVREURS DISPONIBLES </center> </h2>
-       <form action="trielivreur.php" method="POST">
-                        <input type="submit" name="" value="TRIER">
                         
-                   
+                 <table>       
+            <tr>   
+            <td> <input type="submit" class="contact100-form-btn" name="" value="TRIER">    </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "Searchliv.php">search</a> </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "statliv.php">stat</a> </td>
              <td>  <a type="submit" class="contact100-form-btn" href = "ajout livreurs.php">Ajouter</a> </td>
        <br>
-    </div>
-<div class="table-responsive">
-    <center>
-    <table class="customers" >
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Nomlivreur</th>
-                <th>matricule</th>
-                <th>Zone</th>
-                <th>numero</th>
-                <th>SUPPRIMER</th>
-                <th>MODIFIER</th>
+    </tr>
+</table>
+ 
 
+
+        <table class="table custom-table">
+          <thead class="thead-dark">
+            <tr>  
+             <th scope="col">id</th>
+                <th scope="col">Nomlivreur</th>
+                <th scope="col">matricule</th>
+                <th scope="col">Zone</th>
+                <th scope="col">numero</th>
+                   <th scope="col">SUPPRIMER</th>
+                <th scope="col">MODIFIER</th>
             </tr>
-        </thead>
-        <?PHP
+          </thead>
+ <?PHP
 foreach($listelivreurs as $row){
-	?>
+    ?>
         <tbody>
            
             <tr>
-                <td align="center"><?PHP echo $row['IDlivreur']; ?></td>
-                <td align="center"><?PHP echo $row['Nomlivreur']; ?></td>
-                <td align="center"><?php echo $row['Matricule'];?></td>
-                <td align="center"><?PHP echo $row['Zone']; ?></td>
-                <td align="center"><?PHP echo $row['Numlivreur']; ?></td>
-                <td align="center">
-                    <form method="POST" action="supprimerlivreur.php">
-	                 <input type="submit" name="supprimer" value="supprimer" class="boutton">
+                <td><?PHP echo $row['IDlivreur']; ?></td>
+                <td ><?PHP echo $row['Nomlivreur']; ?></td>
+                <td><?php echo $row['Matricule'];?></td>
+                <td><?PHP echo $row['Zone']; ?></td>
+                <td><?PHP echo $row['Numlivreur']; ?></td>
+                   <td> <form method="POST" action="supprimerlivreur.php">
+	                 <input type="submit" name="supprimer" value="supprimer" class="contact100-form-btn" >
 	                 <input type="hidden" value="<?PHP echo $row['IDlivreur']; ?>" name="IDlivreur">
 	                </form>
 	            </td>
-	            <td align="center"><a href="modifierlivreur.php?IDlivreur=<?PHP echo $row['IDlivreur']; ?>">
+	            <td align="center"><a href="modifierlivreur.php?IDlivreur=<?PHP echo $row['IDlivreur']; ?>" class="contact100-form-btn" >
 	Modifier</a></td>
             </tr>
            
@@ -98,6 +100,8 @@ foreach($listelivreurs as $row){
     ?>
     </table>
     </center>
+</div>
+</form>
 </div>
 </div>
             <!-- footer -->

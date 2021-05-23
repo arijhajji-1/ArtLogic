@@ -178,21 +178,7 @@ header("Location: retour.php");
                                             <a class="nav-link" href="password.html">Forgot Password</a>
                                         </nav>
                                    
-                            
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Panier
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Statistique
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                DataViewer
-                            </a>
+                           
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -223,27 +209,19 @@ header("Location: retour.php");
 
         <table class="table custom-table">
         <!--  <thead> -->
-            <tr>  
-
-            
-              <th scope="col">Date </th>
-               <th scope="col">Description</th>
-               <th scope="col">type</th>                                       
-               <th scope="col">etat</th>
-             
-            </tr>
+        
            
  
 
 <tr>
                                
                                 
-                                        <td>  <input type="text" name="date_reclamation" value="<?= $result['date_reclamation'] ?>" > </td>
-                                                <td> <input type="text" name="description_reclamation" value="<?= $result['description_reclamation'] ?>"> </td>
-                                 <td>  <input type="text" name="type_reclamation" value="<?= $result['type_reclamation'] ?>" >  </td>
-                            
+                                           <th scope="col">Date </th><td>  <input type="text" name="date_reclamation" value="<?= $result['date_reclamation'] ?>" > </td></tr>
+                                              <tr> <th scope="col">Description</th>    <td> <input type="text" name="description_reclamation" value="<?= $result['description_reclamation'] ?>"> </td></tr>
+                              <tr>  <th scope="col">type</th>   <td>  <input type="text" name="type_reclamation" value="<?= $result['type_reclamation'] ?>" >  </td>
+                            </tr>
                              
-                                <td>  <input type="text" name="etat" value="<?= $result['etat'] ?>"> </td>
+                                <tr>  <th scope="col">etat</th> <td>  <input type="text" name="etat" value="<?= $result['etat'] ?>"> </td></tr>
                                 <tr>
                                  <td><input  type="submit" name="modifier" class="contact100-form-btn" value="modifier"></td>  
                              </tr>
