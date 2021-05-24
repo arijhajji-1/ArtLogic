@@ -203,7 +203,7 @@ $reclamation = $reclamationc->afficherreclamation();
           <thead>
             <tr>  
              
-              <th scope="col">Reference</th>
+              
               <th scope="col">id client</th>
                <th scope="col">type</th>
               <th scope="col">Date </th>
@@ -222,7 +222,7 @@ foreach ($reclamation as $reclamation) {
           <tbody>
             
             <tr>
-                                   <td> <?= $reclamation['id_reclamation'] ?> </td>
+                                  
                                     <td>  <?=  $reclamation['id_client'] ?> </td>
                                  <td>  <?=  $reclamation['type_reclamation'] ?> </td>
                                     <td>  <?=  $reclamation['date_reclamation'] ?> </td>

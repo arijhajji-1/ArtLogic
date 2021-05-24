@@ -231,7 +231,7 @@ if (isset($_GET['reference'])) {
 
               
               
-              <th scope="col">Reference</th>
+             
               <th scope="col">produit</th>
               <th scope="col">Date debut</th>
               <th scope="col">Date fin</th>
@@ -249,7 +249,7 @@ foreach ($promotion as $Promotion) {
             <tr>
                 
                 
-                                   <td> <?= $Promotion['reference'] ?> </td>
+                                   
                                   <td>  <?=  $Promotion['pr'] ?> </td>
                                 <td>  <?=  $Promotion['dateDebut'] ?> </td>
                                  <td>  <?=  $Promotion['dateFin'] ?> </td>

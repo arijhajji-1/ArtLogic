@@ -50,7 +50,7 @@ Ceci est un mail automatique, Merci de ne pas y répondre.';
 
 
 
-            header('Location:index.html');
+            header('Location:index.php');
         }
 
     }
