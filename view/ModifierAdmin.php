@@ -269,9 +269,9 @@ $User = new User($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['pseud
                                         <br>
                                         <div>
 
-                                            <input type="submit" value="Modifier Administrateur" name = "submit" class="btn btn-success"   >
+                                            <input type="submit" value="Modifier Administrateur" name = "submit" class="contact100-form-btn"   >
 
-                                            <input type="submit" value="Ajouter Administrateur" name = "submit" class="btn btn-success"   >
+                                            <input type="submit" value="Ajouter Administrateur" name = "submit" class="contact100-form-btn"  >
                                         </div>
                                     </form>
                                 </div>
