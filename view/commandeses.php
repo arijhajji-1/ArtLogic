@@ -107,7 +107,7 @@ if(isset($_GET['search'])){
         <th>Mode de payement</th>
         <th>Produits</th>
         <th>Description</th>
-         <th>supprimer</th>
+         
  
  
     </tr>
