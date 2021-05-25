@@ -5,6 +5,44 @@ include "../Controller/evenementC.php";
 $evenementC=new evenementC();
 $listeevenement=$evenementC->afficherEvenement();
 session_start();
+
+$dbhandle = new mysqli('localhost','root','','web');
+echo $dbhandle->connect_error;
+
+$connect = mysqli_connect("localhost", "root", "", "web");
+$query = "  
+			SELECT evenement.IdEvenement, evenement.TitreEvenement,  
+			COUNT(event_participe.id) as likes,  
+			GROUP_CONCAT(users.nom_user separator '|') as liked  
+			FROM  
+			evenement  
+			LEFT JOIN event_participe  
+			ON event_participe.article = evenement.IdEvenement 
+			LEFT JOIN users  
+			ON event_participe.user = users.id_user  
+			GROUP BY evenement.IdEvenement
+	   ";   $result = mysqli_query($connect, $query);
+
+if(isset($_GET["type"], $_GET["id"]))
+{
+    $type = $_GET["type"];
+    $id = (int)$_GET["id"];
+    if($type == "article")
+    {
+        $query = "  
+				  INSERT INTO event_participe (user, article)  
+				  SELECT {$_SESSION['id_user']}, {$id} FROM evenement  
+					   WHERE EXISTS(  
+							SELECT IdEvenement FROM evenement WHERE IdEvenement = {$id}) AND  
+							NOT EXISTS(  
+								 SELECT id FROM event_participe WHERE user = {$_SESSION['id_user']} AND article = {$id})  
+								 LIMIT 1  
+				  ";
+        mysqli_query($connect, $query);
+        header("location:index.php");
+    }
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -245,16 +283,34 @@ else if(!empty($_SESSION)) {
 
             <div class="owl-carousel owl-2">
                 <?PHP
+
                 foreach($listeevenement as $Evenenement){
                     $image = $Evenenement['ImageEvenement']; // source iamge
-
+                    $row = mysqli_fetch_array($result);
                     ?>
                     <div class="media-29101">
                         <img src="../i/<?PHP echo $image ?>" alt="Texte Alternatif" width="100" height="100">
                         <h3><b><?PHP echo $Evenenement['TitreEvenement']; ?></b></h3>
-                        <p><?PHP echo $Evenenement['DateEvenement']; ?> |<?PHP echo $Evenenement['DureeEvenement']; ?> jour(s) <br> Description: <br> <?PHP echo $Evenenement['DescriptionEvenement']; ?></p>
+                        <p><?PHP echo $Evenenement['DateEvenement']; ?> |<?PHP echo $Evenenement['DureeEvenement']; ?> jour(s) <br> <strong> Description: </strong> <br> <?PHP echo $Evenenement['DescriptionEvenement']; ?></p>
+                        <?php
+                        echo '<h3>'.$row["TitreEvenement"].'</h3>';
+
+                        echo '<a href="index.php?type=article&id='.$row["IdEvenement"].'">participer</a>';
+
+                        echo '<p>'.$row["likes"].' People participating this</p>';
+                        if(isset($_GET["liked"]))
+                        {
+                            $liked = explode("|", $row["liked"]);
+                            echo '<ul>';
+                            foreach($liked as $like)
+                            {
+                                echo '<li>'.$like.'</li>';
+                            }
+                            echo '</ul>';
+                        }
+                        ?>
                     </div>
-                <?PHP  } ?>
+                <?PHP } ?>
             </div>
 
         </div>

@@ -18,7 +18,7 @@ $str=$str.$x['NomP'].',';
     $prix_globale+=$x['prix_total'];
 }
 $str = rtrim($str, ", ");
-$commande = new commande($_SESSION['id_user'],$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= $_SESSION[id_user]");
+$commande = new commande($_SESSION['id_user'],$str,$prix_globale,$_POST['mode_payement'],"commande pour le client n°= ".$_SESSION['id_user']."");
 (new CommandeC())->ajouterCommande($commande);
 
 
@@ -28,8 +28,5 @@ $livraison = new livraison($_POST['Id_produit'],$_POST['Genre'],$_SESSION['id_us
 
 
 $panier->deleteAllcommandes($_SESSION['id_user']);
-echo '<script>
-alert("Votre commande à ete passé avec success!");
-location.href="afficherproduitfront.php";
-</script>';
+header('location:paypal.php');
 ?>

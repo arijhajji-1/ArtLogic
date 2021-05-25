@@ -26,7 +26,7 @@
                 $_POST['TitreActualite'], 
                 $_POST['DateActualite'],
                 $_POST['DescriptionActualite'],
-                $_POST['ImageActualite'],       
+                $_POST['ImageActualite']
             );
             $actualiteC->ajouterActualite($Actualite);
             mail('assyl.kriaa@esprit.com','Un Ajout au table Actualite','Une nouvelle entite Actualite est ajouter il y a quelques secondes ','From: assyl.kriaa@esprit.tn');
