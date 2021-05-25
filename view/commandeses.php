@@ -107,12 +107,9 @@ if(isset($_GET['search'])){
         <th>Mode de payement</th>
         <th>Produits</th>
         <th>Description</th>
-<<<<<<< HEAD
-        <th>supprimer</th>
-=======
-
->>>>>>> c90285590b31905c59230c872043816f6c99ecbf
-
+         <th>supprimer</th>
+ 
+ 
     </tr>
     </thead>
     <tbody>

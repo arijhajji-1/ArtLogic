@@ -50,12 +50,20 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    </head>
 
 <body>
 
-
+<?php
+if(empty($_SESSION))
+{
+    ?>
     <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
         <div class="container px-xl-0">
             <div class="row justify-content-center align-items-center f-16">
@@ -68,33 +76,108 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
                         <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
                     </div>
                     <div class="mt-20 mt-lg-0 col-lg-3 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center" >
-
+                        <a href="login.php" class="mr-20 link color-main">Sign In</a>
+                        <a href="AjouterUser.php" class="btn sm action-2 f-16">Sign Up</a>
                     </div>
 
                 </div>
             </div>
     </nav>
+    <?php
+}
+else if(!empty($_SESSION)) {
+    ?>
+    <nav class="navigation_1 bg-light pt-30 pb-30 text-center">
+        <div class="container px-xl-0">
+            <div class="row justify-content-center align-items-center f-16">
+                <div class="mt-20 d-flex align-items-center author_info">
+                    <a href="index.php" class="link color-main mx-15"><img  src="../i/logo.png" class="w-300 h-300 radius_full" alt="" /></a>
+                    <div class="col-lg-6" >
+                        <a href="index.php" class="link color-main mx-15">Home</a>
+                        <a href="actualiteFront.php" class="link color-main mx-15">News</a>
+                        <a href="about.php" class="link color-main mx-15">About</a>
+                        <a href="afficherproduitfront.php" class="link color-main mx-15">Shop</a>
+                        <a href="cart_items.php" class="link color-main mx-15"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown" >
+                            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="../i/<?php echo $_SESSION['image']; ?>" class="avatar" alt="Avatar"> <?php echo $_SESSION['pseudo_user']; ?><b class="caret"></b></a>
+                            <div class="dropdown-menu">
+                                <a href="AfficheUser.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+                                <a href="listreclamation.php" class="dropdown-item"><i class="fas fa-poll-h"></i> Reclamation</a></a>
+                                <a href="AfficheWishList.php" class="dropdown-item"><i class="fa fa-heart"></i> Wishlist</a></a>
+                                <a href="chat.php" class="dropdown-item"><i class="fas fa-comment-dots"></i> Chat</a></a>
+                                <?php
+                                if($_SESSION['role']==1) {
+                                    ?>
+                                    <a href="ajouterproduit1.php" class="dropdown-item"><i class="fas fa-plus-circle"></i> Ajouter produit</a></a>
+                                    <?php
+                                }
+                                else if($_SESSION['role']==2) {
+                                    ?>
+                                    <a href="clients.php" class="dropdown-item"><i class="fas fa-user"></i>Admin</a></a>
 
-<div class="container" >
-    <div class="card mt-4 p-4" style="height: auto">
-        <h1 style="color: #17a2b8;text-align: center"> Voici votre panier:</h1>
-        <div class="mt-5">
-            <?php
+                                    <?php
+                                }
+                                ?>
+                                <div class="dropdown-divider"></div>
+                                <a href="logout.php" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <?php
+}
+?>
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
             foreach ($panier as $p ){
 
                 ?>
-                <div class="card mb-2" style="padding: 20px 150px 20px 150px; width: 500px;  box-shadow: 10px 10px 10px 10px grey;">
-                    <h1 style="text-align: center"><?php echo $p['NomP']; ?></h1>
-
-
-                    <span style="text-align: center"> <?php echo $p['prix_total'] ?> DT</span>
-                    <span style="text-align: center"> <?php echo $p[2]; ?> in cart</span>
-                    <div class="inline">
+                    <tr>
+                    
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="../i/<?= $p['image'] ?>" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><?php echo $p['NomP']; ?></h4>
+                                <h5 class="media-heading"> <?php echo $p['Genre']; ?></h5>
+                                <span>disponibilité: </span><span class="text-success"><strong><?php echo $p['Quantite']; ?> en stock</strong></span>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input type="email" class="form-control" id="exampleInputEmail1" value="<?php echo $p[2]; ?>">
+                        <div class="inline">
                         <a href="add_produit.php?Id_produit=<?php echo $p['Id_produit']; ?>"> <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                             </svg>
                         </a>
-
                         <?php if($p[2]!= 1) {
 
                             ?>
@@ -104,26 +187,32 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
                                 </svg></a>
                         <?php } ?>
 
-                        <a href="removefrompanier.php?id_prod=<?php echo $p['Id_produit']; ?>" style="width: 250px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                            </svg>
-                        </a>
+                      
                     </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>
+                        
+                        
+                         <?php if ($p['nouveauPrix'] != 0) 
+                        {
+                            echo $p['nouveauPrix']; }
+                        else {echo $p['Prix'];
+                        }   
+                        ?>
+                        </strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><?php echo $p['prix_total'] ?> DT</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <button type="button" class="btn btn-danger">   
+                        
+            <span onclick="window.location.href='removefrompanier.php?id_prod=<?php echo $p['Id_produit']; ?>'">supprimer</span>
 
-
-                </div>
-                <?php
-            }
-            ?>
-        </div>
-
-    </div>
-    </td>
-    <hr>
-    <form method="post" action="passerCommande.php">
-        <h6 style="text-align: center"> Cliquer sur Passer commande, pour passer votre commande</h6>
+                        </button></td>
+                    </tr>
+                    <?php } ?>
+                  
+                   
+                    <tr>
+                        <td>   <form method="POST" action="passerCommande.php">
         <div class="form-group" style="padding:0px 90px 0px 90px;">
             <label>Mode de payement:</label>
 
@@ -133,17 +222,55 @@ $panier = $panierC->afficherPanier($_SESSION['id_user']);
                 <option>Mandat</option>
                 <option>Cash au Livraison</option>
             </select>
-            <br>
 
             <input type="hidden" value="<?PHP echo $p['Id_produit']; ?>" name="Id_produit">
             <input type="hidden" value="<?PHP echo $p['Genre']; ?>" name="Genre">
     </form>
-    <button type="submit" class="btn btn-dark">Passer Commande</button>
-
-    <div>
+    <button type="submit" class="btn btn-success">Passer Commande</button>
+ </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong><?php echo $p['prix_total'] ?> DT</strong></h3></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        
+                        <button type="button" class="btn btn-default">
+                        <span onclick="window.location.href='afficherproduitfront.php'">Continuer vos achats</span>
+                        </button>
+                        <div>
         <td><form method="POST" action="commandeses.php">
-                <button class="btn btn-dark">afficher vos commandes</button>
+                <button class="btn btn-default">afficher vos commandes</button>
     </div>
+</td>
+                        <td>
+                       
+ </td>
+                    </tr>
+                   
+                    
+                     </tbody>
+                     
+            </table>
+            
+           
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
