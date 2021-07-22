@@ -105,6 +105,8 @@ if(isset($_GET["type"], $_GET["id"]))
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/session.css">
+    <link href="../css/style.css" rel="stylesheet" />
+
 </head>
 <body>
 <!-- Navigation 1 -->
@@ -384,7 +386,6 @@ else if(!empty($_SESSION)) {
     </div>
 </footer>
 <!-- forms alerts -->
-
 <!-- Bootstrap 4.3.1 JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->
